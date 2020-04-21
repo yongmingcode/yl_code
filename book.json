@@ -73,8 +73,8 @@
         "appleTouchIconPrecomposed152": "/images/apple-touch-icon-precomposed-152.png",
         "output": "_book",
         "donate": {
-          "wechat": "/wechat.png",
-          "alipay": "/alipay.png",
+          "wechat": "/yl_java/wechat.png",
+          "alipay": "/yl_java/alipay.png",
           "button": "赏",
           "alipayText": "支付宝",
           "wechatText": "微信"
