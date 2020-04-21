@@ -81,6 +81,6 @@
         }
     },
     "styles": {
-      "website": "/yl_java/website.css"
+      "website": "styles/website.css"
     }
 }
