@@ -79,5 +79,8 @@
           "alipayText": "支付宝",
           "wechatText": "微信"
         }
+    },
+    "styles": {
+      "website": "website.css"
     }
 }
