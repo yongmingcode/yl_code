@@ -69,12 +69,10 @@
         "chart": {
           "type": "c3"
         },
-        "favicon": "/images/favicon.ico",
-        "appleTouchIconPrecomposed152": "/images/apple-touch-icon-precomposed-152.png",
         "output": "_book",
         "donate": {
-          "wechat": "/wechat.png",
-          "alipay": "/alipay.png",
+          "wechat": "yl_code/wechat.png",
+          "alipay": "yl_code/alipay.png",
           "button": "赏",
           "alipayText": "支付宝",
           "wechatText": "微信"
