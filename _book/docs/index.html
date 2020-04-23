@@ -1,0 +1,397 @@
+
+<!DOCTYPE HTML>
+<html lang="zh-hans" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>介绍 · Java 源码分析</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="yongming">
+        
+        
+    
+    
+    <link rel="stylesheet" href="gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-pageview-count/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-mermaid-gb3/mermaid/mermaid.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-search-plus/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-splitter/splitter.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-anchor-navigation-ex/style/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-donate/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+        <link rel="stylesheet" href="styles/website.css">
+        
+    
+
+
+    
+
+        
+    
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="java/java.html" />
+    
+    
+
+    
+    <link rel="stylesheet" href="gitbook/gitbook-plugin-chart/c3/c3.min.css">
+    <script src="gitbook/gitbook-plugin-chart/c3/d3.min.js"></script>
+    <script src="gitbook/gitbook-plugin-chart/c3/c3.min.js"></script>
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="输入并搜索" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+    
+        
+        <li>
+            <a href="http://www.mayongming.cn" target="_blank" class="custom-link">我的主页</a>
+        </li>
+    
+    
+
+    
+    <li class="divider"></li>
+    
+
+    
+        
+        
+    
+        <li class="chapter active" data-level="1.1" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    介绍
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="java/java.html">
+            
+                <a href="java/java.html">
+            
+                    
+                    Java相关
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="java/knacks/knacks.html">
+            
+                <a href="java/knacks/knacks.html">
+            
+                    
+                    技巧
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1.1" data-path="java/knacks/if_else_decoupling.html">
+            
+                <a href="java/knacks/if_else_decoupling.html">
+            
+                    
+                    if...else...解耦
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="spring/spring.html">
+            
+                <a href="spring/spring.html">
+            
+                    
+                    Spring相关
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="spring/bean/bean.html">
+            
+                <a href="spring/bean/bean.html">
+            
+                    
+                    初始化bean
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1.1" data-path="spring/bean/bean_initialization_method.html">
+            
+                <a href="spring/bean/bean_initialization_method.html">
+            
+                    
+                    bean的初始换方法
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            本书使用 GitBook 发布
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="." >介绍</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div class="search-plus" id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><li><span class="title-icon "></span><a href="#&#x7B80;&#x4ECB;"><b>1. </b>&#x7B80;&#x4ECB;</a></li><li><span class="title-icon "></span><a href="#&#x672C;&#x7AD9;&#x671F;&#x671B;"><b>2. </b>&#x672C;&#x7AD9;&#x671F;&#x671B;</a></li></ul></div><a href="#&#x7B80;&#x4ECB;" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h1 id="&#x7B80;&#x4ECB;"><a name="&#x7B80;&#x4ECB;" class="anchor-navigation-ex-anchor" href="#&#x7B80;&#x4ECB;"><i class="fa fa-link" aria-hidden="true"></i></a>1. &#x7B80;&#x4ECB;</h1>
+<p>&#x8FD9;&#x662F;&#x4E00;&#x4E2A;&#x7B14;&#x8005;&#x4E2A;&#x4EBA;&#x6280;&#x672F;&#x5206;&#x4EAB;&#x7684;&#x7F51;&#x7AD9;&#x3002;&#x4E13;&#x6CE8;&#x8BB0;&#x5F55;&#x4E00;&#x4E9B;&#x5E73;&#x65F6;&#x5DE5;&#x4F5C;&#x5B66;&#x4E60;&#x4E2D;&#x77E5;&#x8BC6;&#x70B9;&#x7684;&#x603B;&#x7ED3;&#x3002;</p>
+<p>&#x4EE5;&#x524D;&#x81EA;&#x5DF1;&#x7684;&#x77E5;&#x8BC6;&#x70B9;&#x90FD;&#x5206;&#x95E8;&#x522B;&#x7C7B;&#x7684;&#x8BB0;&#x5F55;&#x5728;<a href="https://www.yinxiang.com/" title="&#x5370;&#x8C61;&#x7B14;&#x8BB0;" target="_blank">&#x5370;&#x8C61;&#x7B14;&#x8BB0;</a>&#x548C;&#x81EA;&#x5DF1;&#x7684;&#x4E2A;&#x4EBA;&#x4E3B;&#x9875;&#xFF0C;&#x4F46;&#x6700;&#x8FD1;&#x670D;&#x52A1;&#x5668;&#x548C;&#x57DF;&#x540D;&#x90FD;&#x4ECE;&#x767E;&#x5EA6;&#x4E91;&#x8FC1;&#x79FB;&#x4E86;&#xFF0C;&#x800C;&#x5370;&#x8C61;&#x7B14;&#x8BB0;&#x66F4;&#x591A;&#x7684;&#x662F;&#x81EA;&#x5DF1;&#x4F7F;&#x7528;&#xFF0C;&#x5206;&#x4EAB;&#x4E0D;&#x4FBF;...balabala...&#x6240;&#x4EE5;&#x62BD;&#x7A7A;&#x6574;&#x4E86;&#x4E2A;&#x6280;&#x672F;&#x5206;&#x4EAB;&#x7684;&#x7AD9;&#x70B9;&#x3002;</p>
+<h1 id="&#x672C;&#x7AD9;&#x671F;&#x671B;"><a name="&#x672C;&#x7AD9;&#x671F;&#x671B;" class="anchor-navigation-ex-anchor" href="#&#x672C;&#x7AD9;&#x671F;&#x671B;"><i class="fa fa-link" aria-hidden="true"></i></a>2. &#x672C;&#x7AD9;&#x671F;&#x671B;</h1>
+<ol>
+<li>&#x5FD7;&#x5411;&#x7ACB;&#x9AD8;&#x8FDC;&#xFF0C;&#x5B66;&#x95EE;&#x505A;&#x7CBE;&#x7EC6;&#xFF1B;</li>
+<li>&#x597D;&#x8BB0;&#x6027;&#x4E0D;&#x5982;&#x70C2;&#x7B14;&#x5934;&#xFF0C;&#x7AD9;&#x70B9;&#x4E2D;&#x6BCF;&#x4E2A;&#x77E5;&#x8BC6;&#x70B9;&#x6211;&#x90FD;&#x4F1A;&#x4EB2;&#x624B;&#x64CD;&#x4F5C;&#xFF0C;&#x5E0C;&#x671B;&#x4F60;&#x4E5F;&#x4E00;&#x6837;&#x54E6;&#xFF1B;</li>
+<li>&#x4E0D;&#x79EF;&#x8DEC;&#x6B65;&#x65E0;&#x4EE5;&#x81F3;&#x5343;&#x91CC;&#xFF0C;&#x8BB0;&#x5F55;&#x7684;&#x77E5;&#x8BC6;&#x70B9;&#x4E0D;&#x5206;&#x4E3B;&#x6B21;&#xFF0C;&#x868A;&#x5B50;&#x518D;&#x5C0F;&#x4E5F;&#x662F;&#x8089;&#xFF0C;&#x90FD;&#x9700;&#x8981;&#x8BA4;&#x771F;&#x5480;&#x56BC;&#x3002;</li>
+</ol>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                
+                <a href="java/java.html" class="navigation navigation-next navigation-unique" aria-label="Next page: Java相关">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"介绍","level":"1.1","depth":1,"next":{"title":"Java相关","level":"1.2","depth":1,"path":"java/java.md","ref":"java/java.md","articles":[{"title":"技巧","level":"1.2.1","depth":2,"path":"java/knacks/knacks.md","ref":"java/knacks/knacks.md","articles":[{"title":"if...else...解耦","level":"1.2.1.1","depth":3,"path":"java/knacks/if_else_decoupling.md","ref":"java/knacks/if_else_decoupling.md","articles":[]}]}]},"dir":"ltr"},"config":{"plugins":["github","pageview-count","mermaid-gb3","-lunr","-search","search-plus","splitter","-sharing","sharing-plus","expandable-chapters-small","anchor-navigation-ex","edit-link","copy-code-button","chart","favicon-plus","donate"],"root":".","styles":{"website":"styles/website.css"},"pluginsConfig":{"output":"_book","github":{"url":"https://github.com/yongmingcode/yl_java"},"splitter":{},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"donate":{"alipay":"https://yongmingcode.github.io/yl_code/alipay.png","alipayText":"支付宝","button":"赏","title":"","wechat":"https://yongmingcode.github.io/yl_code/wechat.png","wechatText":"微信"},"fontsettings":{"theme":"white","family":"sans","size":2},"favicon-plus":{"appleTouchIconPrecomposed152":"","favicon":"","output":"_book"},"highlight":{},"mermaid-gb3":{},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":true},"pageview-count":{},"expandable-chapters-small":{},"copy-code-button":{},"sharing":{"qq":true,"all":["facebook","google","twitter","weibo","instapaper","linkedin","pocket","stumbleupon"],"douban":true,"facebook":false,"weibo":true,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":false,"messenger":false,"line":false,"vk":false,"pocket":false,"google":false,"viber":false,"stumbleupon":false,"qzone":true,"linkedin":false},"edit-link":{"label":"编辑本页","base":"https://github.com/yongmingcode/yl_java/blob/master"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"chart":{"type":"c3"},"search-plus":{}},"theme":"default","author":"yongming","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Java 源码分析","language":"zh-hans","output.name":"site","links":{"sidebar":{"我的主页":"http://www.mayongming.cn"}},"gitbook":"3.2.3","description":"java知识点分析记录","direction":"ltr"},"file":{"path":"README.md","mtime":"2020-04-23T03:32:10.031Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-04-23T06:28:21.867Z"},"basePath":".","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    
+    <script src="gitbook/gitbook.js"></script>
+    <script src="gitbook/theme.js"></script>
+    
+        
+        <script src="gitbook/gitbook-plugin-github/plugin.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-pageview-count/plugin.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-mermaid-gb3/book/plugin.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-search-plus/jquery.mark.min.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-search-plus/search.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-splitter/splitter.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-sharing-plus/buttons.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-edit-link/plugin.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-copy-code-button/toggle.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-donate/plugin.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    <script src="gitbook/gitbook-plugin-mermaid-gb3/mermaid/mermaid.min.js"></script>
+
+    </body>
+</html>
+
