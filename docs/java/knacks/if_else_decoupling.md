@@ -4,7 +4,7 @@
 
 本文通过静态工厂+策略模式对if...else...实现解耦。
 
-以[初始化bean](/spring/bean/bean.md "初始化bean")中发奖为例，首先定义一个接口：
+1.以[初始化bean](/spring/bean/bean.md "初始化bean")中发奖为例，首先定义一个接口：
 ```java
 /**
  * @description: 发放奖励
@@ -16,7 +16,7 @@ public interface IHandOutPrize {
 
 ```
 
-定义发放现金奖励类：
+2.定义发放现金奖励类：
 ```java
 /**
  * @description: 发放现金奖励
@@ -36,7 +36,7 @@ public class HandOutCash implements IHandOutPrize, InitializingBean {
 
 ```
 
-定义发放积分奖励类：
+3.定义发放积分奖励类：
 ```java
 /**
  * @description: 发放积分奖励
@@ -56,7 +56,7 @@ public class HandOutPoint implements IHandOutPrize, InitializingBean {
 
 ```
 
-定义发放奖品的静态工厂类：
+4.定义发放奖品的静态工厂类：
 ```java
 /**
  * @description: 发放奖品的静态工厂
@@ -91,7 +91,7 @@ public class HandOutPrizeFactory {
 
 ```
 
-最后，写一个发放现金奖励类：
+5.最后，写一个发放现金奖励类：
 ```java
 
 /**
