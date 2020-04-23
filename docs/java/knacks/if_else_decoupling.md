@@ -124,7 +124,12 @@ public class IfElseDecoupling {
 
 缺点：会增加很多类。
 
+---
 
+参考资料：
 
+1. [代码重构：用工厂+策略模式优化过多的if else代码块](https://www.cnblogs.com/pfblog/p/7815238.html "代码重构：用工厂+策略模式优化过多的if else代码块")
 
+2. [我的Java设计模式-策略模式](https://juejin.im/post/59facc30518825297a0e164c "我的Java设计模式-策略模式")
 
+3. [Spring核心接口之InitializingBean](https://segmentfault.com/a/1190000012461362 "Spring核心接口之InitializingBean")
