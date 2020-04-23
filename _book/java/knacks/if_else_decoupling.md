@@ -111,15 +111,18 @@ public class IfElseDecoupling {
 }
 
 ```
-上面代码的总结：
+上面代码的解释：
 
 1. 定义了一个发放奖励的IHandOutPrize接口，该接口只有一个发放奖励的方法；
 2. HandOutCash、HandOutPoint是IHandOutPrize接口的两个实现类，同时实现了InitializingBean接口（该接口关介绍请移驾[bean的初始化方法](/spring/bean/bean_initialization_method.md)），并在afterPropertiesSet()方法中对当前类进行了注册；
 3. 通过静态工厂HandOutPrizeFactory类进行奖励的注册和获取；
 4. 在IfElseDecoupling类中进行发放奖励，如发放现金奖励只需要两行代码就够了。
 
+总结：
 
+优点：以上对if...else...形式代码进行了解耦重构，重构后的逻辑清晰、明了，如果新增一种奖品，只需要定义一个新的类即可，这样大大提高了代码的可读性和可维护性。
 
+缺点：会增加很多类。
 
 
 
