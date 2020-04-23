@@ -128,10 +128,10 @@ Bean在实例化的过程中：Constructor > @PostConstruct >InitializingBean > 
 
 Bean在销毁的过程中：@PreDestroy > DisposableBean > destroy-method
 
-
-
 ---
 
 参考资料：
 
-[Spring容器中的Bean几种初始化方法和销毁方法的先后顺序](https://blog.csdn.net/caihaijiang/article/details/8629725 "Spring容器中的Bean几种初始化方法和销毁方法的先后顺序")
+1. [Spring容器中的Bean几种初始化方法和销毁方法的先后顺序](https://blog.csdn.net/caihaijiang/article/details/8629725 "Spring容器中的Bean几种初始化方法和销毁方法的先后顺序")
+
+2. [spring的Bean初始化方法的2种方式](https://blog.csdn.net/john1337/article/details/83614599 "spring的Bean初始化方法的2种方式")

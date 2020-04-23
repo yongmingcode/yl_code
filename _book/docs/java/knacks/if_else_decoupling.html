@@ -152,7 +152,58 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.2.1" data-path="knacks.html">
+        <li class="chapter " data-level="1.2.1" data-path="../util/util.html">
+            
+                <a href="../util/util.html">
+            
+                    
+                    util
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1.1" data-path="../util/collections.html">
+            
+                <a href="../util/collections.html">
+            
+                    
+                    collections
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1.1.1" data-path="../util/shuffle.html">
+            
+                <a href="../util/shuffle.html">
+            
+                    
+                    shuffle方法解读
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="knacks.html">
             
                 <a href="knacks.html">
             
@@ -166,7 +217,7 @@
             <ul class="articles">
                 
     
-        <li class="chapter active" data-level="1.2.1.1" data-path="if_else_decoupling.html">
+        <li class="chapter active" data-level="1.2.2.1" data-path="if_else_decoupling.html">
             
                 <a href="if_else_decoupling.html">
             
@@ -250,22 +301,8 @@
             本书使用 GitBook 发布
         </a>
     </li>
-
-    
-    <li>
-        
-        
-        
-            
-        
-        
-            <a href="http://www.beian.miit.gov.cn/" target="blank" class="gitbook-link">
-                浙ICP备18042346号
-            </a>
-        
-    </li>
-    
 </ul>
+
 
                 </nav>
             
@@ -302,7 +339,7 @@
                                 <div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><li><span class="title-icon "></span><a href="#ifelse&#x89E3;&#x8026;"><b>1. </b>if...else...&#x89E3;&#x8026;</a></li></ul></div><a href="#ifelse&#x89E3;&#x8026;" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h1 id="ifelse&#x89E3;&#x8026;"><a name="ifelse&#x89E3;&#x8026;" class="anchor-navigation-ex-anchor" href="#ifelse&#x89E3;&#x8026;"><i class="fa fa-link" aria-hidden="true"></i></a>1. if...else...&#x89E3;&#x8026;</h1>
 <p>&#x5728;spring&#x7684;<a href="../../spring/bean/bean.html" title="&#x521D;&#x59CB;&#x5316;bean">&#x521D;&#x59CB;&#x5316;bean</a>&#x4E2D;&#x8BB2;&#x5230;&#xFF0C;&#x8FC7;&#x6DF1;&#x7684;if...else...&#x6761;&#x4EF6;&#x5224;&#x65AD;&#x4F7F;&#x5F97;&#x4EE3;&#x7801;&#x53D8;&#x5F97;&#x53EF;&#x8BFB;&#x6027;&#x5DEE;&#x3001;&#x4E0D;&#x6613;&#x7EF4;&#x62A4;&#x3002;</p>
 <p>&#x672C;&#x6587;&#x901A;&#x8FC7;&#x9759;&#x6001;&#x5DE5;&#x5382;+&#x7B56;&#x7565;&#x6A21;&#x5F0F;&#x5BF9;if...else...&#x5B9E;&#x73B0;&#x89E3;&#x8026;&#x3002;</p>
-<p>&#x4EE5;<a href="../../spring/bean/bean.html" title="&#x521D;&#x59CB;&#x5316;bean">&#x521D;&#x59CB;&#x5316;bean</a>&#x4E2D;&#x53D1;&#x5956;&#x4E3A;&#x4F8B;&#xFF0C;&#x9996;&#x5148;&#x5B9A;&#x4E49;&#x4E00;&#x4E2A;&#x63A5;&#x53E3;&#xFF1A;</p>
+<p>1.&#x4EE5;<a href="../../spring/bean/bean.html" title="&#x521D;&#x59CB;&#x5316;bean">&#x521D;&#x59CB;&#x5316;bean</a>&#x4E2D;&#x53D1;&#x5956;&#x4E3A;&#x4F8B;&#xFF0C;&#x9996;&#x5148;&#x5B9A;&#x4E49;&#x4E00;&#x4E2A;&#x63A5;&#x53E3;&#xFF1A;</p>
 <pre><code class="lang-java"><span class="hljs-comment">/**
  * <span class="hljs-doctag">@description</span>: &#x53D1;&#x653E;&#x5956;&#x52B1;
  * <span class="hljs-doctag">@author</span>: yongmingcode
@@ -311,7 +348,7 @@
     <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">doHandOut</span><span class="hljs-params">()</span></span>;
 }
 </code></pre>
-<p>&#x5B9A;&#x4E49;&#x53D1;&#x653E;&#x73B0;&#x91D1;&#x5956;&#x52B1;&#x7C7B;&#xFF1A;</p>
+<p>2.&#x5B9A;&#x4E49;&#x53D1;&#x653E;&#x73B0;&#x91D1;&#x5956;&#x52B1;&#x7C7B;&#xFF1A;</p>
 <pre><code class="lang-java"><span class="hljs-comment">/**
  * <span class="hljs-doctag">@description</span>: &#x53D1;&#x653E;&#x73B0;&#x91D1;&#x5956;&#x52B1;
  * <span class="hljs-doctag">@author</span>: yongmingcode
@@ -328,7 +365,7 @@
     }
 }
 </code></pre>
-<p>&#x5B9A;&#x4E49;&#x53D1;&#x653E;&#x79EF;&#x5206;&#x5956;&#x52B1;&#x7C7B;&#xFF1A;</p>
+<p>3.&#x5B9A;&#x4E49;&#x53D1;&#x653E;&#x79EF;&#x5206;&#x5956;&#x52B1;&#x7C7B;&#xFF1A;</p>
 <pre><code class="lang-java"><span class="hljs-comment">/**
  * <span class="hljs-doctag">@description</span>: &#x53D1;&#x653E;&#x79EF;&#x5206;&#x5956;&#x52B1;
  * <span class="hljs-doctag">@author</span>: yongmingcode
@@ -345,7 +382,7 @@
     }
 }
 </code></pre>
-<p>&#x5B9A;&#x4E49;&#x53D1;&#x653E;&#x5956;&#x54C1;&#x7684;&#x9759;&#x6001;&#x5DE5;&#x5382;&#x7C7B;&#xFF1A;</p>
+<p>4.&#x5B9A;&#x4E49;&#x53D1;&#x653E;&#x5956;&#x54C1;&#x7684;&#x9759;&#x6001;&#x5DE5;&#x5382;&#x7C7B;&#xFF1A;</p>
 <pre><code class="lang-java"><span class="hljs-comment">/**
  * <span class="hljs-doctag">@description</span>: &#x53D1;&#x653E;&#x5956;&#x54C1;&#x7684;&#x9759;&#x6001;&#x5DE5;&#x5382;
  * <span class="hljs-doctag">@author</span>: yongmingcode
@@ -377,7 +414,7 @@
     }
 }
 </code></pre>
-<p>&#x6700;&#x540E;&#xFF0C;&#x5199;&#x4E00;&#x4E2A;&#x53D1;&#x653E;&#x73B0;&#x91D1;&#x5956;&#x52B1;&#x7C7B;&#xFF1A;</p>
+<p>5.&#x6700;&#x540E;&#xFF0C;&#x5199;&#x4E00;&#x4E2A;&#x53D1;&#x653E;&#x73B0;&#x91D1;&#x5956;&#x52B1;&#x7C7B;&#xFF1A;</p>
 <pre><code class="lang-java">
 <span class="hljs-comment">/**
  * <span class="hljs-doctag">@description</span>: if...else...&#x89E3;&#x8026;
@@ -405,6 +442,16 @@
 <p>&#x603B;&#x7ED3;&#xFF1A;</p>
 <p>&#x4F18;&#x70B9;&#xFF1A;&#x4EE5;&#x4E0A;&#x5BF9;if...else...&#x5F62;&#x5F0F;&#x4EE3;&#x7801;&#x8FDB;&#x884C;&#x4E86;&#x89E3;&#x8026;&#x91CD;&#x6784;&#xFF0C;&#x91CD;&#x6784;&#x540E;&#x7684;&#x903B;&#x8F91;&#x6E05;&#x6670;&#x3001;&#x660E;&#x4E86;&#xFF0C;&#x5982;&#x679C;&#x65B0;&#x589E;&#x4E00;&#x79CD;&#x5956;&#x54C1;&#xFF0C;&#x53EA;&#x9700;&#x8981;&#x5B9A;&#x4E49;&#x4E00;&#x4E2A;&#x65B0;&#x7684;&#x7C7B;&#x5373;&#x53EF;&#xFF0C;&#x8FD9;&#x6837;&#x5927;&#x5927;&#x63D0;&#x9AD8;&#x4E86;&#x4EE3;&#x7801;&#x7684;&#x53EF;&#x8BFB;&#x6027;&#x548C;&#x53EF;&#x7EF4;&#x62A4;&#x6027;&#x3002;</p>
 <p>&#x7F3A;&#x70B9;&#xFF1A;&#x4F1A;&#x589E;&#x52A0;&#x5F88;&#x591A;&#x7C7B;&#x3002;</p>
+<hr>
+<p>&#x53C2;&#x8003;&#x8D44;&#x6599;&#xFF1A;</p>
+<ol>
+<li><p><a href="https://www.cnblogs.com/pfblog/p/7815238.html" title="&#x4EE3;&#x7801;&#x91CD;&#x6784;&#xFF1A;&#x7528;&#x5DE5;&#x5382;+&#x7B56;&#x7565;&#x6A21;&#x5F0F;&#x4F18;&#x5316;&#x8FC7;&#x591A;&#x7684;if else&#x4EE3;&#x7801;&#x5757;" target="_blank">&#x4EE3;&#x7801;&#x91CD;&#x6784;&#xFF1A;&#x7528;&#x5DE5;&#x5382;+&#x7B56;&#x7565;&#x6A21;&#x5F0F;&#x4F18;&#x5316;&#x8FC7;&#x591A;&#x7684;if else&#x4EE3;&#x7801;&#x5757;</a></p>
+</li>
+<li><p><a href="https://juejin.im/post/59facc30518825297a0e164c" title="&#x6211;&#x7684;Java&#x8BBE;&#x8BA1;&#x6A21;&#x5F0F;-&#x7B56;&#x7565;&#x6A21;&#x5F0F;" target="_blank">&#x6211;&#x7684;Java&#x8BBE;&#x8BA1;&#x6A21;&#x5F0F;-&#x7B56;&#x7565;&#x6A21;&#x5F0F;</a></p>
+</li>
+<li><p><a href="https://segmentfault.com/a/1190000012461362" title="Spring&#x6838;&#x5FC3;&#x63A5;&#x53E3;&#x4E4B;InitializingBean" target="_blank">Spring&#x6838;&#x5FC3;&#x63A5;&#x53E3;&#x4E4B;InitializingBean</a></p>
+</li>
+</ol>
 
                                 
                                 </section>
@@ -448,7 +495,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"if...else...解耦","level":"1.2.1.1","depth":3,"next":{"title":"Spring相关","level":"1.3","depth":1,"path":"spring/spring.md","ref":"spring/spring.md","articles":[{"title":"初始化bean","level":"1.3.1","depth":2,"path":"spring/bean/bean.md","ref":"spring/bean/bean.md","articles":[{"title":"bean的初始换方法","level":"1.3.1.1","depth":3,"path":"spring/bean/bean_initialization_method.md","ref":"spring/bean/bean_initialization_method.md","articles":[]}]}]},"previous":{"title":"技巧","level":"1.2.1","depth":2,"path":"java/knacks/knacks.md","ref":"java/knacks/knacks.md","articles":[{"title":"if...else...解耦","level":"1.2.1.1","depth":3,"path":"java/knacks/if_else_decoupling.md","ref":"java/knacks/if_else_decoupling.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["github","pageview-count","mermaid-gb3","-lunr","-search","search-plus","splitter","-sharing","sharing-plus","expandable-chapters-small","anchor-navigation-ex","edit-link","copy-code-button","chart","favicon-plus","donate","icp"],"root":".","styles":{"website":"styles/website.css"},"pluginsConfig":{"output":"_book","github":{"url":"https://github.com/yongmingcode/yl_java"},"splitter":{},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"donate":{"alipay":"https://yongmingcode.github.io/yl_code/alipay.png","alipayText":"支付宝","button":"赏","title":"","wechat":"https://yongmingcode.github.io/yl_code/wechat.png","wechatText":"微信"},"fontsettings":{"theme":"white","family":"sans","size":2},"favicon-plus":{"appleTouchIconPrecomposed152":"","favicon":"","output":"_book"},"highlight":{},"mermaid-gb3":{},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":true},"icp":{"link":"http://www.beian.miit.gov.cn/","style":{},"number":"浙ICP备18042346号"},"pageview-count":{},"expandable-chapters-small":{},"copy-code-button":{},"sharing":{"qq":true,"all":["facebook","google","twitter","weibo","instapaper","linkedin","pocket","stumbleupon"],"douban":true,"facebook":false,"weibo":true,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":false,"messenger":false,"line":false,"vk":false,"pocket":false,"google":false,"viber":false,"stumbleupon":false,"qzone":true,"linkedin":false},"edit-link":{"label":"编辑本页","base":"https://github.com/yongmingcode/yl_java/blob/master"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"chart":{"type":"c3"},"search-plus":{}},"theme":"default","author":"yongming","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Java 源码分析","language":"zh-hans","output.name":"site","links":{"sidebar":{"满月弓主页":"https://yongmingcode.github.io/yl_code/"}},"gitbook":"3.2.3","description":"java知识点分析记录","direction":"ltr"},"file":{"path":"java/knacks/if_else_decoupling.md","mtime":"2020-04-23T08:05:44.027Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-04-23T08:35:36.221Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"if...else...解耦","level":"1.2.2.1","depth":3,"next":{"title":"Spring相关","level":"1.3","depth":1,"path":"spring/spring.md","ref":"spring/spring.md","articles":[{"title":"初始化bean","level":"1.3.1","depth":2,"path":"spring/bean/bean.md","ref":"spring/bean/bean.md","articles":[{"title":"bean的初始换方法","level":"1.3.1.1","depth":3,"path":"spring/bean/bean_initialization_method.md","ref":"spring/bean/bean_initialization_method.md","articles":[]}]}]},"previous":{"title":"技巧","level":"1.2.2","depth":2,"path":"java/knacks/knacks.md","ref":"java/knacks/knacks.md","articles":[{"title":"if...else...解耦","level":"1.2.2.1","depth":3,"path":"java/knacks/if_else_decoupling.md","ref":"java/knacks/if_else_decoupling.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["github","pageview-count","mermaid-gb3","-lunr","-search","search-plus","splitter","-sharing","sharing-plus","expandable-chapters-small","anchor-navigation-ex","edit-link","copy-code-button","chart","favicon-plus","donate"],"root":".","styles":{"website":"styles/website.css"},"pluginsConfig":{"output":"_book","github":{"url":"https://github.com/yongmingcode/yl_java"},"splitter":{},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"donate":{"alipay":"https://yongmingcode.github.io/yl_code/alipay.png","alipayText":"支付宝","button":"赏","title":"","wechat":"https://yongmingcode.github.io/yl_code/wechat.png","wechatText":"微信"},"fontsettings":{"theme":"white","family":"sans","size":2},"favicon-plus":{"appleTouchIconPrecomposed152":"","favicon":"","output":"_book"},"highlight":{},"mermaid-gb3":{},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":true},"pageview-count":{},"expandable-chapters-small":{},"copy-code-button":{},"sharing":{"qq":true,"all":["facebook","google","twitter","weibo","instapaper","linkedin","pocket","stumbleupon"],"douban":true,"facebook":false,"weibo":true,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":false,"messenger":false,"line":false,"vk":false,"pocket":false,"google":false,"viber":false,"stumbleupon":false,"qzone":true,"linkedin":false},"edit-link":{"label":"编辑本页","base":"https://github.com/yongmingcode/yl_java/blob/master"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"chart":{"type":"c3"},"search-plus":{}},"theme":"default","author":"yongming","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Java 源码分析","language":"zh-hans","output.name":"site","links":{"sidebar":{"满月弓主页":"https://yongmingcode.github.io/yl_code/"}},"gitbook":"3.2.3","description":"java知识点分析记录","direction":"ltr"},"file":{"path":"java/knacks/if_else_decoupling.md","mtime":"2020-04-23T14:08:56.812Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-04-23T14:37:17.408Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
