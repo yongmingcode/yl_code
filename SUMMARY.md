@@ -2,6 +2,8 @@
 
 * [介绍](README.md)
 * [Java](java/java.md)
+    * [系列](java/series.md)
+        * [集合](java/series/collection.md)
     * [util](java/util/util.md)
         * [collections](java/util/collections.md)
             * [shuffle方法解读](java/util/shuffle.md)
