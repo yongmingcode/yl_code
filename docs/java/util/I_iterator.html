@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>util · Java 源码分析</title>
+        <title>I_Iterator · Java 源码分析</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -83,10 +83,10 @@
     <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="C_collections/C_collections.html" />
+    <link rel="next" href="../lang/lang.html" />
     
     
-    <link rel="prev" href="../series/collection.html" />
+    <link rel="prev" href="C_collections/M_shuffle.html" />
     
 
     <style>
@@ -200,7 +200,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.2.2" data-path="util.html">
+        <li class="chapter " data-level="1.2.2" data-path="util.html">
             
                 <a href="util.html">
             
@@ -246,7 +246,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.2.2" data-path="I_iterator.html">
+        <li class="chapter active" data-level="1.2.2.2" data-path="I_iterator.html">
             
                 <a href="I_iterator.html">
             
@@ -414,7 +414,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="../.." >util</a>
+        <a href="../.." >I_Iterator</a>
     </h1>
 </div>
 
@@ -429,20 +429,54 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><li><span class="title-icon "></span><a href="#util"><b>1. </b>util</a></li></ul></div><a href="#util" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h1 id="util"><a name="util" class="anchor-navigation-ex-anchor" href="#util"><i class="fa fa-link" aria-hidden="true"></i></a>1. util</h1>
-<p>java.util&#x5305;&#x5B58;&#x5728;rt.jar&#x5305;&#x4E2D;&#xFF0C;&#x8BE5;&#x5305;&#x63D0;&#x4F9B;&#x4E86;&#x5305;&#x542B;&#x96C6;&#x5408;&#x6846;&#x67B6;&#x3001;&#x9057;&#x7559;&#x7684;&#x96C6;&#x5408;&#x7C7B;&#x3001;&#x4E8B;&#x4EF6;&#x6A21;&#x578B;&#x3001;&#x65E5;&#x671F;&#x548C;&#x65F6;&#x95F4;&#x5B9E;&#x65BD;&#x3001;&#x56FD;&#x9645;&#x5316;&#x548C;&#x5404;&#x79CD;&#x5B9E;&#x7528;&#x5DE5;&#x5177;&#x7C7B;&#xFF08;&#x5B57;&#x7B26;&#x4E32;&#x6807;&#x8BB0;&#x751F;&#x6210;&#x5668;&#x3001;&#x968F;&#x673A;&#x6570;&#x751F;&#x6210;&#x5668;&#x548C;&#x4F4D;&#x6570;&#x7EC4;&#xFF09;&#x3002;</p>
+                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><li><span class="title-icon "></span><a href="#iiterator"><b>1. </b>I_Iterator</a></li><li><span class="title-icon "></span><a href="#&#x7528;&#x6CD5;&#x4E3E;&#x4F8B;"><b>2. </b>&#x7528;&#x6CD5;&#x4E3E;&#x4F8B;</a></li><li><span class="title-icon "></span><a href="#&#x63A5;&#x53E3;&#x65B9;&#x6CD5;"><b>3. </b>&#x63A5;&#x53E3;&#x65B9;&#x6CD5;</a></li></ul></div><a href="#iiterator" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h1 id="iiterator"><a name="iiterator" class="anchor-navigation-ex-anchor" href="#iiterator"><i class="fa fa-link" aria-hidden="true"></i></a>1. I_Iterator</h1>
+<p>Iterator&#x987E;&#x540D;&#x601D;&#x4E49;&#x5C31;&#x662F;&#x8FED;&#x4EE3;&#x5668;&#xFF0C;&#x8FD9;&#x662F;&#x81EA;jdk1.2&#x8D77;&#x5C31;&#x5B58;&#x5728;&#x7684;&#x4E13;&#x95E8;&#x7528;&#x4E8E;&#x96C6;&#x5408;&#x7684;&#x8FED;&#x4EE3;&#x5668;&#x53C2;&#x6570;&#x5316;&#x63A5;&#x53E3;&#x3002;</p>
+<h1 id="&#x7528;&#x6CD5;&#x4E3E;&#x4F8B;"><a name="&#x7528;&#x6CD5;&#x4E3E;&#x4F8B;" class="anchor-navigation-ex-anchor" href="#&#x7528;&#x6CD5;&#x4E3E;&#x4F8B;"><i class="fa fa-link" aria-hidden="true"></i></a>2. &#x7528;&#x6CD5;&#x4E3E;&#x4F8B;</h1>
+<pre><code class="lang-java"><span class="hljs-keyword">import</span> java.util.ArrayList;
+<span class="hljs-keyword">import</span> java.util.Iterator;
+
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Test</span> </span>{
+  <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] paramArrayOfString)</span> </span>{
+    ArrayList&lt;String&gt; arrayList = <span class="hljs-keyword">new</span> ArrayList();
+    arrayList.add(<span class="hljs-string">&quot;a&quot;</span>);
+    arrayList.add(<span class="hljs-string">&quot;b&quot;</span>);
+    arrayList.add(<span class="hljs-string">&quot;c&quot;</span>);
+    Iterator&lt;String&gt; iterator = arrayList.iterator();
+    <span class="hljs-keyword">while</span> (iterator.hasNext()) {
+      String str = iterator.next();
+      System.out.println(str);
+    }
+  }
+}
+</code></pre>
+<p>&#x8FD0;&#x884C;&#x7ED3;&#x679C;&#xFF1A;</p>
+<pre><code class="lang-java">&gt; java Test
+a
+b
+c
+</code></pre>
+<p>&#x4E0A;&#x9762;&#x5B9A;&#x4E49;&#x4E86;&#x4E00;&#x4E2A;ArrayList&#xFF0C;&#x7136;&#x540E;&#x901A;&#x8FC7;iterator&#x5BF9;ArrayList&#x8FDB;&#x884C;&#x4E86;&#x904D;&#x5386;&#x3002;</p>
+<h1 id="&#x63A5;&#x53E3;&#x65B9;&#x6CD5;"><a name="&#x63A5;&#x53E3;&#x65B9;&#x6CD5;" class="anchor-navigation-ex-anchor" href="#&#x63A5;&#x53E3;&#x65B9;&#x6CD5;"><i class="fa fa-link" aria-hidden="true"></i></a>3. &#x63A5;&#x53E3;&#x65B9;&#x6CD5;</h1>
+<ol>
+<li>hasNext()&#xFF1A;&#x5224;&#x65AD;&#x96C6;&#x5408;&#x662F;&#x5426;&#x6709;&#x4E0B;&#x4E00;&#x4E2A;&#x5143;&#x7D20;</li>
+<li>next()&#xFF1A;&#x8FD4;&#x56DE;&#x96C6;&#x5408;&#x7684;&#x4E0B;&#x4E00;&#x4E2A;&#x5143;&#x7D20;</li>
+<li>remove()&#xFF1A;&#x79FB;&#x9664;&#x96C6;&#x5408;&#x4E2D;&#x7684;&#x67D0;&#x4E00;&#x4E2A;&#x5143;&#x7D20;</li>
+<li>forEachRemaining(Consumer&lt;? super E&gt; action)&#xFF1A;jdk1.8&#x65B0;&#x589E;&#x65B9;&#x6CD5;&#xFF0C;&#x5BF9;&#x96C6;&#x5408;&#x4E2D;&#x5269;&#x4F59;&#x904D;&#x5386;&#x7684;&#x5143;&#x7D20;&#x6267;&#x884C;&#x7ED9;&#x5B9A;&#x7684;&#x64CD;&#x4F5C;&#xFF08;action&#xFF09;</li>
+</ol>
+<p>&#x8FED;&#x4EE3;&#x5668;Iterator&#x5BF9;&#x96C6;&#x5408;&#x4E2D;&#x7684;&#x5143;&#x7D20;&#x6328;&#x4E2A;&#x64CD;&#x4F5C;&#xFF0C;&#x6765;&#x5B9E;&#x73B0;&#x5FAA;&#x73AF;&#x904D;&#x5386;&#x3002;&#x6240;&#x4EE5;Iterator&#x66F4;&#x50CF;&#x662F;&#x6307;&#x9488;&#x7684;&#x4E00;&#x79CD;&#x62BD;&#x8C61;&#xFF0C;&#x901A;&#x8FC7;&#x4E0D;&#x65AD;&#x7684;&#x79FB;&#x52A8;&#x6307;&#x9488;&#x7684;&#x6307;&#x5411;&#xFF0C;&#x6765;&#x904D;&#x5386;&#x5185;&#x5B58;&#x4E2D;&#x7684;&#x6570;&#x636E;&#x3002;&#x4F46;&#x662F;&#x6307;&#x9488;&#x548C;&#x8FED;&#x4EE3;&#x5668;&#x786E;&#x5B9E;&#x4E0D;&#x662F;&#x540C;&#x4E00;&#x6982;&#x5FF5;&#xFF0C;&#x8FD9;&#x91CC;&#x53EA;&#x662F;&#x4E3A;&#x4E86;&#x66F4;&#x52A0;&#x5F62;&#x8C61;&#x7684;&#x63CF;&#x8FF0;&#x8FED;&#x4EE3;&#x5668;&#xFF08;&#x4E8C;&#x8005;&#x6709;&#x672C;&#x8D28;&#x7684;&#x4E0D;&#x540C;&#xFF1A;&#x6BD4;&#x5982;&#x8FED;&#x4EE3;&#x5668;&#x8FD4;&#x56DE;&#x7684;&#x662F;&#x5BF9;&#x8C61;&#x7684;&#x5F15;&#x7528;&#x800C;&#x4E0D;&#x662F;&#x5BF9;&#x8C61;&#x7684;&#x503C;&#x3001;&#x6307;&#x9488;&#x80FD;&#x591F;&#x6307;&#x5411;&#x51FD;&#x6570;&#x800C;&#x8FED;&#x4EE3;&#x5668;&#x4E0D;&#xFF0C;&#x66F4;&#x591A;&#x76F8;&#x5173;&#x4ECB;&#x7ECD;&#x53EF;&#x4EE5;&#x53C2;&#x8003;&#x6587;&#x672B;&#x53C2;&#x8003;&#x8D44;&#x6599;&#x3002;&#xFF09;</p>
 <blockquote>
-<p>jdk&#x63D0;&#x4F9B;&#x7684;&#x5DE5;&#x5177;&#x7C7B;&#x76EE;&#x5F55;&#xFF0C;&#x5B58;&#x5728;&#x4E8E;rt.jar&#x5305;&#x4E2D;&#x3002;</p>
-<p>rt.jar&#x4EE3;&#x8868;runtime JAR,&#x5305;&#x542B;&#x5F15;&#x5BFC;&#x7C7B;bootstrap classes&#xFF0C;&#x5305;&#x542B;&#x6240;&#x6709;&#x6838;&#x5FC3;JavaJava&#x57FA;&#x7840;&#x7C7B;&#x8FD0;&#x884C;&#x73AF;&#x5883;&#x7684;&#x5DF2;&#x7F16;&#x8BD1;calss&#x6587;&#x4EF6;&#xFF0C;&#x66F4;&#x591A;&#x76F8;&#x5173;&#x4ECB;&#x7ECD;&#x53EF;&#x4EE5;&#x53C2;&#x8003;&#x6587;&#x672B;&#x53C2;&#x8003;&#x8D44;&#x6599;&#x3002;</p>
+<p>&#x5728;jdk1.8&#x4E4B;&#x524D;&#xFF1A;&#x63A5;&#x53E3;&#x4E2D;&#x7684;&#x6210;&#x5458;&#x4E00;&#x5F8B;&#x9ED8;&#x8BA4;&#x662F; public &#x7C7B;&#x578B;&#x3002;&#x63A5;&#x53E3;&#x4E2D;&#x7684;&#x53D8;&#x91CF;&#x9ED8;&#x8BA4;&#x88AB;&#x6307;&#x5B9A;&#x4E3A;public static final&#x7C7B;&#x578B;&#xFF1B;&#x63A5;&#x53E3;&#x4E2D;&#x7684;&#x65B9;&#x6CD5;&#x9ED8;&#x8BA4;&#x65F6;public abstract&#x7C7B;&#x578B;&#x7684;&#x62BD;&#x8C61;&#x65B9;&#x6CD5;&#xFF0C;&#x800C;&#x6211;&#x4EEC;&#x90FD;&#x77E5;&#x9053;&#x62BD;&#x8C61;&#x65B9;&#x6CD5;&#x4E0D;&#x80FD;&#x62E5;&#x6709;&#x65B9;&#x6CD5;&#x4F53;&#x3002;</p>
+<p>&#x6211;&#x4EEC;&#x6CE8;&#x610F;&#x5230;remove&#x548C;forEachRemaining&#x65B9;&#x6CD5;&#x90FD;&#x6709;&#x65B9;&#x6CD5;&#x4F53;&#xFF0C;&#x8FD9;&#x662F;&#x4E3A;&#x4EC0;&#x4E48;&#x5462;&#xFF1F;jdk1.8&#x5BF9;&#x63A5;&#x53E3;&#x8FDB;&#x884C;&#x4E86;&#x589E;&#x5F3A;&#xFF0C;&#x8BE5;&#x7248;&#x672C;&#x9488;&#x5BF9;&#x63A5;&#x53E3;&#x65B0;&#x589E;&#x4E86;2&#x5927;&#x7279;&#x6027;&#xFF1A;1.static&#x65B9;&#x6CD5;&#xFF0C;2.default&#x4FEE;&#x9970;&#x7B26;&#x3002;&#x6211;&#x4EEC;&#x6CE8;&#x610F;&#x5230;remove&#x548C;forEachRemaining&#x65B9;&#x6CD5;&#x90FD;&#x662F;&#x901A;&#x8FC7;default&#x4FEE;&#x9970;&#x7684;&#xFF0C;&#x6240;&#x4EE5;&#x624D;&#x4F7F;&#x5F97;&#x5B83;&#x4EEC;&#x80FD;&#x591F;&#x62E5;&#x6709;&#x65B9;&#x6CD5;&#x4F53;&#x3002;&#x6240;&#x4EE5;&#xFF0C;jdk1.8&#x4E2D;&#xFF0C;&#x5982;&#x679C;&#x8981;&#x5728;&#x63A5;&#x53E3;&#x4E2D;&#x5B9A;&#x4E49;&#x6709;&#x65B9;&#x6CD5;&#x4F53;&#x7684;&#x65B9;&#x6CD5;&#xFF0C;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x4F7F;&#x7528;static&#x6216;&#x8005;&#x662F;default&#x5173;&#x952E;&#x5B57;&#x5BF9;&#x65B9;&#x6CD5;&#x8FDB;&#x884C;&#x4FEE;&#x9970;&#x3002;&#x66F4;&#x591A;&#x76F8;&#x5173;&#x4ECB;&#x7ECD;&#x53EF;&#x4EE5;&#x53C2;&#x8003;&#x6587;&#x672B;&#x53C2;&#x8003;&#x8D44;&#x6599;&#x3002;</p>
 </blockquote>
 <hr>
-<p>&#x53C2;&#x8003;&#x8D44;&#x6599;</p>
+<p>&#x53C2;&#x8003;&#x8D44;&#x6599;&#xFF1A;</p>
 <ol>
-<li><a href="https://blog.csdn.net/ni_hao_fan/article/details/95315193" title="Java / JDK / JRE&#x4E2D;&#x7684;rt.jar&#x662F;&#x4EC0;&#x4E48;&#xFF1F; &#x4E3A;&#x4EC0;&#x4E48;&#x91CD;&#x8981;&#xFF1F;" target="_blank">Java / JDK / JRE&#x4E2D;&#x7684;rt.jar&#x662F;&#x4EC0;&#x4E48;&#xFF1F; &#x4E3A;&#x4EC0;&#x4E48;&#x91CD;&#x8981;&#xFF1F;</a></li>
-<li><a href="https://blog.csdn.net/u014252871/article/details/53434530" title="&#x4E86;&#x89E3;java .lang &#x5305;,java.util&#x5305;&#x7B49;&#x5E38;&#x7528;&#x5305;" target="_blank">&#x4E86;&#x89E3;java .lang &#x5305;,java.util&#x5305;&#x7B49;&#x5E38;&#x7528;&#x5305;</a></li>
+<li><a href="https://www.zhihu.com/question/54047747" title="&#x8FED;&#x4EE3;&#x5668;&#xFF08;iterator&#xFF09;&#x548C;&#x6307;&#x9488;&#xFF08;pointer&#xFF09;&#x533A;&#x522B;&#x5728;&#x54EA;&#xFF1F;" target="_blank">&#x8FED;&#x4EE3;&#x5668;&#x548C;&#x6307;&#x9488;&#x7684;&#x533A;&#x522B;</a></li>
+<li><a href="https://blog.csdn.net/Mr_dsw/article/details/83183191" title="Java 8 &#x7279;&#x6027;&#x2014;&#x2014;interface &#x4E2D;&#x7684; static &#x65B9;&#x6CD5;&#x548C; default &#x65B9;&#x6CD5;" target="_blank">Java8&#x63A5;&#x53E3;&#x589E;&#x5F3A;</a></li>
+<li><a href="https://www.cnblogs.com/dolphin0520/p/3811437.html" title="https://www.cnblogs.com/dolphin0520/p/3811437.html" target="_blank">&#x6DF1;&#x5165;&#x7406;&#x89E3;Java&#x7684;&#x63A5;&#x53E3;&#x548C;&#x62BD;&#x8C61;&#x7C7B;</a></li>
 </ol>
 <footer class="page-footer"><span class="copyright">&#xA9; yongmingcode all right reserved&#xFF0C;powered by Gitbook</span><span class="footer-modification">&#x6587;&#x4EF6;&#x4FEE;&#x8BA2;&#x65F6;&#x95F4;&#xFF1A;
-2020-05-04 16:42:16
+2020-05-04 16:40:10
 </span></footer>
                                 
                                 </section>
@@ -470,12 +504,12 @@
 
             
                 
-                <a href="../series/collection.html" class="navigation navigation-prev " aria-label="Previous page: 集合">
+                <a href="C_collections/M_shuffle.html" class="navigation navigation-prev " aria-label="Previous page: M_shuffle方法解读">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="C_collections/C_collections.html" class="navigation navigation-next " aria-label="Next page: C_collections">
+                <a href="../lang/lang.html" class="navigation navigation-next " aria-label="Next page: lang">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -486,7 +520,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"util","level":"1.2.2","depth":2,"next":{"title":"C_collections","level":"1.2.2.1","depth":3,"path":"java/util/C_collections/C_collections.md","ref":"java/util/C_collections/C_collections.md","articles":[{"title":"M_shuffle方法解读","level":"1.2.2.1.1","depth":4,"path":"java/util/C_collections/M_shuffle.md","ref":"java/util/C_collections/M_shuffle.md","articles":[]}]},"previous":{"title":"集合","level":"1.2.1.1","depth":3,"path":"java/series/collection.md","ref":"java/series/collection.md","articles":[]},"dir":"ltr"},"config":{"plugins":["github","pageview-count","mermaid-gb3","-lunr","-search","search-plus","splitter","-sharing","sharing-plus","expandable-chapters-small","anchor-navigation-ex","edit-link","copy-code-button","chart","favicon-plus","donate","tbfed-pagefooter","github-buttons"],"root":".","styles":{"website":"styles/website.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"&copy yongmingcode","modify_label":"文件修订时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"output":"_book","github":{"url":"https://github.com/yongmingcode/yl_java"},"splitter":{},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"donate":{"alipay":"https://yongmingcode.github.io/yl_code/alipay.png","alipayText":"支付宝","button":"赏","title":"","wechat":"https://yongmingcode.github.io/yl_code/wechat.png","wechatText":"微信"},"fontsettings":{"theme":"white","family":"sans","size":2},"favicon-plus":{"appleTouchIconPrecomposed152":"","favicon":"","output":"_book"},"highlight":{},"mermaid-gb3":{},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":true},"pageview-count":{},"github-buttons":{"buttons":[{"user":"YMCode","repo":"yl_code","type":"star","count":false,"size":"small"}]},"expandable-chapters-small":{},"copy-code-button":{},"sharing":{"qq":true,"all":["facebook","google","twitter","weibo","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":false,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":false,"messenger":false,"line":false,"vk":false,"pocket":false,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"edit-link":{"label":"编辑","base":"https://github.com/yongmingcode/yl_java/blob/master"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"chart":{"type":"c3"},"search-plus":{}},"theme":"default","author":"yongming","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Java 源码分析","language":"zh-hans","output.name":"site","links":{"sidebar":{"满月弓主页":"https://yongmingcode.github.io/yl_code/"}},"gitbook":"3.2.3","description":"java知识点分析记录","direction":"ltr"},"file":{"path":"java/util/util.md","mtime":"2020-05-04T08:42:16.070Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-05-04T08:49:15.638Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"I_Iterator","level":"1.2.2.2","depth":3,"next":{"title":"lang","level":"1.2.3","depth":2,"path":"java/lang/lang.md","ref":"java/lang/lang.md","articles":[{"title":"I_Iterable","level":"1.2.3.1","depth":3,"path":"java/lang/I_Iterable.md","ref":"java/lang/I_Iterable.md","articles":[]}]},"previous":{"title":"M_shuffle方法解读","level":"1.2.2.1.1","depth":4,"path":"java/util/C_collections/M_shuffle.md","ref":"java/util/C_collections/M_shuffle.md","articles":[]},"dir":"ltr"},"config":{"plugins":["github","pageview-count","mermaid-gb3","-lunr","-search","search-plus","splitter","-sharing","sharing-plus","expandable-chapters-small","anchor-navigation-ex","edit-link","copy-code-button","chart","favicon-plus","donate","tbfed-pagefooter","github-buttons"],"root":".","styles":{"website":"styles/website.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"&copy yongmingcode","modify_label":"文件修订时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"output":"_book","github":{"url":"https://github.com/yongmingcode/yl_java"},"splitter":{},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"donate":{"alipay":"https://yongmingcode.github.io/yl_code/alipay.png","alipayText":"支付宝","button":"赏","title":"","wechat":"https://yongmingcode.github.io/yl_code/wechat.png","wechatText":"微信"},"fontsettings":{"theme":"white","family":"sans","size":2},"favicon-plus":{"appleTouchIconPrecomposed152":"","favicon":"","output":"_book"},"highlight":{},"mermaid-gb3":{},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":true},"pageview-count":{},"github-buttons":{"buttons":[{"user":"YMCode","repo":"yl_code","type":"star","count":false,"size":"small"}]},"expandable-chapters-small":{},"copy-code-button":{},"sharing":{"qq":true,"all":["facebook","google","twitter","weibo","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":false,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":false,"messenger":false,"line":false,"vk":false,"pocket":false,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"edit-link":{"label":"编辑","base":"https://github.com/yongmingcode/yl_java/blob/master"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"chart":{"type":"c3"},"search-plus":{}},"theme":"default","author":"yongming","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Java 源码分析","language":"zh-hans","output.name":"site","links":{"sidebar":{"满月弓主页":"https://yongmingcode.github.io/yl_code/"}},"gitbook":"3.2.3","description":"java知识点分析记录","direction":"ltr"},"file":{"path":"java/util/I_iterator.md","mtime":"2020-05-04T08:40:10.325Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-05-04T08:49:15.638Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>

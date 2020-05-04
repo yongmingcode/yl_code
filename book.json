@@ -41,7 +41,7 @@
           "url": "https://github.com/yongmingcode/yl_java"
         },
         "sharing": {
-           "douban": true,
+           "douban": false,
            "facebook": false,
            "google": false,
            "hatenaBookmark": false,
@@ -51,12 +51,12 @@
            "messenger": false,
            "pocket": false,
            "qq": true,
-           "qzone": true,
+           "qzone": false,
            "stumbleupon": false,
            "twitter": false,
            "viber": false,
            "vk": false,
-           "weibo": true,
+           "weibo": false,
            "whatsapp": false,
            "all": [
                "facebook", "google", "twitter",
@@ -66,7 +66,7 @@
        },
        "edit-link": {
           "base": "https://github.com/yongmingcode/yl_java/blob/master",
-          "label": "编辑本页"
+          "label": "编辑"
         },
         "chart": {
           "type": "c3"
@@ -88,17 +88,10 @@
         "github-buttons": {
           "buttons": [
             {
-              "user": "yongmingcode",
+              "user": "YMCode",
               "repo": "yl_code", 
               "type": "star",
-              "count": true,
-              "size": "small"
-            }, 
-            {
-              "user": "yongmingcode",
-              "width": "160", 
-              "type": "follow", 
-              "count": true,
+              "count": false,
               "size": "small"
             }
           ]
