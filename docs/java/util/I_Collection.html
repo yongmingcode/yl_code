@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>lang · Java 源码分析</title>
+        <title>I_Collection · Java 源码分析</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -83,10 +83,10 @@
     <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="I_Iterable.html" />
+    <link rel="next" href="I_Collection/M_removeIf.html" />
     
     
-    <link rel="prev" href="../util/I_iterator.html" />
+    <link rel="prev" href="util.html" />
     
 
     <style>
@@ -200,9 +200,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.2" data-path="../util/util.html">
+        <li class="chapter " data-level="1.2.2" data-path="util.html">
             
-                <a href="../util/util.html">
+                <a href="util.html">
             
                     
                     util
@@ -214,9 +214,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.2.2.1" data-path="../util/I_Collection.html">
+        <li class="chapter active" data-level="1.2.2.1" data-path="I_Collection.html">
             
-                <a href="../util/I_Collection.html">
+                <a href="I_Collection.html">
             
                     
                     I_Collection
@@ -228,9 +228,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.2.2.1.1" data-path="../util/I_Collection/M_removeIf.html">
+        <li class="chapter " data-level="1.2.2.1.1" data-path="I_Collection/M_removeIf.html">
             
-                <a href="../util/I_Collection/M_removeIf.html">
+                <a href="I_Collection/M_removeIf.html">
             
                     
                     M_removeIf方法解读
@@ -246,9 +246,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.2.2" data-path="../util/C_collections/C_collections.html">
+        <li class="chapter " data-level="1.2.2.2" data-path="C_collections/C_collections.html">
             
-                <a href="../util/C_collections/C_collections.html">
+                <a href="C_collections/C_collections.html">
             
                     
                     C_collections
@@ -260,9 +260,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.2.2.2.1" data-path="../util/C_collections/M_shuffle.html">
+        <li class="chapter " data-level="1.2.2.2.1" data-path="C_collections/M_shuffle.html">
             
-                <a href="../util/C_collections/M_shuffle.html">
+                <a href="C_collections/M_shuffle.html">
             
                     
                     M_shuffle方法解读
@@ -278,9 +278,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.2.3" data-path="../util/I_iterator.html">
+        <li class="chapter " data-level="1.2.2.3" data-path="I_iterator.html">
             
-                <a href="../util/I_iterator.html">
+                <a href="I_iterator.html">
             
                     
                     I_Iterator
@@ -296,9 +296,9 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.2.3" data-path="lang.html">
+        <li class="chapter " data-level="1.2.3" data-path="../lang/lang.html">
             
-                <a href="lang.html">
+                <a href="../lang/lang.html">
             
                     
                     lang
@@ -310,9 +310,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.2.3.1" data-path="I_Iterable.html">
+        <li class="chapter " data-level="1.2.3.1" data-path="../lang/I_Iterable.html">
             
-                <a href="I_Iterable.html">
+                <a href="../lang/I_Iterable.html">
             
                     
                     I_Iterable
@@ -446,7 +446,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="../.." >lang</a>
+        <a href="../.." >I_Collection</a>
     </h1>
 </div>
 
@@ -461,9 +461,59 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><li><span class="title-icon "></span><a href="#lang"><b>1. </b>lang</a></li></ul></div><a href="#lang" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h1 id="lang"><a name="lang" class="anchor-navigation-ex-anchor" href="#lang"><i class="fa fa-link" aria-hidden="true"></i></a>1. lang</h1>
+                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><li><span class="title-icon "></span><a href="#icollection"><b>1. </b>I_Collection</a></li><li><span class="title-icon "></span><a href="#&#x65B9;&#x6CD5;"><b>2. </b>&#x65B9;&#x6CD5;</a></li></ul></div><a href="#icollection" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h1 id="icollection"><a name="icollection" class="anchor-navigation-ex-anchor" href="#icollection"><i class="fa fa-link" aria-hidden="true"></i></a>1. I_Collection</h1>
+<p>Collection&#x63A5;&#x53E3;&#x662F;<a href="../lang/I_Iterable.html">Iterable</a>&#x63A5;&#x53E3;&#x7684;&#x5B50;&#x63A5;&#x53E3;&#xFF0C;&#x6240;&#x4EE5;&#x53EA;&#x8981;&#x5B9E;&#x73B0;Collection&#x63A5;&#x53E3;&#x7684;&#x7C7B;&#xFF0C;&#x90FD;&#x62E5;&#x6709;for-each&#x5FAA;&#x73AF;&#x7684;&#x80FD;&#x529B;&#x3002;&#x540C;&#x65F6;&#xFF0C;Collection&#x63A5;&#x53E3;&#x8FD8;&#x662F;List&#x3001;Set&#x548C;Queue&#x63A5;&#x53E3;&#x7684;&#x7236;&#x63A5;&#x53E3;&#xFF0C;&#x6240;&#x4EE5;&#x8BE5;&#x63A5;&#x53E3;&#x4E2D;&#x7684;&#x65B9;&#x6CD5;&#x65E2;&#x53EF;&#x4EE5;&#x64CD;&#x4F5C;Set&#x96C6;&#x5408;&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x7528;&#x4E8E;&#x64CD;&#x4F5C;List&#x548C;Queue&#x96C6;&#x5408;&#x3002;</p>
+<h1 id="&#x65B9;&#x6CD5;"><a name="&#x65B9;&#x6CD5;" class="anchor-navigation-ex-anchor" href="#&#x65B9;&#x6CD5;"><i class="fa fa-link" aria-hidden="true"></i></a>2. &#x65B9;&#x6CD5;</h1>
+<p>&#x65E2;&#x7136;&#x662F;&#x63A5;&#x53E3;&#xFF0C;&#x90A3;&#x4E48;&#x5C31;&#x662F;&#x5BF9;&#x884C;&#x4E3A;&#x7684;&#x62BD;&#x8C61;&#x3002;&#x6211;&#x5C06;&#x8BE5;&#x63A5;&#x53E3;&#x4E2D;&#x64CD;&#x4F5C;&#x96C6;&#x5408;&#x5143;&#x7D20;&#x7684;&#x884C;&#x4E3A;&#x5206;&#x4E3A;&#x4EE5;&#x4E0B;&#x7C7B;&#x578B;&#xFF1A;</p>
+<ol>
+<li>&#x83B7;&#x5F97;&#x96C6;&#x5408;&#x5C5E;&#x6027;&#x76F8;&#x5173;&#x7684;&#x65B9;&#x6CD5;&#xFF1A;<ul>
+<li>size(): &#x8FD4;&#x56DE;&#x96C6;&#x5408;&#x4E2D;&#x5143;&#x7D20;&#x7684;&#x6570;&#x91CF;&#x3002;</li>
+<li>isEmpty(): &#x5224;&#x65AD;&#x96C6;&#x5408;&#x662F;&#x5426;&#x6709;&#x5143;&#x7D20;&#xFF0C;&#x5982;&#x679C;&#x6CA1;&#x6709;&#x8FD4;&#x56DE;true&#x3002;</li>
+</ul>
+</li>
+</ol>
+<ol>
+<li><p>&#x64CD;&#x4F5C;&#x96C6;&#x5408;&#x76F8;&#x5173;&#x65B9;&#x6CD5;&#xFF1A;</p>
+<ul>
+<li>iterator(): &#x8FD4;&#x56DE;&#x64CD;&#x4F5C;&#x8BE5;&#x96C6;&#x5408;&#x7684;&#x8FED;&#x4EE3;&#x5668;&#x3002;</li>
+<li>toArray(): &#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x5305;&#x542B;&#x96C6;&#x5408;&#x6240;&#x6709;&#x5143;&#x7D20;&#x7684;&#x65B0;&#x521B;&#x5EFA;&#x7684;&#x6570;&#x7EC4;&#x3002;</li>
+<li>equals(Object): &#x6BD4;&#x8F83;&#x6307;&#x5B9A;&#x5BF9;&#x8C61;&#x4E0E;&#x6B64;&#x96C6;&#x5408;&#x7684;&#x76F8;&#x7B49;&#x6027;&#x3002;</li>
+<li>hashCode(): &#x8FD4;&#x56DE;&#x8BE5;&#x96C6;&#x5408;&#x7684;hash code&#x503C;&#x3002;</li>
+<li>spliterator()&#xFF1A;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;Spliterator&#x8FED;&#x4EE3;&#x5668;&#x3002;</li>
+<li>stream()&#xFF1A;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x4EE5;&#x6B64;&#x96C6;&#x5408;&#x4E3A;&#x6E90;&#x7684;Stream&#x5BF9;&#x8C61;&#x3002;</li>
+<li>parallelStream()&#xFF1A; &#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x4EE5;&#x6B64;&#x96C6;&#x5408;&#x4E3A;&#x6E90;&#x7684;&#x53EF;&#x80FD;&#x5E76;&#x884C;&#x7684;Stream&#x5BF9;&#x8C61;&#x3002;</li>
+</ul>
+</li>
+<li><p>&#x6DFB;&#x52A0;&#xFF1A;</p>
+<ul>
+<li>add(E): &#x5411;&#x96C6;&#x5408;&#x4E2D;&#x6DFB;&#x52A0;&#x4E00;&#x4E2A;&#x5143;&#x7D20;&#xFF0C;&#x64CD;&#x4F5C;&#x6210;&#x529F;&#x5219;&#x8FD4;&#x56DE;true&#x3002;</li>
+<li>addAll(Collection&lt;? extends E&gt;): &#x5411;&#x96C6;&#x5408;&#x4E2D;&#x6DFB;&#x52A0;&#x53E6;&#x5916;&#x4E00;&#x4E2A;&#x96C6;&#x5408;&#x7684;&#x6240;&#x6709;&#x5143;&#x7D20;&#x3002;&#x6210;&#x529F;&#x5219;&#x8FD4;&#x56DE;true&#x3002;</li>
+</ul>
+</li>
+<li><p>&#x5220;&#x9664;&#xFF1A;</p>
+<ul>
+<li>remove(Object): &#x5220;&#x9664;&#x96C6;&#x5408;&#x4E2D;&#x7684;&#x67D0;&#x4E2A;&#x5143;&#x7D20;&#xFF0C;&#x64CD;&#x4F5C;&#x6210;&#x529F;&#x5219;&#x8FD4;&#x56DE;true&#x3002;</li>
+<li>removeAll(Collection&lt;?&gt;): &#x5220;&#x9664;&#x672C;&#x96C6;&#x5408;&#x4E2D;&#x6307;&#x5B9A;&#x96C6;&#x5408;&#x6240;&#x62E5;&#x6709;&#x7684;&#x6240;&#x6709;&#x5143;&#x7D20;&#xFF0C;&#x6210;&#x529F;&#x5219;&#x8FD4;&#x56DE;true&#x3002;</li>
+<li>removeIf(Predicate&lt;? extends E&gt;): &#x6839;&#x636E;&#x6761;&#x4EF6;&#xFF0C;&#x5220;&#x9664;&#x96C6;&#x5408;&#x4E2D;&#x7684;&#x5143;&#x7D20;&#xFF0C;jdk1.8&#x65B0;&#x589E;&#x65B9;&#x6CD5;&#xFF0C;&#x4E0B;&#x9762;&#x4F1A;&#x6709;&#x4ECB;&#x7ECD;&#x3002;
+-</li>
+</ul>
+</li>
+<li><p>&#x4FEE;&#x6539;&#xFF1A;</p>
+<ul>
+<li>retainAll(Collection&lt;?&gt;): &#x5C06;&#x5F53;&#x524D;&#x96C6;&#x5408;&#x4E2D;&#x5728;&#x6307;&#x5B9A;&#x96C6;&#x5408;&#x6CA1;&#x6709;&#x7684;&#x5143;&#x7D20;&#x5220;&#x9664;&#x6389;&#xFF0C;&#x4FDD;&#x7559;&#x5728;&#x6307;&#x5B9A;&#x96C6;&#x5408;&#x4E2D;&#x6709;&#x7684;&#x5143;&#x7D20;&#x3002;</li>
+<li>clear(): &#x6E05;&#x7A7A;&#x5F53;&#x524D;&#x96C6;&#x5408;&#x4E2D;&#x7684;&#x5143;&#x7D20;&#x3002;</li>
+</ul>
+</li>
+<li><p>&#x67E5;&#x8BE2;&#xFF1A;</p>
+<ul>
+<li>contains(Object): &#x5224;&#x96C6;&#x5408;&#x4E2D;&#x662F;&#x5426;&#x5305;&#x542B;&#x6307;&#x5B9A;&#x7684;&#x5143;&#x7D20;&#xFF0C;&#x5305;&#x542B;&#x5219;&#x8FD4;&#x56DE;true&#x3002;</li>
+<li>containsAll(Collection&lt;?&gt;): &#x5224;&#x65AD;&#x96C6;&#x5408;&#x662F;&#x5426;&#x5305;&#x542B;&#x53E6;&#x5916;&#x4E00;&#x4E2A;&#x96C6;&#x5408;&#x7684;&#x6240;&#x6709;&#x5143;&#x7D20;&#xFF0C;&#x662F;&#x5219;&#x8FD4;&#x56DE;true</li>
+</ul>
+</li>
+</ol>
+<p>&#x4EE5;&#x4E0A;&#x5C31;&#x662F;Collection&#x63A5;&#x53E3;&#x7684;&#x6240;&#x6709;&#x65B9;&#x6CD5;&#xFF0C;&#x4F5C;&#x4E3A;&#x4E00;&#x4E2A;&#x63A5;&#x53E3;&#xFF0C;&#x5C31;&#x662F;&#x5BF9;&#x884C;&#x4E3A;&#x7684;&#x62BD;&#x8C61;&#xFF0C;&#x6240;&#x4EE5;Collection&#x63A5;&#x53E3;&#x4E2D;&#x7684;&#x65B9;&#x6CD5;&#x90FD;&#x662F;&#x64CD;&#x4F5C;&#x96C6;&#x5408;&#x7684;&#x4E00;&#x4E9B;&#x884C;&#x4E3A;&#x3002;&#x800C;&#x64CD;&#x4F5C;&#x96C6;&#x5408;&#x7684;&#x884C;&#x4E3A;&#xFF0C;&#x65E0;&#x975E;&#x5C31;&#x662F;&#x589E;&#x5220;&#x6539;&#x67E5;&#x3001;&#x83B7;&#x5F97;&#x96C6;&#x5408;&#x5C5E;&#x6027;&#x7B49;&#x3002;</p>
 <p><footer class="page-footer"><span class="copyright">&#xA9; yongmingcode all right reserved&#xFF0C;powered by Gitbook</span><span class="footer-modification">&#x6587;&#x4EF6;&#x4FEE;&#x8BA2;&#x65F6;&#x95F4;&#xFF1A;
-2020-05-04 23:45:47
+2020-05-05 18:41:53
 </span></footer><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css"><script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script><div id="gitalk-container"></div><script> var gitalk = new Gitalk({  "clientID": "a5507922d082a1660ea3", "clientSecret": "bc5403682cf03d556504f444bc1df0ef0b7f853a", "repo": "yl_code",  "owner": "yongmingcode", "admin": ["yongmingcode"], "id": location.pathname, "distractionFreeMode": false }); gitalk.render("gitalk-container");</script></p>
 
                                 
@@ -492,12 +542,12 @@
 
             
                 
-                <a href="../util/I_iterator.html" class="navigation navigation-prev " aria-label="Previous page: I_Iterator">
+                <a href="util.html" class="navigation navigation-prev " aria-label="Previous page: util">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="I_Iterable.html" class="navigation navigation-next " aria-label="Next page: I_Iterable">
+                <a href="I_Collection/M_removeIf.html" class="navigation navigation-next " aria-label="Next page: M_removeIf方法解读">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -508,7 +558,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"lang","level":"1.2.3","depth":2,"next":{"title":"I_Iterable","level":"1.2.3.1","depth":3,"path":"java/lang/I_Iterable.md","ref":"java/lang/I_Iterable.md","articles":[]},"previous":{"title":"I_Iterator","level":"1.2.2.3","depth":3,"path":"java/util/I_iterator.md","ref":"java/util/I_iterator.md","articles":[]},"dir":"ltr"},"config":{"plugins":["github","pageview-count","mermaid-gb3","-lunr","-search","search-plus","splitter","-sharing","sharing-plus","expandable-chapters-small","anchor-navigation-ex","edit-link","copy-code-button","chart","favicon-plus","donate","tbfed-pagefooter","github-buttons"],"root":".","styles":{"website":"styles/website.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"&copy yongmingcode","modify_label":"文件修订时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"output":"_book","github":{"url":"https://github.com/yongmingcode/yl_java"},"splitter":{},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"donate":{"alipay":"https://yongmingcode.github.io/yl_code/alipay.png","alipayText":"支付宝","button":"赏","title":"","wechat":"https://yongmingcode.github.io/yl_code/wechat.png","wechatText":"微信"},"fontsettings":{"theme":"white","family":"sans","size":2},"favicon-plus":{"appleTouchIconPrecomposed152":"","favicon":"","output":"_book"},"highlight":{},"mermaid-gb3":{},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":true},"pageview-count":{},"github-buttons":{"buttons":[{"user":"YMCode","repo":"yl_code","type":"star","count":false,"size":"small"}]},"expandable-chapters-small":{},"copy-code-button":{},"sharing":{"qq":true,"all":["facebook","google","twitter","weibo","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":false,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":false,"messenger":false,"line":false,"vk":false,"pocket":false,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"edit-link":{"label":"编辑","base":"https://github.com/yongmingcode/yl_java/blob/master"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"chart":{"type":"c3"},"search-plus":{}},"theme":"default","author":"yongming","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Java 源码分析","language":"zh-hans","output.name":"site","links":{"sidebar":{"满月弓主页":"https://yongmingcode.github.io/yl_code/"}},"gitbook":"3.2.3","description":"java知识点分析记录","direction":"ltr"},"file":{"path":"java/lang/lang.md","mtime":"2020-05-04T15:45:47.734Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-05-05T11:03:15.928Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"I_Collection","level":"1.2.2.1","depth":3,"next":{"title":"M_removeIf方法解读","level":"1.2.2.1.1","depth":4,"path":"java/util/I_Collection/M_removeIf.md","ref":"java/util/I_Collection/M_removeIf.md","articles":[]},"previous":{"title":"util","level":"1.2.2","depth":2,"path":"java/util/util.md","ref":"java/util/util.md","articles":[{"title":"I_Collection","level":"1.2.2.1","depth":3,"path":"java/util/I_Collection.md","ref":"java/util/I_Collection.md","articles":[{"title":"M_removeIf方法解读","level":"1.2.2.1.1","depth":4,"path":"java/util/I_Collection/M_removeIf.md","ref":"java/util/I_Collection/M_removeIf.md","articles":[]}]},{"title":"C_collections","level":"1.2.2.2","depth":3,"path":"java/util/C_collections/C_collections.md","ref":"java/util/C_collections/C_collections.md","articles":[{"title":"M_shuffle方法解读","level":"1.2.2.2.1","depth":4,"path":"java/util/C_collections/M_shuffle.md","ref":"java/util/C_collections/M_shuffle.md","articles":[]}]},{"title":"I_Iterator","level":"1.2.2.3","depth":3,"path":"java/util/I_iterator.md","ref":"java/util/I_iterator.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["github","pageview-count","mermaid-gb3","-lunr","-search","search-plus","splitter","-sharing","sharing-plus","expandable-chapters-small","anchor-navigation-ex","edit-link","copy-code-button","chart","favicon-plus","donate","tbfed-pagefooter","github-buttons"],"root":".","styles":{"website":"styles/website.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"&copy yongmingcode","modify_label":"文件修订时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"output":"_book","github":{"url":"https://github.com/yongmingcode/yl_java"},"splitter":{},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"donate":{"alipay":"https://yongmingcode.github.io/yl_code/alipay.png","alipayText":"支付宝","button":"赏","title":"","wechat":"https://yongmingcode.github.io/yl_code/wechat.png","wechatText":"微信"},"fontsettings":{"theme":"white","family":"sans","size":2},"favicon-plus":{"appleTouchIconPrecomposed152":"","favicon":"","output":"_book"},"highlight":{},"mermaid-gb3":{},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":true},"pageview-count":{},"github-buttons":{"buttons":[{"user":"YMCode","repo":"yl_code","type":"star","count":false,"size":"small"}]},"expandable-chapters-small":{},"copy-code-button":{},"sharing":{"qq":true,"all":["facebook","google","twitter","weibo","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":false,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":false,"messenger":false,"line":false,"vk":false,"pocket":false,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"edit-link":{"label":"编辑","base":"https://github.com/yongmingcode/yl_java/blob/master"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"chart":{"type":"c3"},"search-plus":{}},"theme":"default","author":"yongming","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Java 源码分析","language":"zh-hans","output.name":"site","links":{"sidebar":{"满月弓主页":"https://yongmingcode.github.io/yl_code/"}},"gitbook":"3.2.3","description":"java知识点分析记录","direction":"ltr"},"file":{"path":"java/util/I_Collection.md","mtime":"2020-05-05T10:41:53.702Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-05-05T11:03:15.928Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>

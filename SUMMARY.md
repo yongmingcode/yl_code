@@ -5,6 +5,8 @@
     * [系列](java/series.md)
         * [集合](java/series/collection.md)
     * [util](java/util/util.md)
+        * [I_Collection](java/util/I_Collection.md)
+            * [M_removeIf方法解读](java/util/I_Collection/M_removeIf.md)
         * [C_collections](java/util/C_collections/C_collections.md)
             * [M_shuffle方法解读](java/util/C_collections/M_shuffle.md)
         * [I_Iterator](java/util/I_iterator.md)
