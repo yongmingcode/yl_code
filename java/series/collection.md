@@ -9,4 +9,8 @@
 
 在本节，我们会去探索java中集合的实现，学习集合的使用，分析涉及的算法，看看用到的设计模式，体会设计者的设计思路。
 
+以下是集合系列文章：
+
 1. [I_Iterator](/java/util/I_iterator.md)
+2. [I_Iterable](/java/lang/I_Iterable.md)
+3. [I_Collection](/java/util/I_Collection.md)
