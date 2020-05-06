@@ -10,6 +10,7 @@
         * [C_collections](java/util/C_collections/C_collections.md)
             * [M_shuffle方法解读](java/util/C_collections/M_shuffle.md)
         * [I_Iterator](java/util/I_iterator.md)
+        * [I_List](java/util/I_List.md)
     * [lang](java/lang/lang.md)
         * [I_Iterable](java/lang/I_Iterable.md)
     * [技巧](java/knacks/knacks.md)
