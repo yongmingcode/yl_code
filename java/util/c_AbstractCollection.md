@@ -1,0 +1,2 @@
+# c_AbstractCollection
+AbstractCollection是唯一一个实现Collection接口的类。
