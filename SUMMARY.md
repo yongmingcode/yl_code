@@ -6,6 +6,8 @@
         * [集合](java/series/collection.md)
     * [util](java/util/util.md)
         * [c_AbstractCollection](java/util/c_AbstractCollection.md)
+        * [C_Arrays](java/util/C_Arrays.md)
+            * [M_copyOf方法解读](java/util/M_copyOf.md)
         * [I_Collection](java/util/I_Collection.md)
             * [M_removeIf方法解读](java/util/I_Collection/M_removeIf.md)
         * [C_collections](java/util/C_collections/C_collections.md)
