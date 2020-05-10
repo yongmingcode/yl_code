@@ -29,7 +29,7 @@ protected AbstractCollection() {}
             return false;
         }
     ```
-  - toArray(): 将集合转为数组。后面会有单独讲解的文章。
+  - toArray(): 将集合转为数组。
     ```java
         public Object[] toArray() {
             // 准备了一个和集合size()大小的数组
