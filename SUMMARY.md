@@ -24,6 +24,8 @@
             * [M_arraycopy](java/lang/system/M_arraycopy.md)
     * [技巧](java/knacks/knacks.md)
         * [if...else...解耦](java/knacks/if_else_decoupling.md)
+    * [Jvm](jvm/jvm.md)
+        * [Java运行时数据区](jvm/java_runtime_area.md)
 * [Spring](spring/spring.md)
     * [初始化bean](spring/bean/bean.md)
         * [bean的初始换方法](spring/bean/bean_initialization_method.md)
