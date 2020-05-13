@@ -11,7 +11,12 @@ public static Object newInstance(Class<?> componentType, int length) throws Nega
 
 private static native Object newArray(Class<?> componentType, int length) throws NegativeArraySizeException;
 ```
-newInstance方法内部调用了原生native方法newArray，返回一个Object，*该Object实质为数组类型*(可以通过：返回值.getClass()方法查看所属类型)。
+newInstance方法内部调用了原生native方法newArray，返回一个Object。*该Object实质为数组类型*(可以通过：返回值.getClass()方法查看所属类型)。
     > newArray为本地原生方法，由虚拟机实现。
+
+
+
+
+
 
 

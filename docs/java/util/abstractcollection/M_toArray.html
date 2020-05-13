@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>C_collections · Java 源码分析</title>
+        <title>M_toArray · Java 源码分析</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -83,10 +83,10 @@
     <link rel="shortcut icon" href="../../../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="M_shuffle.html" />
+    <link rel="next" href="../C_Arrays.html" />
     
     
-    <link rel="prev" href="../I_Collection/M_removeIf.html" />
+    <link rel="prev" href="../c_AbstractCollection.html" />
     
 
     <style>
@@ -228,9 +228,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.2.2.1.1" data-path="../abstractcollection/M_toArray.html">
+        <li class="chapter active" data-level="1.2.2.1.1" data-path="M_toArray.html">
             
-                <a href="../abstractcollection/M_toArray.html">
+                <a href="M_toArray.html">
             
                     
                     M_toArray
@@ -310,9 +310,9 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.2.2.4" data-path="C_collections.html">
+        <li class="chapter " data-level="1.2.2.4" data-path="../C_collections/C_collections.html">
             
-                <a href="C_collections.html">
+                <a href="../C_collections/C_collections.html">
             
                     
                     C_collections
@@ -324,9 +324,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.2.2.4.1" data-path="M_shuffle.html">
+        <li class="chapter " data-level="1.2.2.4.1" data-path="../C_collections/M_shuffle.html">
             
-                <a href="M_shuffle.html">
+                <a href="../C_collections/M_shuffle.html">
             
                     
                     M_shuffle方法解读
@@ -645,7 +645,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="../../.." >C_collections</a>
+        <a href="../../.." >M_toArray</a>
     </h1>
 </div>
 
@@ -660,10 +660,68 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><li><span class="title-icon "></span><a href="#collections"><b>1. </b>collections</a></li></ul></div><a href="#collections" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h1 id="collections"><a name="collections" class="anchor-navigation-ex-anchor" href="#collections"><i class="fa fa-link" aria-hidden="true"></i></a>1. collections</h1>
-<p>&#x8FD9;&#x4E2A;&#x7C7B;&#x5305;&#x542B;&#x5BF9;&#x96C6;&#x5408;&#x8FDB;&#x884C;&#x64CD;&#x4F5C;&#x7684;&#x9759;&#x6001;&#x65B9;&#x6CD5;&#x3002;</p>
+                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><li><span class="title-icon "></span><a href="#&#x4ECB;&#x7ECD;&#x2014;&#x2014;jdk-18-toarray&#x65B9;&#x6CD5;&#x5206;&#x6790;"><b>1. </b>&#x4ECB;&#x7ECD;&#x2014;&#x2014;jdk 1.8 toArray&#x65B9;&#x6CD5;&#x5206;&#x6790;</a></li><li><span class="title-icon "></span><a href="#toarray"><b>2. </b>toArray():</a></li><ul><li><span class="title-icon "></span><a href="#&#x6E90;&#x7801;&#x5206;&#x6790;&#xFF08;jdk-18&#xFF09;&#xFF1A;"><b>2.1. </b>&#x6E90;&#x7801;&#x5206;&#x6790;&#xFF08;jdk 1.8&#xFF09;&#xFF1A;</a></li></ul><li><span class="title-icon "></span><a href="#toarrayt"><b>3. </b>toArray(T[]):</a></li></ul></div><a href="#&#x4ECB;&#x7ECD;&#x2014;&#x2014;jdk-18-toarray&#x65B9;&#x6CD5;&#x5206;&#x6790;" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h1 id="&#x4ECB;&#x7ECD;&#x2014;&#x2014;jdk-18-toarray&#x65B9;&#x6CD5;&#x5206;&#x6790;"><a name="&#x4ECB;&#x7ECD;&#x2014;&#x2014;jdk-18-toarray&#x65B9;&#x6CD5;&#x5206;&#x6790;" class="anchor-navigation-ex-anchor" href="#&#x4ECB;&#x7ECD;&#x2014;&#x2014;jdk-18-toarray&#x65B9;&#x6CD5;&#x5206;&#x6790;"><i class="fa fa-link" aria-hidden="true"></i></a>1. &#x4ECB;&#x7ECD;&#x2014;&#x2014;jdk 1.8 toArray&#x65B9;&#x6CD5;&#x5206;&#x6790;</h1>
+<p>&#x5728;AbstractCollection&#x4E2D;&#x91CD;&#x8F7D;&#x4E86;2&#x4E2A;toArray&#x65B9;&#x6CD5;&#xFF0C;&#x90FD;&#x662F;&#x4E3A;&#x4E86;&#x5C06;&#x96C6;&#x5408;&#x8F6C;&#x6570;&#x7EC4;&#x3002;&#x529F;&#x80FD;&#x4E0A;&#x6765;&#x770B;&#xFF0C;&#x4E8C;&#x8005;&#x6700;&#x5927;&#x7684;&#x533A;&#x522B;&#x5C31;&#x662F;&#x8FD4;&#x56DE;&#x7684;&#x6570;&#x7EC4;&#x7C7B;&#x578B;&#x4E0D;&#x540C;&#xFF0C;&#x4E00;&#x4E2A;&#x662F;&#x8FD4;&#x56DE;Object[],&#x53E6;&#x4E00;&#x4E2A;&#x8FD4;&#x56DE;&#x7684;&#x662F;&#x6307;&#x5B9A;&#x7684;&#x7C7B;&#x578B;&#x3002;&#x4F46;&#x4E8C;&#x8005;&#x7684;&#x5B9E;&#x73B0;&#x8FC7;&#x7A0B;&#x5DEE;&#x522B;&#x6BD4;&#x8F83;&#x5927;&#x3002;</p>
+<h1 id="toarray"><a name="toarray" class="anchor-navigation-ex-anchor" href="#toarray"><i class="fa fa-link" aria-hidden="true"></i></a>2. toArray():</h1>
+<h2 id="&#x6E90;&#x7801;&#x5206;&#x6790;&#xFF08;jdk-18&#xFF09;&#xFF1A;"><a name="&#x6E90;&#x7801;&#x5206;&#x6790;&#xFF08;jdk-18&#xFF09;&#xFF1A;" class="anchor-navigation-ex-anchor" href="#&#x6E90;&#x7801;&#x5206;&#x6790;&#xFF08;jdk-18&#xFF09;&#xFF1A;"><i class="fa fa-link" aria-hidden="true"></i></a>2.1. &#x6E90;&#x7801;&#x5206;&#x6790;&#xFF08;jdk 1.8&#xFF09;&#xFF1A;</h2>
+<pre><code class="lang-java"><span class="hljs-keyword">public</span> Object[] toArray() {
+    <span class="hljs-comment">// &#x51C6;&#x5907;&#x4E86;&#x4E00;&#x4E2A;&#x548C;&#x96C6;&#x5408;size()&#x5927;&#x5C0F;&#x7684;&#x6570;&#x7EC4;</span>
+    Object[] r = <span class="hljs-keyword">new</span> Object[size()];
+    Iterator&lt;E&gt; it = iterator();
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; r.length; i++) {
+        <span class="hljs-keyword">if</span> (! it.hasNext()) <span class="hljs-comment">// &#x5143;&#x7D20;&#x5C11;&#x4E8E;&#x9884;&#x671F;</span>
+            <span class="hljs-keyword">return</span> Arrays.copyOf(r, i); <span class="hljs-comment">// &#x622A;&#x53D6;&#x6570;&#x7EC4;r&#x7684;&#x524D;i&#x4E2A;&#x5143;&#x7D20;&#x5E76;&#x8FD4;&#x56DE;&#x3002;</span>
+        r[i] = it.next();
+    }
+
+    <span class="hljs-comment">// &#x8FD9;&#x91CC;&#x8003;&#x8651;&#x4E86;&#x4E00;&#x4E0B;&#x591A;&#x7EBF;&#x7A0B;&#x4E86;&#x60C5;&#x51B5;</span>
+    <span class="hljs-comment">// &#x5982;&#x679C;&#x5F53;&#x524D;&#x96C6;&#x5408;&#x8FD8;&#x6709;&#x672A;&#x8F6C;&#x5165;&#x6570;&#x7EC4;&#x7684;&#x5143;&#x7D20;&#xFF0C;&#x5219;&#x8C03;&#x7528;finishToArray&#x65B9;&#x6CD5;,&#x8FDB;&#x884C;&#x6269;&#x5BB9;</span>
+    <span class="hljs-comment">// &#x5982;&#x679C;&#x5F53;&#x524D;&#x96C6;&#x5408;&#x6CA1;&#x6709;&#x672A;&#x8F6C;&#x5165;&#x6570;&#x7EC4;&#x7684;&#x5143;&#x7D20;&#xFF0C;&#x5219;&#x8FD4;&#x56DE;&#x6570;&#x7EC4;r</span>
+    <span class="hljs-keyword">return</span> it.hasNext() ? finishToArray(r, it) : r;
+}
+</code></pre>
+<p>&#x4E0A;&#x9762;&#x65B0;&#x5EFA;&#x4E86;&#x4E00;&#x4E2A;&#x6570;&#x7EC4;&#xFF0C;&#x5C06;&#x96C6;&#x5408;&#x4E2D;&#x7684;&#x5143;&#x7D20;&#x904D;&#x5386;&#x653E;&#x5165;&#x6570;&#x7EC4;&#x3002;&#x4EE3;&#x7801;&#x4E2D;&#x5BF9;&#x591A;&#x7EBF;&#x7A0B;&#x73AF;&#x5883;&#x4E0B;&#x7684;&#x60C5;&#x51B5;&#x8FDB;&#x884C;&#x4E86;&#x5904;&#x7406;&#xFF0C;&#x5982;&#x679C;&#x6709;&#x522B;&#x7684;&#x7EBF;&#x7A0B;&#x5BF9;&#x96C6;&#x5408;&#x8FDB;&#x884C;&#x4E86;&#x4FEE;&#x6539;&#x4F7F;&#x5F97;&#xFF1A;&#x96C6;&#x5408;&#x5143;&#x7D20;&#x5C11;&#x4E8E;&#x9884;&#x671F;&#xFF0C;&#x5219;&#x622A;&#x65AD;&#x8FD4;&#x56DE;;&#x96C6;&#x5408;&#x5143;&#x7D20;&#x591A;&#x4E8E;&#x9884;&#x671F;&#xFF0C;&#x5219;&#x6570;&#x7EC4;&#x8FDB;&#x884C;&#x6269;&#x5BB9;&#x6DFB;&#x52A0;&#xFF0C;&#x7136;&#x540E;&#x518D;&#x8FD4;&#x56DE;&#x6570;&#x7EC4;&#x3002;</p>
+<h1 id="toarrayt"><a name="toarrayt" class="anchor-navigation-ex-anchor" href="#toarrayt"><i class="fa fa-link" aria-hidden="true"></i></a>3. toArray(T[]):</h1>
+<pre><code class="lang-java"><span class="hljs-keyword">public</span> &lt;T&gt; T[] toArray(T[] a) {
+
+        <span class="hljs-comment">// 1.&#x9884;&#x4F30;&#x96C6;&#x5408;&#x5927;&#x5C0F;</span>
+        <span class="hljs-keyword">int</span> size = size();
+
+        <span class="hljs-comment">// 2. &#x4E3A;&#x4E86;&#x51C6;&#x5907;&#x4E00;&#x4E2A;&#x5408;&#x9002;&#x7684;&#x6570;&#x7EC4;&#x5B58;&#x50A8;&#x96C6;&#x5408;&#x7684;&#x5143;&#x7D20;&#xFF1A;</span>
+        <span class="hljs-comment">// 2.1 &#x5982;&#x679C;a&#x7684;&#x957F;&#x5EA6;&#x5927;&#x4E8E;&#x96C6;&#x5408;&#x7684;&#x957F;&#x5EA6;&#xFF0C;&#x5219;&#x76F4;&#x63A5;&#x5411;a&#x4E2D;&#x5B58;&#x5143;&#x7D20;&#x5C31;&#x884C;&#xFF0C;&#x5373;&#x8BA9;r&#x548C;a&#x6307;&#x5411;&#x540C;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;</span>
+        <span class="hljs-comment">// 2.2 &#x5426;&#x5219;&#xFF0C;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x4E0E;a&#x7C7B;&#x578B;&#x76F8;&#x540C;&#x4E14;&#x5927;&#x5C0F;&#x76F8;&#x7B49;&#x7684;&#x6570;&#x7EC4;</span>
+        T[] r = a.length &gt;= size ? a :
+                  (T[])java.lang.reflect.Array
+                  .newInstance(a.getClass().getComponentType(), size);
+        Iterator&lt;E&gt; it = iterator();
+
+        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; r.length; i++) {
+            <span class="hljs-keyword">if</span> (! it.hasNext()) { <span class="hljs-comment">// &#x5143;&#x7D20;&#x5C11;&#x4E8E;&#x9884;&#x671F;</span>
+                <span class="hljs-keyword">if</span> (a == r) { <span class="hljs-comment">// &#x5982;&#x679C;a&#x548C;r&#x6307;&#x5411;&#x540C;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;</span>
+                    r[i] = <span class="hljs-keyword">null</span>; <span class="hljs-comment">// &#x628A;r&#x4E0A;&#x7B2C;i&#x4F4D;&#xFF0C;&#x7F6E;&#x4E3A;null</span>
+                } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (a.length &lt; i) { <span class="hljs-comment">// &#x8FD9;&#x91CC;&#x7684;&#x5224;&#x65AD;&#x8868;&#x660E;&#xFF0C;r&#x5176;&#x5B9E;&#x662F;&#x6307;&#x5411;&#x7B2C;2.2&#x6B65;&#x4E2D;&#x65B0;&#x5EFA;&#x7684;&#x6570;&#x7EC4;&#x3002;&#x540C;&#x65F6;&#x4E5F;&#x8868;&#x660E;&#xFF0C;&#x96C6;&#x5408;&#x4E2D;&#x7684;&#x5143;&#x7D20;a&#x6570;&#x7EC4;&#x88C5;&#x4E0D;&#x4E0B;&#x3002;&#x6240;&#x4EE5;&#x76F4;&#x63A5;&#x622A;&#x65AD;&#x6570;&#x7EC4;r&#xFF0C;&#x5E76;&#x8FD4;&#x56DE;&#x3002;</span>
+                    <span class="hljs-keyword">return</span> Arrays.copyOf(r, i); <span class="hljs-comment">// &#x622A;&#x65AD;&#x6570;&#x7EC4;r&#x3002;</span>
+                } <span class="hljs-keyword">else</span> {
+                <span class="hljs-comment">// a&#x6570;&#x7EC4;&#x88C5;&#x80FD;&#x88C5;&#x4E0B;&#x96C6;&#x5408;&#x4E2D;&#x7684;&#x5143;&#x7D20;&#xFF0C;&#x90A3;&#x4E48;&#x5C31;&#x5C06;r&#x6570;&#x7EC4;&#x4E2D;&#x7684;&#x5143;&#x7D20;&#x88C5;&#x5165;a&#x6570;&#x7EC4;&#x3002;</span>
+                    System.arraycopy(r, <span class="hljs-number">0</span>, a, <span class="hljs-number">0</span>, i);
+
+                    <span class="hljs-keyword">if</span> (a.length &gt; i) { <span class="hljs-comment">//a&#x88C5;&#x5B8C;&#x96C6;&#x5408;&#x4E2D;&#x7684;&#x5143;&#x7D20;&#x8FD8;&#x6709;&#x7A7A;&#x4F59;&#x7A7A;&#x95F4;</span>
+                        a[i] = <span class="hljs-keyword">null</span>; <span class="hljs-comment">// &#x5219;&#x5C06;&#x5269;&#x4F59;&#x7684;&#x7A7A;&#x95F4;&#x7F6E;&#x4E3A;null</span>
+                    }
+                }
+                <span class="hljs-keyword">return</span> a;
+            }
+            r[i] = (T)it.next();
+        }
+
+        <span class="hljs-comment">// &#x8FD9;&#x91CC;&#x8003;&#x8651;&#x4E86;&#x4E00;&#x4E0B;&#x591A;&#x7EBF;&#x7A0B;&#x4E86;&#x60C5;&#x51B5;</span>
+        <span class="hljs-comment">// &#x5982;&#x679C;&#x5F53;&#x524D;&#x96C6;&#x5408;&#x8FD8;&#x6709;&#x672A;&#x8F6C;&#x5165;&#x6570;&#x7EC4;&#x7684;&#x5143;&#x7D20;&#xFF0C;&#x5219;&#x8C03;&#x7528;finishToArray&#x65B9;&#x6CD5;,&#x8FDB;&#x884C;&#x6269;&#x5BB9;</span>
+        <span class="hljs-comment">// &#x5982;&#x679C;&#x5F53;&#x524D;&#x96C6;&#x5408;&#x6CA1;&#x6709;&#x672A;&#x8F6C;&#x5165;&#x6570;&#x7EC4;&#x7684;&#x5143;&#x7D20;&#xFF0C;&#x5219;&#x8FD4;&#x56DE;&#x6570;&#x7EC4;r</span>
+        <span class="hljs-keyword">return</span> it.hasNext() ? finishToArray(r, it) : r;
+    }
+</code></pre>
 <p><footer class="page-footer"><span class="copyright">&#xA9; yongmingcode all right reserved&#xFF0C;powered by Gitbook</span><span class="footer-modification">&#x6587;&#x4EF6;&#x4FEE;&#x8BA2;&#x65F6;&#x95F4;&#xFF1A;
-2020-05-09 15:07:30
+2020-05-13 18:32:41
 </span></footer><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css"><script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script><div id="gitalk-container"></div><script> var gitalk = new Gitalk({  "clientID": "a5507922d082a1660ea3", "clientSecret": "bc5403682cf03d556504f444bc1df0ef0b7f853a", "repo": "yl_code",  "owner": "yongmingcode", "admin": ["yongmingcode"], "id": location.pathname, "distractionFreeMode": false }); gitalk.render("gitalk-container");</script></p>
 
                                 
@@ -692,12 +750,12 @@
 
             
                 
-                <a href="../I_Collection/M_removeIf.html" class="navigation navigation-prev " aria-label="Previous page: M_removeIf方法解读">
+                <a href="../c_AbstractCollection.html" class="navigation navigation-prev " aria-label="Previous page: c_AbstractCollection">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="M_shuffle.html" class="navigation navigation-next " aria-label="Next page: M_shuffle方法解读">
+                <a href="../C_Arrays.html" class="navigation navigation-next " aria-label="Next page: C_Arrays">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -708,7 +766,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"C_collections","level":"1.2.2.4","depth":3,"next":{"title":"M_shuffle方法解读","level":"1.2.2.4.1","depth":4,"path":"java/util/C_collections/M_shuffle.md","ref":"java/util/C_collections/M_shuffle.md","articles":[]},"previous":{"title":"M_removeIf方法解读","level":"1.2.2.3.1","depth":4,"path":"java/util/I_Collection/M_removeIf.md","ref":"java/util/I_Collection/M_removeIf.md","articles":[]},"dir":"ltr"},"config":{"plugins":["github","pageview-count","mermaid-gb3","-lunr","-search","search-plus","splitter","-sharing","sharing-plus","expandable-chapters-small","anchor-navigation-ex","edit-link","copy-code-button","chart","favicon-plus","donate","tbfed-pagefooter","github-buttons"],"root":".","styles":{"website":"styles/website.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"&copy yongmingcode","modify_label":"文件修订时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"output":"_book","github":{"url":"https://github.com/yongmingcode/yl_java"},"splitter":{},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"donate":{"alipay":"https://yongmingcode.github.io/yl_code/images/alipay.png","alipayText":"支付宝","button":"赏","title":"","wechat":"https://yongmingcode.github.io/yl_code/images/wechat.png","wechatText":"微信"},"fontsettings":{"theme":"white","family":"sans","size":2},"favicon-plus":{"appleTouchIconPrecomposed152":"","favicon":"","output":"_book"},"highlight":{},"mermaid-gb3":{},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":true},"pageview-count":{},"github-buttons":{"buttons":[{"user":"yongmingcode","repo":"yl_code","type":"star","count":false,"size":"small"}]},"expandable-chapters-small":{},"copy-code-button":{},"sharing":{"qq":true,"all":["facebook","google","twitter","weibo","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":false,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":false,"messenger":false,"line":false,"vk":false,"pocket":false,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"edit-link":{"label":"编辑","base":"https://github.com/yongmingcode/yl_java/blob/master"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"chart":{"type":"c3"},"search-plus":{}},"theme":"default","author":"yongming","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Java 源码分析","language":"zh-hans","output.name":"site","links":{"sidebar":{"满月弓主页":"https://yongmingcode.github.io/yl_code/"}},"gitbook":"3.2.3","description":"java知识点分析记录","direction":"ltr"},"file":{"path":"java/util/C_collections/C_collections.md","mtime":"2020-05-09T07:07:30.194Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-05-13T10:33:18.017Z"},"basePath":"../../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"M_toArray","level":"1.2.2.1.1","depth":4,"next":{"title":"C_Arrays","level":"1.2.2.2","depth":3,"path":"java/util/C_Arrays.md","ref":"java/util/C_Arrays.md","articles":[{"title":"M_copyOf方法解读","level":"1.2.2.2.1","depth":4,"path":"java/util/M_copyOf.md","ref":"java/util/M_copyOf.md","articles":[]}]},"previous":{"title":"c_AbstractCollection","level":"1.2.2.1","depth":3,"path":"java/util/c_AbstractCollection.md","ref":"java/util/c_AbstractCollection.md","articles":[{"title":"M_toArray","level":"1.2.2.1.1","depth":4,"path":"java/util/abstractcollection/M_toArray.md","ref":"java/util/abstractcollection/M_toArray.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["github","pageview-count","mermaid-gb3","-lunr","-search","search-plus","splitter","-sharing","sharing-plus","expandable-chapters-small","anchor-navigation-ex","edit-link","copy-code-button","chart","favicon-plus","donate","tbfed-pagefooter","github-buttons"],"root":".","styles":{"website":"styles/website.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"&copy yongmingcode","modify_label":"文件修订时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"output":"_book","github":{"url":"https://github.com/yongmingcode/yl_java"},"splitter":{},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"donate":{"alipay":"https://yongmingcode.github.io/yl_code/images/alipay.png","alipayText":"支付宝","button":"赏","title":"","wechat":"https://yongmingcode.github.io/yl_code/images/wechat.png","wechatText":"微信"},"fontsettings":{"theme":"white","family":"sans","size":2},"favicon-plus":{"appleTouchIconPrecomposed152":"","favicon":"","output":"_book"},"highlight":{},"mermaid-gb3":{},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":true},"pageview-count":{},"github-buttons":{"buttons":[{"user":"yongmingcode","repo":"yl_code","type":"star","count":false,"size":"small"}]},"expandable-chapters-small":{},"copy-code-button":{},"sharing":{"qq":true,"all":["facebook","google","twitter","weibo","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":false,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":false,"messenger":false,"line":false,"vk":false,"pocket":false,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"edit-link":{"label":"编辑","base":"https://github.com/yongmingcode/yl_java/blob/master"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"chart":{"type":"c3"},"search-plus":{}},"theme":"default","author":"yongming","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Java 源码分析","language":"zh-hans","output.name":"site","links":{"sidebar":{"满月弓主页":"https://yongmingcode.github.io/yl_code/"}},"gitbook":"3.2.3","description":"java知识点分析记录","direction":"ltr"},"file":{"path":"java/util/abstractcollection/M_toArray.md","mtime":"2020-05-13T10:32:41.490Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-05-13T10:33:18.017Z"},"basePath":"../../..","book":{"language":""}});
         });
     </script>
 </div>

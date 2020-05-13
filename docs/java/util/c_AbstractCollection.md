@@ -29,7 +29,8 @@ protected AbstractCollection() {}
             return false;
         }
     ```
-  - toArray(): 将集合转为数组。
+  - [toArray()](/java/util/abstractcollection/M_toArray.md): 将集合转为Object类型的数组。
+  - [toArray(T[])](/java/util/abstractcollection/M_toArray.md)：将集合转为指定类型的数组。
     ```java
         public Object[] toArray() {
             // 准备了一个和集合size()大小的数组
@@ -37,7 +38,7 @@ protected AbstractCollection() {}
             Iterator<E> it = iterator();
             for (int i = 0; i < r.length; i++) {
                 if (! it.hasNext()) // 元素少于预期
-                    return Arrays.copyOf(r, i); // 新建了一个相同类型的数组变量指向了原来的数组，调用系统方法System.arraycopy()进行了复制,所以是产生了一个装满元素的数组。
+                    return Arrays.copyOf(r, i); // 截断数组r。
                 r[i] = it.next();
             }
             return it.hasNext() ? finishToArray(r, it) : r;

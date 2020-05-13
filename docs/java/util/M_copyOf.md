@@ -1,11 +1,13 @@
 # 概述
 copyOf方法是Arrays类里经常被使用到的一个方法，从名字中我们可以看出它主要功能就是实现数组之间的复制，Arrays类中重载了10个同名方法来应对不同数据类型的数组复制，那SE开发者是如何设计的呢？下面我们就来一起看一下这个方法吧。
 
+> 特别说明：文中引入了其它文章，只是提供深入了解copyOf方法源码中涉及其它方法的途径，即便不去阅读这些引用，笔者相信也是可以读懂copyOf方法的。
+
 # 方法详解
 
 ## copyOf(T[], int)
 
-方法源码：
+### 方法源码：
 ```java
 // original-要复制的数组，newLength-要返回的副本的长度
 public static <T> T[] copyOf(T[] original, int newLength) {
@@ -33,26 +35,28 @@ public static <T,U> T[] copyOf(U[] original, int newLength, Class<? extends T[]>
     - newLength：要返回的副本的长度
     - newType：要返回副本的类型
 
-一行行来看：
+### 分析：
 
-1. (Object)newType == (Object)Object[].class：判断newType是不是Object类型数组。因为用到了==号，比较的是内存地址，所以需要进行向上强转为Object才能比较，不然编译会抛异常：不可比较的类型(java中同一类型的对象才能进行比较)。
+1. (Object)newType == (Object)Object[].class：判断newType是不是Object类型数组。（因为用到了==号,java中同一类型的对象才能进行比较，比较的是内存地址，所以需要进行向上强转为Object才能比较，不然编译会抛异常：不可比较的类型。）。
     1. 如果newType是Object类型，则新创建一个长度为newLength的Object类型的数组。
-    2. 如果newType不是Object类型，则调用Array.newInstance()方法，创建一个类型为newType的元素类型、长度为newLength的数组。可参看[C_Array](/java/lang/reflect/C_Array.md)中newInstance方法相关讲解。
-> newType.getComponentType(): 返回newType数组中的元素类型。可参看[C_Class](/java/lang/C_Class.md)中getComponentType方法相关讲解。
+    2. 如果newType不是Object类型，则调用[Array.newInstance()](/java/lang/reflect/C_Array.md)方法。该方法创建了一个类型为newType的元素类型、长度为newLength的数组。
+    > [getComponentType()](/java/lang/C_Class.md): 该方法返回newType数组中的元素类型。
 
-2.然后执行了System类的静态方法arraycopy进行数组间的复制，可参看[C_System](/java/lang/C_System.md)中arraycopy方法相关讲解。（copyOf方法中传入的则是original数组的长度和newLength中较小的，所以如果输入的长度newLength小于original数组的长度，那么该arraycopy方法则只会返回一个只有original数组中下标从0到下标newLength的数组。）
+2. 然后执行了[System类](/java/lang/C_System.md)的静态方法[arraycopy](/java/lang/system/M_arraycopy.md)进行数组间的复制。（由Math.min(original.length, newLength)可看出，如果输入的长度newLength小于original数组的长度，那么该arraycopy方法会截取original数组，返回一个[0,newLength]的新数组）。
 
-
-> 一个小问题：(T[]) new Object[newLength]，为什么Object[]可以强制转换成T[]呢？
->> 判断(Object)newType == (Object)Object[].class
-1. 为true时，执行(T[]) new Object[newLength]，那T就是Object，newType也是Object[].class，所以可以强转成T[]
-2. 为false时，执行的是(T[]) Array.newInstance(newType.getComponentType(), newLength)，Array.newInstance返回的本质就是T[]，所以可以强转成T[]。
-
+### 总结：
 通过上面的分析，我们可以总结出copyOf(T[], int)方法的作用:
 1. 把源数组中元素的类型向上转型
 2. 截断数组，当给定长度小于给定数组时，就可以实现截断的效果
 
-> 需要注意，这里调用了System的arraycopy方法进行的copy，所以涉及到深复制和浅复制的问题，请参考[M_arraycopy](/java/lang/system/M_arraycopy.md)
+> 需要注意，这里调用[System](/java/lang/C_System.md)类的[arraycopy](/java/lang/system/M_arraycopy.md)静态方法，所以涉及到深复制和浅复制的问题。
+
+### 一个小问题：
+
+在(T[]) new Object[newLength]中，为什么Object[]可以强制转换成T[]呢？
+> 解答：判断(Object)newType == (Object)Object[].class
+1. 为true时，执行(T[]) new Object[newLength]，那T就是Object，newType也是Object[].class，所以可以强转成T[]
+2. 为false时，执行的是(T[]) Array.newInstance(newType.getComponentType(), newLength)，Array.newInstance返回的本质就是T[]，所以可以强转成T[]。
 
 ## 重载的copayOf方法
 
@@ -73,3 +77,9 @@ public static byte[] copyOf(byte[] original, int newLength) {
 1. 截断数组，当给定长度小于给定数组时，就可以实现截断的效果
 
 其余的还有short、int、long、float、double、boolean、char类型对应数组的copayOf方法，作用都相同，就不再赘述了。
+
+---
+
+参考文档：
+
+1. [Arrays.copyOf()方法详解-jdk1.8](https://my.oschina.net/u/2935389/blog/3030649 "Arrays.copyOf()方法详解-jdk1.8")
