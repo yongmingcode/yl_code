@@ -14,5 +14,6 @@
 1. [I_Iterator](/java/util/I_iterator.md)
 2. [I_Iterable](/java/lang/I_Iterable.md)
 3. [I_Collection](/java/util/I_Collection.md)
-4. [I_ListIterator](/java/util/I_ListIterator.md)
-4. [I_List](/java/util/I_List.md)
+4. [I_AbstractCollection](/java/util/I_AbstractCollection.md)
+5. [I_ListIterator](/java/util/I_ListIterator.md)
+6. [I_List](/java/util/I_List.md)
