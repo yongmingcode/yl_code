@@ -2,7 +2,6 @@
 AbstractCollection是唯一一个实现Collection接口的类，并且是一个抽象类。我们可以先看一下它的方法实现，再去分析这个类的作用。
 
 # 源码分析
-主要列出AbstractCollection中值得注意的源码分析。
 
 ### 常量
 1. MAX_ARRAY_SIZE：要分配的最大数组大小。jdk中定义如下：

@@ -7,6 +7,7 @@
     * [util](java/util/util.md)
         * [c_AbstractCollection](java/util/c_AbstractCollection.md)
             * [M_toArray](java/util/abstractcollection/M_toArray.md)
+        * [c_AbstractList](java/util/c_AbstractList.md)
         * [C_Arrays](java/util/C_Arrays.md)
             * [M_copyOf方法解读](java/util/M_copyOf.md)
         * [I_Collection](java/util/I_Collection.md)
