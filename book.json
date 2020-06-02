@@ -34,10 +34,13 @@
         "donate",
         "tbfed-pagefooter",
         "github-buttons",
-        "custom-favicon"
+        "favicon-absolute"
     ],
     "pluginsConfig": {
-        "favicon": "https://yongmingcode.github.io/yl_code/images/gong.ico",
+        "favicon-absolute":{
+            "favicon": "https://yongmingcode.github.io/yl_code/images/gong.ico",
+            "appleTouchIconPrecomposed152": "https://yongmingcode.github.io/yl_code/images/gong.ico"
+        },
         "github": {
           "url": "https://github.com/yongmingcode/yl_java"
         },
