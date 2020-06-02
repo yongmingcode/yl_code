@@ -18,7 +18,6 @@
     },
     "plugins": [
         "github",
-        "pageview-count",
         "mermaid-gb3",
         "-lunr", 
         "-search", 
@@ -34,9 +33,11 @@
         "favicon-plus",
         "donate",
         "tbfed-pagefooter",
-        "github-buttons"
+        "github-buttons",
+        "custom-favicon"
     ],
     "pluginsConfig": {
+        "favicon": "https://yongmingcode.github.io/yl_code/images/gong.ico",
         "github": {
           "url": "https://github.com/yongmingcode/yl_java"
         },
