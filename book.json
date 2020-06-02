@@ -38,8 +38,8 @@
     ],
     "pluginsConfig": {
         "favicon-absolute":{
-            "favicon": "https://yongmingcode.github.io/yl_code/images/gong.ico",
-            "appleTouchIconPrecomposed152": "https://yongmingcode.github.io/yl_code/images/gong.ico"
+            "favicon": "/gong.ico",
+            "appleTouchIconPrecomposed152": "/gong.png"
         },
         "github": {
           "url": "https://github.com/yongmingcode/yl_java"
