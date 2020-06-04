@@ -18,6 +18,7 @@
         * [I_Iterator](java/util/I_iterator.md)
         * [I_List](java/util/I_List.md)
         * [I_ListIterator](java/util/I_ListIterator.md)
+        * [I_Queue](java/util/I_Queue.md)
     * [lang](java/lang/lang.md)
         * [I_Iterable](java/lang/I_Iterable.md)
         * [C_Class](java/lang/C_Class.md)
