@@ -19,18 +19,20 @@ private class Itr implements Iterator<E>
 private class ListItr extends Itr implements ListIterator<E>
 ```
 
-## 变量
-有一个值得注意的变量：
+## modCount变量
+### 变量介绍：
 ```java
 // 定义在AbstractList类中，该变量用于记录AbstractList子类在实现iterator、listIterator时使用，主要作用是记录修改次数。
-// 即每次使用iterator、listIterator时，modCount的值都会赋予expectedModCount，每次操作前expectedModCount与modCount对比，不相等则表示可能有其它情况（如其它线程）对实例进行了修改，会抛出ConcurrentModificationException异常
+// 即每次使用iterator、listIterator时，modCount的值都会赋予expectedModCount，
+// 每次操作前expectedModCount与modCount对比，不相等则表示可能有其它情况（如其它
+// 线程、在for循环中删除某一个元素）对实例进行了修改，会抛出ConcurrentModificationException异常。
 // 这就是fail-fast机制
 protected transient int modCount = 0;
 
 // 定义在AbstractList的内部类Itr中
 int expectedModCount = modCount;
 ```
-举个该变量使用的例子，以下是next()方法源码：
+比如在next()方法中就使用到了该变量：
 ```java
 public E next() {
     // 通过modCount检查实例是否有变动
@@ -53,7 +55,32 @@ final void checkForComodification() {
         throw new ConcurrentModificationException();
 }
 ```
-
+这个变量很重要，它保证了List相关集合遍历时数据的一致性，如下面的例子：
+```java
+    List<String> list = new ArrayList<>(3);
+    list.add("mon");
+    list.add("tues");
+    list.add("thres");
+    for(String str : list){ // position_1
+        if("mon".equals(str)){
+            list.remove(str); // position_2
+        }
+    }
+```
+在执行某次循环时，“position_1”处会抛出ConcurrentModificationException异常，反编译后我们可以知道，for-each循环其实还是调用的Iterator。我们上面分析了Iterator的next()方法，通过分析我们知道，每次调用next()法都会检查modCount和expectedModCount是否相等，不相等就会抛出ConcurrentModificationException，这里明显就是因为modCount和expectedModCount不相等抛出的异常。那为什么会不相等呢？
+难道是在执行“position_2”的remove()方法对modCount进行了修改？我们看一下remove()的源码：
+```java
+// remove()方法内部调用了fastRemove()方法
+private void fastRemove(int index) {
+    modCount++; // fr_position_1
+    int numMoved = size - index - 1;
+    if (numMoved > 0)
+        System.arraycopy(elementData, index+1, elementData, index,
+                         numMoved);
+    elementData[--size] = null; // clear to let GC do its work
+}
+```
+的确，在“fr_position_1”处对modCount进行了+1，最终导致modCount和expectedModCount不相等。
 
 ## add、indexOf、lastIndexOf、clear、removeRange方法分析
 AbstractList类中提供了add方法的实现，直接将元素添加到集合的末尾，而addAll方法则是通过调用迭代器，从指定位置开始，逐个将元素添加到集合中，下面是add方法的源码：

@@ -12,8 +12,8 @@ public class ArrayList<E> extends AbstractList<E>
 - Cloneable: 实现该接口的类，支持克隆（重写clone方法）。
 - java.io.Serializable：实现该接口的类，支持序列化。
 
-
-# ArrayList中的几个变量
+# 源码分析
+## 变量
 在ArrayList中有几个成员变量我们需要注意：
 ```java
 // 默认初始化容量
@@ -35,7 +35,7 @@ private static final int MAX_ARRAY_SIZE = Integer.MAX_VALUE - 8;
 
 从这几个变量的定义中可以看出，ArrayList的实质就是数组。这就不难解释，为什么ArrayList能被标记为支持快速随机访问的类了（因为数组的访问，本身就是一种快速随机访问）。
 
-# 构造方法
+## 构造方法
 ArrayList提供了3个构造方法：
 ```java
 // 初始化一个为指定size的list
@@ -70,9 +70,9 @@ public ArrayList(Collection<? extends E> c) {
 
 ```
 
-# 重要方法
+## 重要方法
 
-## ArrayList中与[AbstractList](/java/util/c_AbstractList.md)区别的一些新实现
+### ArrayList中与[AbstractList](/java/util/c_AbstractList.md)区别的一些新实现
 以下方法，在[AbstractList](/java/util/c_AbstractList.md)中都是基于Iterator实现的，而在ArrayList中却不是:
 - indexOf(Object o)：不再通过Iterator来实现
 - lastIndexOf(Object o)：不再通过Iterator来实现
@@ -88,7 +88,7 @@ String[] array = new String[list.size()];
 array = list.toArray(array);
 ```
 
-## set()方法
+### set()方法
 将指定元素替换到指定位置，并返回原位置上的元素。
 ```java
 public E set(int index, E element) {
@@ -99,7 +99,7 @@ public E set(int index, E element) {
     return oldValue;
 }
 ```
-## 添加
+### 添加
 添加涉及到ArrayList的内存扩容问题，所以更加值得关注。
 ```java
 // 1.在列表末尾添加元素
@@ -169,7 +169,7 @@ OK，到这里内存扩容机制就清楚了。首次创建一个空数组，第
 > 1. 使用带有初始化容量的构造器ArrayList(int initialCapacity)。
 > 2. 预测到添加的数据量可能比较大，那么先进行扩容，再添加数据。扩容方法ensureCapacity(int minCapacity)，该方法调用的还是ensureExplicitCapacity(int minCapacity)
 
-# 其它部分方法
+## 其它部分方法
 还有一些方法，这里只列举出方法作用，不做详细说明了：
 - trimToSize()：将elementData的大小设置为size大小，释放无用内存
 - remove(int index)：删除指定位置的元素，并返回该元素。
