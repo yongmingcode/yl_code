@@ -316,7 +316,7 @@ public E next() {
 第三次循环调用hasNext发现cursor == size，循环结束，自然就不会再打印thresday了。
 
 # 总结
-循环遍历删除元素，有三种有效的方法：
+循环遍历删除元素，有四种有效的方法：
 - 使用removeIf()方法
 - 使用Iterator的remove()方法
 - 使用for循环正序遍历
