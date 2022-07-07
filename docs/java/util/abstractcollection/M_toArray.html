@@ -1,0 +1,1018 @@
+
+<!DOCTYPE HTML>
+<html lang="zh-hans" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>M_toArray · Java 源码分析</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="yongming">
+        
+        
+    
+    
+    <link rel="stylesheet" href="../../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../../gitbook/gitbook-plugin-mermaid-gb3/mermaid/mermaid.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../../gitbook/gitbook-plugin-search-plus/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../../gitbook/gitbook-plugin-splitter/splitter.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../../gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../../gitbook/gitbook-plugin-anchor-navigation-ex/style/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../../gitbook/gitbook-plugin-donate/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../../gitbook/gitbook-plugin-tbfed-pagefooter/footer.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+        <link rel="stylesheet" href="../../../styles/website.css">
+        
+    
+
+
+    
+
+        
+    
+    
+    
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="../c_AbstractList.html" />
+    
+    
+    <link rel="prev" href="../c_AbstractCollection.html" />
+    
+
+    
+        <link rel="shortcut icon" href="/gong.ico" type="image/x-icon">
+    
+    
+    
+    
+        <link rel="apple-touch-icon-precomposed" sizes="152x152" href="/gong.png">
+    
+    
+        
+    
+    
+        
+    
+
+    <style>
+    @media only screen and (max-width: 640px) {
+        .book-header .hidden-mobile {
+            display: none;
+        }
+    }
+    </style>
+    <script>
+        window["gitbook-plugin-github-buttons"] = {"buttons":[{"user":"yongmingcode","repo":"yl_code","type":"star","count":false,"size":"small"}]};
+    </script>
+
+    
+    <link rel="stylesheet" href="../../../gitbook/gitbook-plugin-chart/c3/c3.min.css">
+    <script src="../../../gitbook/gitbook-plugin-chart/c3/d3.min.js"></script>
+    <script src="../../../gitbook/gitbook-plugin-chart/c3/c3.min.js"></script>
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="输入并搜索" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+    
+        
+        <li>
+            <a href="https://yongmingcode.github.io/yl_code/" target="_blank" class="custom-link">满月弓主页</a>
+        </li>
+    
+    
+
+    
+    <li class="divider"></li>
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../../../">
+            
+                <a href="../../../">
+            
+                    
+                    介绍
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../../java.html">
+            
+                <a href="../../java.html">
+            
+                    
+                    Java
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../../series.html">
+            
+                <a href="../../series.html">
+            
+                    
+                    系列
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1.1" data-path="../../series/collection.html">
+            
+                <a href="../../series/collection.html">
+            
+                    
+                    集合
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../util.html">
+            
+                <a href="../util.html">
+            
+                    
+                    util
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.2.1" data-path="../c_AbstractCollection.html">
+            
+                <a href="../c_AbstractCollection.html">
+            
+                    
+                    c_AbstractCollection
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter active" data-level="1.2.2.1.1" data-path="M_toArray.html">
+            
+                <a href="M_toArray.html">
+            
+                    
+                    M_toArray
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.2" data-path="../c_AbstractList.html">
+            
+                <a href="../c_AbstractList.html">
+            
+                    
+                    c_AbstractList
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.3" data-path="../c_AbstractSequentialList.html">
+            
+                <a href="../c_AbstractSequentialList.html">
+            
+                    
+                    c_AbstractSequentialList
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.4" data-path="../C_Arrays.html">
+            
+                <a href="../C_Arrays.html">
+            
+                    
+                    C_Arrays
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.2.4.1" data-path="../M_copyOf.html">
+            
+                <a href="../M_copyOf.html">
+            
+                    
+                    M_copyOf方法解读
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.5" data-path="../C_ArrayList.html">
+            
+                <a href="../C_ArrayList.html">
+            
+                    
+                    C_ArrayList
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.2.5.1" data-path="../ArrayList_remove.html">
+            
+                <a href="../ArrayList_remove.html">
+            
+                    
+                    ArrayList遍历删除元素
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.6" data-path="../I_Collection.html">
+            
+                <a href="../I_Collection.html">
+            
+                    
+                    I_Collection
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.2.6.1" data-path="../I_Collection/M_removeIf.html">
+            
+                <a href="../I_Collection/M_removeIf.html">
+            
+                    
+                    M_removeIf方法解读
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.7" data-path="../C_collections/C_collections.html">
+            
+                <a href="../C_collections/C_collections.html">
+            
+                    
+                    C_collections
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.2.7.1" data-path="../C_collections/M_shuffle.html">
+            
+                <a href="../C_collections/M_shuffle.html">
+            
+                    
+                    M_shuffle方法解读
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.8" data-path="../i_deque.html">
+            
+                <a href="../i_deque.html">
+            
+                    
+                    I_Deque
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.9" data-path="../I_iterator.html">
+            
+                <a href="../I_iterator.html">
+            
+                    
+                    I_Iterator
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.10" data-path="../I_List.html">
+            
+                <a href="../I_List.html">
+            
+                    
+                    I_List
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.11" data-path="../I_ListIterator.html">
+            
+                <a href="../I_ListIterator.html">
+            
+                    
+                    I_ListIterator
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.12" data-path="../I_Queue.html">
+            
+                <a href="../I_Queue.html">
+            
+                    
+                    I_Queue
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="../../lang/lang.html">
+            
+                <a href="../../lang/lang.html">
+            
+                    
+                    lang
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.3.1" data-path="../../lang/I_Iterable.html">
+            
+                <a href="../../lang/I_Iterable.html">
+            
+                    
+                    I_Iterable
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3.2" data-path="../../lang/C_Class.html">
+            
+                <a href="../../lang/C_Class.html">
+            
+                    
+                    C_Class
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3.3" data-path="../../lang/reflect.html">
+            
+                <a href="../../lang/reflect.html">
+            
+                    
+                    reflect
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.3.3.1" data-path="../../lang/reflect/C_Array.html">
+            
+                <a href="../../lang/reflect/C_Array.html">
+            
+                    
+                    C_Array
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3.4" data-path="../../lang/C_System.html">
+            
+                <a href="../../lang/C_System.html">
+            
+                    
+                    C_System
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.3.4.1" data-path="../../lang/system/M_arraycopy.html">
+            
+                <a href="../../lang/system/M_arraycopy.html">
+            
+                    
+                    M_arraycopy
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="../../../jvm/jvm.html">
+            
+                <a href="../../../jvm/jvm.html">
+            
+                    
+                    Jvm
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.4.1" data-path="../../../jvm/java_runtime_area.html">
+            
+                <a href="../../../jvm/java_runtime_area.html">
+            
+                    
+                    Java运行时数据区
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../../../spring/spring.html">
+            
+                <a href="../../../spring/spring.html">
+            
+                    
+                    Spring
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../../../spring/bean/bean.html">
+            
+                <a href="../../../spring/bean/bean.html">
+            
+                    
+                    初始化bean
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1.1" data-path="../../../spring/bean/bean_initialization_method.html">
+            
+                <a href="../../../spring/bean/bean_initialization_method.html">
+            
+                    
+                    bean的初始换方法
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../../../knacks/knacks.html">
+            
+                <a href="../../../knacks/knacks.html">
+            
+                    
+                    技巧
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../../../knacks/if_else_decoupling.html">
+            
+                <a href="../../../knacks/if_else_decoupling.html">
+            
+                    
+                    if...else...解耦
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../../../knacks/repeat_payment.html">
+            
+                <a href="../../../knacks/repeat_payment.html">
+            
+                    
+                    订单重复支付解决
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="../../../knacks/nested_transactions.html">
+            
+                <a href="../../../knacks/nested_transactions.html">
+            
+                    
+                    spring嵌套事务失效解决
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            本书使用 GitBook 发布
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../../.." >M_toArray</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div class="search-plus" id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><li><span class="title-icon "></span><a href="#&#x4ECB;&#x7ECD;&#x2014;&#x2014;jdk-18-toarray&#x65B9;&#x6CD5;&#x5206;&#x6790;"><b>1. </b>&#x4ECB;&#x7ECD;&#x2014;&#x2014;jdk 1.8 toArray&#x65B9;&#x6CD5;&#x5206;&#x6790;</a></li><li><span class="title-icon "></span><a href="#toarray"><b>2. </b>toArray():</a></li><ul><li><span class="title-icon "></span><a href="#&#x6E90;&#x7801;&#x5206;&#x6790;&#xFF08;jdk-18&#xFF09;&#xFF1A;"><b>2.1. </b>&#x6E90;&#x7801;&#x5206;&#x6790;&#xFF08;jdk 1.8&#xFF09;&#xFF1A;</a></li></ul><li><span class="title-icon "></span><a href="#toarrayt"><b>3. </b>toArray(T[]):</a></li><li><span class="title-icon "></span><a href="#&#x603B;&#x7ED3;"><b>4. </b>&#x603B;&#x7ED3;</a></li></ul></div><a href="#&#x4ECB;&#x7ECD;&#x2014;&#x2014;jdk-18-toarray&#x65B9;&#x6CD5;&#x5206;&#x6790;" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h1 id="&#x4ECB;&#x7ECD;&#x2014;&#x2014;jdk-18-toarray&#x65B9;&#x6CD5;&#x5206;&#x6790;"><a name="&#x4ECB;&#x7ECD;&#x2014;&#x2014;jdk-18-toarray&#x65B9;&#x6CD5;&#x5206;&#x6790;" class="anchor-navigation-ex-anchor" href="#&#x4ECB;&#x7ECD;&#x2014;&#x2014;jdk-18-toarray&#x65B9;&#x6CD5;&#x5206;&#x6790;"><i class="fa fa-link" aria-hidden="true"></i></a>1. &#x4ECB;&#x7ECD;&#x2014;&#x2014;jdk 1.8 toArray&#x65B9;&#x6CD5;&#x5206;&#x6790;</h1>
+<p>&#x5728;AbstractCollection&#x4E2D;&#x91CD;&#x8F7D;&#x4E86;2&#x4E2A;toArray&#x65B9;&#x6CD5;&#xFF0C;&#x90FD;&#x662F;&#x4E3A;&#x4E86;&#x5C06;&#x96C6;&#x5408;&#x8F6C;&#x6570;&#x7EC4;&#x3002;&#x529F;&#x80FD;&#x4E0A;&#x6765;&#x770B;&#xFF0C;&#x4E8C;&#x8005;&#x6700;&#x5927;&#x7684;&#x533A;&#x522B;&#x5C31;&#x662F;&#x8FD4;&#x56DE;&#x7684;&#x6570;&#x7EC4;&#x7C7B;&#x578B;&#x4E0D;&#x540C;&#xFF0C;&#x4E00;&#x4E2A;&#x662F;&#x8FD4;&#x56DE;Object[],&#x53E6;&#x4E00;&#x4E2A;&#x8FD4;&#x56DE;&#x7684;&#x662F;&#x6307;&#x5B9A;&#x7684;&#x7C7B;&#x578B;&#x3002;&#x4F46;&#x4E8C;&#x8005;&#x7684;&#x5B9E;&#x73B0;&#x8FC7;&#x7A0B;&#x5DEE;&#x522B;&#x6BD4;&#x8F83;&#x5927;&#x3002;</p>
+<h1 id="toarray"><a name="toarray" class="anchor-navigation-ex-anchor" href="#toarray"><i class="fa fa-link" aria-hidden="true"></i></a>2. toArray():</h1>
+<h2 id="&#x6E90;&#x7801;&#x5206;&#x6790;&#xFF08;jdk-18&#xFF09;&#xFF1A;"><a name="&#x6E90;&#x7801;&#x5206;&#x6790;&#xFF08;jdk-18&#xFF09;&#xFF1A;" class="anchor-navigation-ex-anchor" href="#&#x6E90;&#x7801;&#x5206;&#x6790;&#xFF08;jdk-18&#xFF09;&#xFF1A;"><i class="fa fa-link" aria-hidden="true"></i></a>2.1. &#x6E90;&#x7801;&#x5206;&#x6790;&#xFF08;jdk 1.8&#xFF09;&#xFF1A;</h2>
+<pre><code class="lang-java"><span class="hljs-keyword">public</span> Object[] toArray() {
+    <span class="hljs-comment">// &#x51C6;&#x5907;&#x4E86;&#x4E00;&#x4E2A;&#x548C;&#x96C6;&#x5408;size()&#x5927;&#x5C0F;&#x7684;&#x6570;&#x7EC4;</span>
+    Object[] r = <span class="hljs-keyword">new</span> Object[size()];
+    Iterator&lt;E&gt; it = iterator();
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; r.length; i++) {
+        <span class="hljs-keyword">if</span> (! it.hasNext()) <span class="hljs-comment">// &#x5143;&#x7D20;&#x5C11;&#x4E8E;&#x9884;&#x671F;</span>
+            <span class="hljs-keyword">return</span> Arrays.copyOf(r, i); <span class="hljs-comment">// &#x622A;&#x53D6;&#x6570;&#x7EC4;r&#x7684;&#x524D;i&#x4E2A;&#x5143;&#x7D20;&#x5E76;&#x8FD4;&#x56DE;&#x3002;</span>
+        r[i] = it.next();
+    }
+
+    <span class="hljs-comment">// &#x8FD9;&#x91CC;&#x8003;&#x8651;&#x4E86;&#x4E00;&#x4E0B;&#x591A;&#x7EBF;&#x7A0B;&#x60C5;&#x51B5;</span>
+    <span class="hljs-comment">// &#x5982;&#x679C;&#x5F53;&#x524D;&#x96C6;&#x5408;&#x8FD8;&#x6709;&#x672A;&#x8F6C;&#x5165;&#x6570;&#x7EC4;&#x7684;&#x5143;&#x7D20;&#xFF0C;&#x5219;&#x8C03;&#x7528;finishToArray&#x65B9;&#x6CD5;,&#x8FDB;&#x884C;&#x6269;&#x5BB9;</span>
+    <span class="hljs-comment">// &#x5982;&#x679C;&#x5F53;&#x524D;&#x96C6;&#x5408;&#x6CA1;&#x6709;&#x672A;&#x8F6C;&#x5165;&#x6570;&#x7EC4;&#x7684;&#x5143;&#x7D20;&#xFF0C;&#x5219;&#x8FD4;&#x56DE;&#x6570;&#x7EC4;r</span>
+    <span class="hljs-keyword">return</span> it.hasNext() ? finishToArray(r, it) : r;
+}
+</code></pre>
+<p>&#x4E0A;&#x9762;&#x65B0;&#x5EFA;&#x4E86;&#x4E00;&#x4E2A;&#x6570;&#x7EC4;&#xFF0C;&#x5C06;&#x96C6;&#x5408;&#x4E2D;&#x7684;&#x5143;&#x7D20;&#x904D;&#x5386;&#x653E;&#x5165;&#x6570;&#x7EC4;&#x3002;&#x4EE3;&#x7801;&#x4E2D;&#x5BF9;&#x591A;&#x7EBF;&#x7A0B;&#x73AF;&#x5883;&#x4E0B;&#x7684;&#x60C5;&#x51B5;&#x8FDB;&#x884C;&#x4E86;&#x5904;&#x7406;&#xFF0C;&#x5982;&#x679C;&#x6709;&#x522B;&#x7684;&#x7EBF;&#x7A0B;&#x5BF9;&#x96C6;&#x5408;&#x8FDB;&#x884C;&#x4E86;&#x4FEE;&#x6539;&#x4F7F;&#x5F97;&#xFF1A;&#x96C6;&#x5408;&#x5143;&#x7D20;&#x5C11;&#x4E8E;&#x9884;&#x671F;&#xFF0C;&#x5219;&#x622A;&#x65AD;&#x8FD4;&#x56DE;;&#x96C6;&#x5408;&#x5143;&#x7D20;&#x591A;&#x4E8E;&#x9884;&#x671F;&#xFF0C;&#x5219;&#x6570;&#x7EC4;&#x8FDB;&#x884C;&#x6269;&#x5BB9;&#x6DFB;&#x52A0;&#xFF0C;&#x7136;&#x540E;&#x518D;&#x8FD4;&#x56DE;&#x6570;&#x7EC4;&#x3002;</p>
+<p>&#x5982;&#x679C;&#x6570;&#x7EC4;&#x7684;&#x957F;&#x5EA6;&#x4E0D;&#x591F;&#xFF0C;&#x8FD9;&#x91CC;&#x8C03;&#x7528;&#x4E86;finishToArray&#x65B9;&#x6CD5;&#x8FDB;&#x884C;&#x6269;&#x5BB9;&#xFF1A;</p>
+<pre><code class="lang-java"><span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> &lt;T&gt; T[] finishToArray(T[] r, Iterator&lt;?&gt; it) {
+    <span class="hljs-keyword">int</span> i = r.length;
+
+    <span class="hljs-comment">// 1.&#x4ECE;&#x96C6;&#x5408;&#x4E2D;&#x591A;&#x51FA;&#x6765;&#x7684;&#x5143;&#x7D20;&#xFF08;&#x5373;&#x6570;&#x7EC4;&#x88C5;&#x4E0D;&#x4E0B;&#x7684;&#x5143;&#x7D20;&#xFF09;&#x5F00;&#x59CB;&#x8FED;&#x4EE3;</span>
+    <span class="hljs-keyword">while</span> (it.hasNext()) {
+        <span class="hljs-keyword">int</span> cap = r.length; <span class="hljs-comment">// &#x6BCF;&#x6B21;&#x91CD;&#x65B0;&#x83B7;&#x53D6;&#x65B0;&#x6570;&#x7EC4;r&#x4E2D;&#x5143;&#x7D20;&#x7684;&#x6570;&#x91CF;&#xFF0C;&#x4F9B;&#x4E0B;&#x9762;&#x8FDB;&#x884C;&#x5BF9;&#x6BD4;&#xFF0C;&#x4FDD;&#x8BC1;&#x6570;&#x7EC4;r&#x6709;&#x5BB9;&#x91CF;&#x50A8;&#x5B58;&#x8FED;&#x4EE3;&#x5668;it&#x4E2D;&#x7684;&#x5143;&#x7D20;</span>
+        <span class="hljs-keyword">if</span> (i == cap) { <span class="hljs-comment">// 2.&#x4E0B;&#x9762;&#x662F;&#x6269;&#x5BB9;&#x64CD;&#x4F5C;&#x3002;&#x5982;&#x679C;</span>
+
+            <span class="hljs-comment">// 2.1 &#x8FDB;&#x884C;&#x6269;&#x5BB9;&#xFF1A;&#x5BB9;&#x91CF;&#x53D8;&#x4E3A;&#x539F;&#x5BB9;&#x91CF;&#x7684;1.5&#x500D;&#xFF0C;capp + cap/2 + 1</span>
+            <span class="hljs-keyword">int</span> newCap = cap + (cap &gt;&gt; <span class="hljs-number">1</span>) + <span class="hljs-number">1</span>;
+
+            <span class="hljs-comment">// 2.2 &#x5224;&#x65AD;&#x65B0;&#x5BB9;&#x91CF;&#x662F;&#x5426;&#x6EA2;&#x51FA;&#xFF0C;&#x5373;&#x8D85;&#x51FA;&#x6700;&#x5927;&#x5BB9;&#x91CF;</span>
+            <span class="hljs-keyword">if</span> (newCap - MAX_ARRAY_SIZE &gt; <span class="hljs-number">0</span>)
+                newCap = hugeCapacity(cap + <span class="hljs-number">1</span>);
+            <span class="hljs-comment">// 2.3 &#x5C06;&#x6570;&#x7EC4;r&#x4E2D;&#x7684;&#x5143;&#x7D20;&#x653E;&#x5165;&#x4E00;&#x4E2A;&#x957F;&#x5EA6;&#x4E3A;newCap&#x7684;&#x65B0;&#x6570;&#x7EC4;&#x4E2D;</span>
+            r = Arrays.copyOf(r, newCap);
+        }
+        r[i++] = (T)it.next();
+    }
+    <span class="hljs-comment">// trim if overallocated</span>
+    <span class="hljs-keyword">return</span> (i == r.length) ? r : Arrays.copyOf(r, i);
+}
+</code></pre>
+<p>finishToArray&#x65B9;&#x6CD5;&#x5BF9;&#x6570;&#x7EC4;&#x8FDB;&#x884C;&#x6269;&#x5BB9;&#xFF0C;&#x5728;&#x6570;&#x7EC4;&#x4E0D;&#x4F1A;&#x6EA2;&#x51FA;&#x7684;&#x524D;&#x63D0;&#x4E0B;&#xFF0C;&#x5373;&#x6570;&#x7EC4;&#x957F;&#x5EA6;&#x6CA1;&#x6709;&#x8FBE;&#x5230;&#x6700;&#x5927;&#x957F;&#x5EA6;&#x7684;&#x524D;&#x63D0;&#x4E0B;&#xFF0C;&#x4FDD;&#x8BC1;&#x6570;&#x7EC4;r&#x4E2D;&#x6709;&#x8DB3;&#x591F;&#x7684;&#x7A7A;&#x95F4;&#x5B58;&#x50A8;&#x8FED;&#x4EE3;&#x5668;it&#x4E2D;&#x7684;&#x5143;&#x7D20;&#xFF08;&#x91C7;&#x53D6;&#x5BB9;&#x91CF;&#x4E0D;&#x591F;&#x5C31;&#x6269;&#x5BB9;&#x7684;&#x65B9;&#x5F0F;&#xFF09;&#x3002;</p>
+<p>&#x6700;&#x5927;&#x5BB9;&#x91CF;&#x5224;&#x65AD;&#xFF1A;</p>
+<pre><code class="lang-java"><span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">int</span> <span class="hljs-title">hugeCapacity</span><span class="hljs-params">(<span class="hljs-keyword">int</span> minCapacity)</span> </span>{
+    <span class="hljs-keyword">if</span> (minCapacity &lt; <span class="hljs-number">0</span>) <span class="hljs-comment">// &#x5982;&#x679C;&#x4E00;&#x4E2A;int&#x503C;&#x52A0;1&#x53D8;&#x4E3A;&#x8D1F;&#x503C;&#xFF0C;&#x8868;&#x793A;&#x8BE5;int&#x503C;&#x5DF2;&#x7ECF;&#x8D85;&#x51FA;&#x6700;&#x5927;&#x957F;&#x5EA6;&#xFF0C;&#x5185;&#x5B58;&#x6EA2;&#x51FA;</span>
+        <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> OutOfMemoryError
+            (<span class="hljs-string">&quot;Required array size too large&quot;</span>);
+
+    <span class="hljs-comment">// &#x5982;&#x679C;&#x6700;&#x5C0F;&#x5BB9;&#x91CF;&#x5927;&#x4E8E;MAX_ARRAY_SIZE&#xFF0C;&#x5219;&#x8FD4;&#x56DE;java&#x4E2D;Integer&#x7684;&#x6700;&#x5927;&#x957F;&#x5EA6;&#xFF08;&#x8BF4;&#x767D;&#x4E86;&#x5C31;&#x662F;&#x8FDE;MAX_ARRAY_SIZE&#x4FDD;&#x7559;&#x7684;8&#x4F4D;&#x5934;&#x5B57;&#x6BB5;&#x4E5F;&#x4E0D;&#x8981;&#x4E86;&#xFF09;&#xFF0C;</span>
+    <span class="hljs-keyword">return</span> (minCapacity &gt; MAX_ARRAY_SIZE) ?
+        Integer.MAX_VALUE :
+        MAX_ARRAY_SIZE;
+}
+</code></pre>
+<p>&#x8FD9;&#x91CC;&#x5224;&#x65AD;&#x4E86;&#x6570;&#x7EC4;&#x6EA2;&#x51FA;&#x7684;&#x60C5;&#x51B5;&#xFF0C;&#x5E76;&#x5BF9;&#x6EA2;&#x51FA;&#x7684;&#x6570;&#x7EC4;&#x7ED9;&#x5B9A;&#x4E86;&#x6700;&#x5927;&#x7684;&#x957F;&#x5EA6;&#xFF08;&#x5982;&#x679C;&#x6700;&#x5927;&#x957F;&#x5EA6;&#x4E5F;&#x6CA1;&#x6CD5;&#x6EE1;&#x8DB3;&#xFF0C;&#x90A3;&#x5C31;&#x6CA1;&#x529E;&#x6CD5;&#x4E86;&#xFF09;&#x3002;</p>
+<blockquote>
+<p>int&#x503C;&#x52A0;1&#x4E3A;&#x4EC0;&#x4E48;&#x4F1A;&#x53D8;&#x6210;&#x8D1F;&#x6570;&#xFF1F;
+&#x8BA1;&#x7B97;&#x673A;&#x5B58;&#x50A8;&#x7684;&#x6570;&#x503C;&#xFF0C;&#x90FD;&#x662F;&#x7528;&#x8865;&#x7801;&#x8FDB;&#x884C;&#x8868;&#x793A;&#x3002;&#x5373;&#x9996;&#x4F4D;&#x90FD;&#x662F;&#x7B26;&#x53F7;&#x4F4D;&#xFF0C;0&#x8868;&#x793A;&#x6B63;&#x6570;&#xFF0C;1&#x8868;&#x793A;&#x8D1F;&#x6570;&#x3002;&#x5982;int&#x662F;32&#x4F4D;&#xFF0C;&#x5219;&#x7B2C;&#x4E00;&#x4F4D;&#x662F;&#x7B26;&#x53F7;&#x4F4D;&#xFF0C;&#x5176;&#x4F59;&#x7684;31&#x4F4D;&#x8FDB;&#x884C;&#x8BA1;&#x7B97;&#xFF08;&#x4E8C;&#x8FDB;&#x5236;&#x4F4D;&#x8FD0;&#x7B97;&#xFF09;&#x3002;&#x6240;&#x4EE5;&#x6700;&#x5927;&#x7684;int&#x503C;&#x662F;&#xFF1A;</p>
+<p>0111 1111 1111 1111 1111 1111 1111 1111</p>
+<p>&#x52A0;1&#xFF1A;</p>
+<p>1000 0000 0000 0000 0000 0000 0000 0000</p>
+<p>&#x7B26;&#x53F7;&#x4F4D;&#x662F;1&#xFF0C;&#x6240;&#x4EE5;&#x662F;&#x8D1F;&#x503C;&#x3002;</p>
+</blockquote>
+<h1 id="toarrayt"><a name="toarrayt" class="anchor-navigation-ex-anchor" href="#toarrayt"><i class="fa fa-link" aria-hidden="true"></i></a>3. toArray(T[]):</h1>
+<pre><code class="lang-java"><span class="hljs-keyword">public</span> &lt;T&gt; T[] toArray(T[] a) {
+
+        <span class="hljs-comment">// 1.&#x9884;&#x4F30;&#x96C6;&#x5408;&#x5927;&#x5C0F;</span>
+        <span class="hljs-keyword">int</span> size = size();
+
+        <span class="hljs-comment">// 2. &#x51C6;&#x5907;&#x4E00;&#x4E2A;&#x5408;&#x9002;&#x7684;&#x6570;&#x7EC4;&#x5B58;&#x50A8;&#x96C6;&#x5408;&#x7684;&#x5143;&#x7D20;&#xFF1A;</span>
+        <span class="hljs-comment">// 2.1 &#x5982;&#x679C;a&#x7684;&#x957F;&#x5EA6;&#x5927;&#x4E8E;&#x96C6;&#x5408;&#x7684;&#x957F;&#x5EA6;&#xFF0C;&#x5219;&#x76F4;&#x63A5;&#x5411;a&#x4E2D;&#x5B58;&#x5143;&#x7D20;&#x5C31;&#x884C;&#xFF0C;&#x5373;&#x8BA9;r&#x548C;a&#x6307;&#x5411;&#x540C;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;</span>
+        <span class="hljs-comment">// 2.2 &#x5426;&#x5219;&#xFF0C;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x4E0E;a&#x7C7B;&#x578B;&#x76F8;&#x540C;&#x4E14;&#x5927;&#x5C0F;&#x76F8;&#x7B49;&#x7684;&#x6570;&#x7EC4;</span>
+        T[] r = a.length &gt;= size ? a :
+                  (T[])java.lang.reflect.Array
+                  .newInstance(a.getClass().getComponentType(), size);
+        Iterator&lt;E&gt; it = iterator();
+
+        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; r.length; i++) {
+            <span class="hljs-keyword">if</span> (! it.hasNext()) { <span class="hljs-comment">// &#x5143;&#x7D20;&#x5C11;&#x4E8E;&#x9884;&#x671F;</span>
+                <span class="hljs-keyword">if</span> (a == r) { <span class="hljs-comment">// &#x5982;&#x679C;a&#x548C;r&#x6307;&#x5411;&#x540C;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;</span>
+                    r[i] = <span class="hljs-keyword">null</span>; <span class="hljs-comment">// &#x628A;r&#x4E0A;&#x7B2C;i&#x4F4D;&#xFF0C;&#x7F6E;&#x4E3A;null</span>
+                } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (a.length &lt; i) { <span class="hljs-comment">// &#x8FD9;&#x91CC;&#x7684;&#x5224;&#x65AD;&#x8868;&#x660E;&#xFF0C;r&#x5176;&#x5B9E;&#x662F;&#x6307;&#x5411;&#x7B2C;2.2&#x6B65;&#x4E2D;&#x65B0;&#x5EFA;&#x7684;&#x6570;&#x7EC4;&#x3002;&#x540C;&#x65F6;&#x4E5F;&#x8868;&#x660E;&#xFF0C;&#x96C6;&#x5408;&#x4E2D;&#x7684;&#x5143;&#x7D20;a&#x6570;&#x7EC4;&#x88C5;&#x4E0D;&#x4E0B;&#x3002;&#x6240;&#x4EE5;&#x76F4;&#x63A5;&#x622A;&#x65AD;&#x6570;&#x7EC4;r&#xFF0C;&#x5E76;&#x8FD4;&#x56DE;&#x3002;</span>
+                    <span class="hljs-keyword">return</span> Arrays.copyOf(r, i); <span class="hljs-comment">// &#x622A;&#x65AD;&#x6570;&#x7EC4;r&#x3002;</span>
+                } <span class="hljs-keyword">else</span> {
+                <span class="hljs-comment">// a&#x6570;&#x7EC4;&#x88C5;&#x80FD;&#x88C5;&#x4E0B;&#x96C6;&#x5408;&#x4E2D;&#x7684;&#x5143;&#x7D20;&#xFF0C;&#x90A3;&#x4E48;&#x5C31;&#x5C06;r&#x6570;&#x7EC4;&#x4E2D;&#x7684;&#x5143;&#x7D20;&#x88C5;&#x5165;a&#x6570;&#x7EC4;&#x3002;</span>
+                    System.arraycopy(r, <span class="hljs-number">0</span>, a, <span class="hljs-number">0</span>, i);
+
+                    <span class="hljs-keyword">if</span> (a.length &gt; i) { <span class="hljs-comment">//a&#x88C5;&#x5B8C;&#x96C6;&#x5408;&#x4E2D;&#x7684;&#x5143;&#x7D20;&#x8FD8;&#x6709;&#x7A7A;&#x4F59;&#x7A7A;&#x95F4;</span>
+                        a[i] = <span class="hljs-keyword">null</span>; <span class="hljs-comment">// &#x5219;&#x5C06;&#x5269;&#x4F59;&#x7684;&#x7A7A;&#x95F4;&#x7F6E;&#x4E3A;null</span>
+                    }
+                }
+                <span class="hljs-keyword">return</span> a;
+            }
+            r[i] = (T)it.next();
+        }
+
+        <span class="hljs-comment">// &#x8FD9;&#x91CC;&#x8003;&#x8651;&#x4E86;&#x4E00;&#x4E0B;&#x591A;&#x7EBF;&#x7A0B;&#x60C5;&#x51B5;</span>
+        <span class="hljs-comment">// &#x5982;&#x679C;&#x5F53;&#x524D;&#x96C6;&#x5408;&#x8FD8;&#x6709;&#x672A;&#x8F6C;&#x5165;&#x6570;&#x7EC4;&#x7684;&#x5143;&#x7D20;&#xFF0C;&#x5219;&#x8C03;&#x7528;finishToArray&#x65B9;&#x6CD5;,&#x8FDB;&#x884C;&#x6269;&#x5BB9;</span>
+        <span class="hljs-comment">// &#x5982;&#x679C;&#x5F53;&#x524D;&#x96C6;&#x5408;&#x6CA1;&#x6709;&#x672A;&#x8F6C;&#x5165;&#x6570;&#x7EC4;&#x7684;&#x5143;&#x7D20;&#xFF0C;&#x5219;&#x8FD4;&#x56DE;&#x6570;&#x7EC4;r</span>
+        <span class="hljs-keyword">return</span> it.hasNext() ? finishToArray(r, it) : r;
+    }
+</code></pre>
+<p>&#x8BE5;&#x65B9;&#x6CD5;&#x4F20;&#x5165;&#x4E00;&#x4E2A;&#x6307;&#x5B9A;&#x7C7B;&#x578B;&#x7684;&#x6570;&#x7EC4;&#xFF0C;&#x5E76;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x6307;&#x5B9A;&#x7C7B;&#x578B;&#x7684;&#x6570;&#x7EC4;&#x3002;</p>
+<p>&#x901A;&#x8FC7;&#x4E0A;&#x9762;&#x7684;&#x4EE3;&#x7801;&#x5206;&#x6790;&#x4E0D;&#x96BE;&#x770B;&#x51FA;&#xFF0C;&#x4F7F;&#x7528;&#x8BE5;&#x65B9;&#x6CD5;&#xFF0C;&#x6700;&#x597D;&#x662F;&#x4F20;&#x5165;&#x4E00;&#x4E2A;&#x4E0E;&#x96C6;&#x5408;&#x957F;&#x5EA6;&#x76F8;&#x540C;&#x7684;&#x6570;&#x7EC4;&#xFF0C;&#x4E0D;&#x7136;&#x4F1A;&#x4EA7;&#x751F;&#x8D44;&#x6E90;&#x6D6A;&#x8D39;&#xFF1A;</p>
+<ol>
+<li>&#x4F20;&#x5165;&#x7684;&#x6570;&#x7EC4;&#x7A7A;&#x95F4;&#x4E0D;&#x591F;&#xFF0C;&#x5219;toArray&#x65B9;&#x6CD5;&#x5185;&#x90E8;&#x4F1A;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x65B0;&#x7684;&#x6570;&#x7EC4;&#xFF0C;&#x91CD;&#x65B0;&#x5206;&#x914D;&#x5185;&#x5B58;&#x7A7A;&#x95F4;&#xFF1B;</li>
+<li>&#x4F20;&#x5165;&#x7684;&#x6570;&#x7EC4;&#x7A7A;&#x95F4;&#x8FC7;&#x5927;&#xFF0C;&#x591A;&#x51FA;&#x6765;&#x7684;&#x7A7A;&#x95F4;&#x88AB;&#x7F6E;&#x4E3A;null&#xFF0C;&#x9020;&#x6210;&#x8D44;&#x6E90;&#x6D6A;&#x8D39;&#x3002;</li>
+</ol>
+<p>&#x6240;&#x4EE5;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x8FD9;&#x6837;&#x4F7F;&#x7528;:</p>
+<pre><code class="lang-java">List&lt;String&gt; list = <span class="hljs-keyword">new</span> ArrayList&lt;&gt;(<span class="hljs-number">2</span>);
+list.add(<span class="hljs-string">&quot;guan&quot;</span>);
+list.add(<span class="hljs-string">&quot;bao&quot;</span>);
+String[] array = <span class="hljs-keyword">new</span> String[list.size()];
+array = list.toArray(array);
+</code></pre>
+<h1 id="&#x603B;&#x7ED3;"><a name="&#x603B;&#x7ED3;" class="anchor-navigation-ex-anchor" href="#&#x603B;&#x7ED3;"><i class="fa fa-link" aria-hidden="true"></i></a>4. &#x603B;&#x7ED3;</h1>
+<p>&#x901A;&#x8FC7;&#x4E0A;&#x9762;&#x7684;&#x5206;&#x6790;&#xFF0C;&#x5BF9;&#x4E8E;&#x96C6;&#x5408;&#x8F6C;&#x6570;&#x7EC4;&#xFF0C;&#x6211;&#x4EEC;&#x5F97;&#x51FA;&#x4EE5;&#x4E0B;&#x7ED3;&#x8BBA;&#xFF1A;</p>
+<ol>
+<li>&#x65E0;&#x53C2;&#x7684;toArray&#x65B9;&#x6CD5;&#xFF0C;&#x53EA;&#x80FD;&#x8FD4;&#x56DE;Object[]&#x7C7B;&#x578B;&#x7684;&#x6570;&#x7EC4;&#xFF0C;&#x5176;&#x5B9E;&#x6211;&#x4EEC;&#x9700;&#x8981;Object[]&#x7C7B;&#x578B;&#x7684;&#x6570;&#x7EC4;&#x7684;&#x60C5;&#x51B5;&#x8FD8;&#x662F;&#x6BD4;&#x8F83;&#x5C11;&#x7684;&#xFF0C;&#x6240;&#x4EE5;&#x5EFA;&#x8BAE;&#x4F7F;&#x7528;&#x6709;&#x53C2;&#x7684;toArray&#x65B9;&#x6CD5;&#x3002;</li>
+<li>&#x6709;&#x53C2;&#x7684;toArray&#x65B9;&#x6CD5;&#x4F7F;&#x7528;&#x65F6;&#xFF0C;&#x4F20;&#x5165;&#x7684;&#x6570;&#x7EC4;&#x7C7B;&#x578B;&#x5E94;&#x8BE5;&#x548C;&#x96C6;&#x5408;&#x5143;&#x7D20;&#x7684;&#x7C7B;&#x578B;&#x76F8;&#x540C;&#xFF0C;&#x4E14;&#x6570;&#x7EC4;&#x7684;&#x5927;&#x5C0F;&#x4E3A;&#x96C6;&#x5408;&#x5927;&#x5C0F;&#x7684;&#x6570;&#x7EC4;&#x3002;</li>
+</ol>
+<footer class="page-footer"><span class="copyright">&#xA9; yongmingcode all right reserved&#xFF0C;powered by Gitbook</span><span class="footer-modification">&#x6587;&#x4EF6;&#x4FEE;&#x8BA2;&#x65F6;&#x95F4;&#xFF1A;
+2022-07-07 18:56:41
+</span></footer>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="../c_AbstractCollection.html" class="navigation navigation-prev " aria-label="Previous page: c_AbstractCollection">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="../c_AbstractList.html" class="navigation navigation-next " aria-label="Next page: c_AbstractList">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"M_toArray","level":"1.2.2.1.1","depth":4,"next":{"title":"c_AbstractList","level":"1.2.2.2","depth":3,"path":"java/util/c_AbstractList.md","ref":"java/util/c_AbstractList.md","articles":[]},"previous":{"title":"c_AbstractCollection","level":"1.2.2.1","depth":3,"path":"java/util/c_AbstractCollection.md","ref":"java/util/c_AbstractCollection.md","articles":[{"title":"M_toArray","level":"1.2.2.1.1","depth":4,"path":"java/util/abstractcollection/M_toArray.md","ref":"java/util/abstractcollection/M_toArray.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["github","mermaid-gb3","-lunr","-search","search-plus","splitter","-sharing","sharing-plus","expandable-chapters-small","anchor-navigation-ex","edit-link","copy-code-button","chart","favicon-plus","donate","tbfed-pagefooter","github-buttons","favicon-absolute"],"root":".","styles":{"website":"styles/website.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"&copy yongmingcode","modify_label":"文件修订时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"output":"_book","github":{"url":"https://github.com/yongmingcode/yl_java"},"splitter":{},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"donate":{"alipay":"https://yongmingcode.github.io/yl_code/images/alipay.png","alipayText":"支付宝","button":"赏","title":"","wechat":"https://yongmingcode.github.io/yl_code/images/wechat.png","wechatText":"微信"},"favicon-absolute":{"appleTouchIconMore":{},"appleTouchIconPrecomposed152":"/gong.png","appleTouchIconPrecomposedMore":{},"favicon":"/gong.ico"},"fontsettings":{"theme":"white","family":"sans","size":2},"favicon-plus":{"appleTouchIconPrecomposed152":"","favicon":"","output":"_book"},"highlight":{},"mermaid-gb3":{},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":true},"github-buttons":{"buttons":[{"user":"yongmingcode","repo":"yl_code","type":"star","count":false,"size":"small"}]},"expandable-chapters-small":{},"copy-code-button":{},"sharing":{"qq":true,"all":["facebook","google","twitter","weibo","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":false,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":false,"messenger":false,"line":false,"vk":false,"pocket":false,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"edit-link":{"label":"编辑","base":"https://github.com/yongmingcode/yl_java/blob/master"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"chart":{"type":"c3"},"search-plus":{}},"theme":"default","author":"yongming","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Java 源码分析","language":"zh-hans","output.name":"site","links":{"sidebar":{"满月弓主页":"https://yongmingcode.github.io/yl_code/"}},"gitbook":"3.2.3","description":"java知识点分析记录","direction":"ltr"},"file":{"path":"java/util/abstractcollection/M_toArray.md","mtime":"2022-07-07T10:56:41.347Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2022-07-07T11:04:13.975Z"},"basePath":"../../..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    
+    <script src="../../../gitbook/gitbook.js"></script>
+    <script src="../../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-github/plugin.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-mermaid-gb3/book/plugin.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-search-plus/jquery.mark.min.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-search-plus/search.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-splitter/splitter.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-sharing-plus/buttons.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-edit-link/plugin.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-copy-code-button/toggle.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-donate/plugin.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-github-buttons/plugin.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    <script src="../../../gitbook/gitbook-plugin-mermaid-gb3/mermaid/mermaid.min.js"></script>
+
+    </body>
+</html>
+
