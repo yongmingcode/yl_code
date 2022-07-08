@@ -38,4 +38,5 @@
     * [if...else...解耦](knacks/if_else_decoupling.md)
     * [订单重复支付解决](knacks/repeat_payment.md)
     * [spring嵌套事务失效解决](knacks/nested_transactions.md)
+    * [FULLGC过多问题排查](knacks/to_many_fullgc.md)
 
