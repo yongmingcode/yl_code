@@ -1,0 +1,1230 @@
+
+<!DOCTYPE HTML>
+<html lang="zh-hans" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>ArrayList遍历删除元素 · Java 源码分析</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="yongming">
+        
+        
+    
+    
+    <link rel="stylesheet" href="../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-mermaid-gb3/mermaid/mermaid.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-search-plus/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-splitter/splitter.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-anchor-navigation-ex/style/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-donate/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-tbfed-pagefooter/footer.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+        <link rel="stylesheet" href="../../styles/website.css">
+        
+    
+
+
+    
+
+        
+    
+    
+    
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="I_Collection.html" />
+    
+    
+    <link rel="prev" href="C_ArrayList.html" />
+    
+
+    
+        <link rel="shortcut icon" href="/gong.ico" type="image/x-icon">
+    
+    
+    
+    
+        <link rel="apple-touch-icon-precomposed" sizes="152x152" href="/gong.png">
+    
+    
+        
+    
+    
+        
+    
+
+    <style>
+    @media only screen and (max-width: 640px) {
+        .book-header .hidden-mobile {
+            display: none;
+        }
+    }
+    </style>
+    <script>
+        window["gitbook-plugin-github-buttons"] = {"buttons":[{"user":"yongmingcode","repo":"yl_code","type":"star","count":false,"size":"small"}]};
+    </script>
+
+    
+    <link rel="stylesheet" href="../../gitbook/gitbook-plugin-chart/c3/c3.min.css">
+    <script src="../../gitbook/gitbook-plugin-chart/c3/d3.min.js"></script>
+    <script src="../../gitbook/gitbook-plugin-chart/c3/c3.min.js"></script>
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="输入并搜索" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+    
+        
+        <li>
+            <a href="https://yongmingcode.github.io/yl_code/" target="_blank" class="custom-link">满月弓主页</a>
+        </li>
+    
+    
+
+    
+    <li class="divider"></li>
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../../">
+            
+                <a href="../../">
+            
+                    
+                    介绍
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../java.html">
+            
+                <a href="../java.html">
+            
+                    
+                    Java
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../series.html">
+            
+                <a href="../series.html">
+            
+                    
+                    系列
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1.1" data-path="../series/collection.html">
+            
+                <a href="../series/collection.html">
+            
+                    
+                    集合
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="util.html">
+            
+                <a href="util.html">
+            
+                    
+                    util
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.2.1" data-path="c_AbstractCollection.html">
+            
+                <a href="c_AbstractCollection.html">
+            
+                    
+                    c_AbstractCollection
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.2.1.1" data-path="abstractcollection/M_toArray.html">
+            
+                <a href="abstractcollection/M_toArray.html">
+            
+                    
+                    M_toArray
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.2" data-path="c_AbstractList.html">
+            
+                <a href="c_AbstractList.html">
+            
+                    
+                    c_AbstractList
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.3" data-path="c_AbstractSequentialList.html">
+            
+                <a href="c_AbstractSequentialList.html">
+            
+                    
+                    c_AbstractSequentialList
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.4" data-path="C_Arrays.html">
+            
+                <a href="C_Arrays.html">
+            
+                    
+                    C_Arrays
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.2.4.1" data-path="M_copyOf.html">
+            
+                <a href="M_copyOf.html">
+            
+                    
+                    M_copyOf方法解读
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.5" data-path="C_ArrayList.html">
+            
+                <a href="C_ArrayList.html">
+            
+                    
+                    C_ArrayList
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter active" data-level="1.2.2.5.1" data-path="ArrayList_remove.html">
+            
+                <a href="ArrayList_remove.html">
+            
+                    
+                    ArrayList遍历删除元素
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.6" data-path="I_Collection.html">
+            
+                <a href="I_Collection.html">
+            
+                    
+                    I_Collection
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.2.6.1" data-path="I_Collection/M_removeIf.html">
+            
+                <a href="I_Collection/M_removeIf.html">
+            
+                    
+                    M_removeIf方法解读
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.7" data-path="C_collections/C_collections.html">
+            
+                <a href="C_collections/C_collections.html">
+            
+                    
+                    C_collections
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.2.7.1" data-path="C_collections/M_shuffle.html">
+            
+                <a href="C_collections/M_shuffle.html">
+            
+                    
+                    M_shuffle方法解读
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.8" data-path="i_deque.html">
+            
+                <a href="i_deque.html">
+            
+                    
+                    I_Deque
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.9" data-path="I_iterator.html">
+            
+                <a href="I_iterator.html">
+            
+                    
+                    I_Iterator
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.10" data-path="I_List.html">
+            
+                <a href="I_List.html">
+            
+                    
+                    I_List
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.11" data-path="I_ListIterator.html">
+            
+                <a href="I_ListIterator.html">
+            
+                    
+                    I_ListIterator
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.12" data-path="I_Queue.html">
+            
+                <a href="I_Queue.html">
+            
+                    
+                    I_Queue
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="../lang/lang.html">
+            
+                <a href="../lang/lang.html">
+            
+                    
+                    lang
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.3.1" data-path="../lang/I_Iterable.html">
+            
+                <a href="../lang/I_Iterable.html">
+            
+                    
+                    I_Iterable
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3.2" data-path="../lang/C_Class.html">
+            
+                <a href="../lang/C_Class.html">
+            
+                    
+                    C_Class
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3.3" data-path="../lang/reflect.html">
+            
+                <a href="../lang/reflect.html">
+            
+                    
+                    reflect
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.3.3.1" data-path="../lang/reflect/C_Array.html">
+            
+                <a href="../lang/reflect/C_Array.html">
+            
+                    
+                    C_Array
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3.4" data-path="../lang/C_System.html">
+            
+                <a href="../lang/C_System.html">
+            
+                    
+                    C_System
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.3.4.1" data-path="../lang/system/M_arraycopy.html">
+            
+                <a href="../lang/system/M_arraycopy.html">
+            
+                    
+                    M_arraycopy
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="../../jvm/jvm.html">
+            
+                <a href="../../jvm/jvm.html">
+            
+                    
+                    Jvm
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.4.1" data-path="../../jvm/java_runtime_area.html">
+            
+                <a href="../../jvm/java_runtime_area.html">
+            
+                    
+                    Java运行时数据区
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../../spring/spring.html">
+            
+                <a href="../../spring/spring.html">
+            
+                    
+                    Spring
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../../spring/bean/bean.html">
+            
+                <a href="../../spring/bean/bean.html">
+            
+                    
+                    初始化bean
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1.1" data-path="../../spring/bean/bean_initialization_method.html">
+            
+                <a href="../../spring/bean/bean_initialization_method.html">
+            
+                    
+                    bean的初始换方法
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../../knacks/knacks.html">
+            
+                <a href="../../knacks/knacks.html">
+            
+                    
+                    技巧
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../../knacks/if_else_decoupling.html">
+            
+                <a href="../../knacks/if_else_decoupling.html">
+            
+                    
+                    if...else...解耦
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../../knacks/repeat_payment.html">
+            
+                <a href="../../knacks/repeat_payment.html">
+            
+                    
+                    订单重复支付解决
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="../../knacks/nested_transactions.html">
+            
+                <a href="../../knacks/nested_transactions.html">
+            
+                    
+                    spring嵌套事务失效解决
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="../../knacks/to_many_fullgc.html">
+            
+                <a href="../../knacks/to_many_fullgc.html">
+            
+                    
+                    FULLGC过多问题排查
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            本书使用 GitBook 发布
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../.." >ArrayList遍历删除元素</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div class="search-plus" id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><li><span class="title-icon "></span><a href="#arraylist&#x904D;&#x5386;&#x5220;&#x9664;&#x5143;&#x7D20;"><b>1. </b>ArrayList&#x904D;&#x5386;&#x5220;&#x9664;&#x5143;&#x7D20;</a></li><li><span class="title-icon "></span><a href="#&#x95EE;&#x9898;&#x590D;&#x73B0;"><b>2. </b>&#x95EE;&#x9898;&#x590D;&#x73B0;</a></li><ul><li><span class="title-icon "></span><a href="#for&#x5FAA;&#x73AF;&#x5220;&#x9664;&#x5143;&#x7D20;"><b>2.1. </b>for&#x5FAA;&#x73AF;&#x5220;&#x9664;&#x5143;&#x7D20;</a></li><ul><li><span class="title-icon "></span><a href="#&#x95EE;&#x9898;&#x5206;&#x6790;"><b>2.1.1. </b>&#x95EE;&#x9898;&#x5206;&#x6790;</a></li><li><span class="title-icon "></span><a href="#&#x89E3;&#x51B3;&#x65B9;&#x6CD5;"><b>2.1.2. </b>&#x89E3;&#x51B3;&#x65B9;&#x6CD5;</a></li><li><span class="title-icon "></span><a href="#&#x5012;&#x5E8F;for&#x5FAA;&#x73AF;&#x5220;&#x9664;&#x5143;&#x7D20;"><b>2.1.3. </b>&#x5012;&#x5E8F;for&#x5FAA;&#x73AF;&#x5220;&#x9664;&#x5143;&#x7D20;</a></li></ul><li><span class="title-icon "></span><a href="#for-each&#x5FAA;&#x73AF;&#x5220;&#x9664;&#x5143;&#x7D20;"><b>2.2. </b>for-each&#x5FAA;&#x73AF;&#x5220;&#x9664;&#x5143;&#x7D20;</a></li><ul><li><span class="title-icon "></span><a href="#&#x95EE;&#x9898;&#x5206;&#x6790;_1"><b>2.2.1. </b>&#x95EE;&#x9898;&#x5206;&#x6790;</a></li><li><span class="title-icon "></span><a href="#&#x89E3;&#x51B3;&#x65B9;&#x6CD5;_1"><b>2.2.2. </b>&#x89E3;&#x51B3;&#x65B9;&#x6CD5;</a></li></ul><li><span class="title-icon "></span><a href="#removeif&#x65B9;&#x6CD5;&#x5FAA;&#x73AF;&#x904D;&#x5386;&#x5220;&#x9664;&#x5143;&#x7D20;"><b>2.3. </b>removeIf()&#x65B9;&#x6CD5;&#x5FAA;&#x73AF;&#x904D;&#x5386;&#x5220;&#x9664;&#x5143;&#x7D20;</a></li></ul><li><span class="title-icon "></span><a href="#&#x62D3;&#x5C55;&#x5EF6;&#x4F38;"><b>3. </b>&#x62D3;&#x5C55;&#x5EF6;&#x4F38;</a></li><li><span class="title-icon "></span><a href="#&#x603B;&#x7ED3;"><b>4. </b>&#x603B;&#x7ED3;</a></li></ul></div><a href="#arraylist&#x904D;&#x5386;&#x5220;&#x9664;&#x5143;&#x7D20;" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h1 id="arraylist&#x904D;&#x5386;&#x5220;&#x9664;&#x5143;&#x7D20;"><a name="arraylist&#x904D;&#x5386;&#x5220;&#x9664;&#x5143;&#x7D20;" class="anchor-navigation-ex-anchor" href="#arraylist&#x904D;&#x5386;&#x5220;&#x9664;&#x5143;&#x7D20;"><i class="fa fa-link" aria-hidden="true"></i></a>1. ArrayList&#x904D;&#x5386;&#x5220;&#x9664;&#x5143;&#x7D20;</h1>
+<p>&#x56DE;&#x60F3;&#x8D77;&#x6765;&#xFF0C;&#x5F00;&#x53D1;&#x8FC7;&#x7A0B;&#x4E2D;&#x9047;&#x5230;&#x8FC7;&#x5F88;&#x591A;&#x5751;&#xFF0C;&#x4E00;&#x6B65;&#x6B65;&#x7684;&#x8D70;&#x6765;&#xFF0C;&#x786E;&#x5B9E;&#x771F;&#x7684;&#x633A;&#x4E0D;&#x5BB9;&#x6613;&#x3002;ArrayList&#x904D;&#x5386;&#x5220;&#x9664;&#x5C31;&#x6709;&#x4E00;&#x4E2A;&#x5751;&#xFF0C;&#x5982;&#x679C;&#x4E0D;&#x4ECE;&#x6E90;&#x7801;&#x4E0A;&#x5206;&#x6790;&#xFF0C;&#x5F88;&#x96BE;&#x4E86;&#x89E3;&#x8FD9;&#x4E2A;&#x5751;&#x4EA7;&#x751F;&#x7684;&#x539F;&#x56E0;&#x3002;&#x6211;&#x9605;&#x8BFB;&#x6E90;&#x7801;&#x7684;&#x4E60;&#x60EF;&#x5C31;&#x662F;&#x4ECE;&#x8FD9;&#x4E2A;&#x5751;&#x5F00;&#x59CB;&#x7684;&#xFF0C;&#x6240;&#x4EE5;&#x8981;&#x597D;&#x597D;&#x8BB0;&#x5F55;&#x4E00;&#x4E0B;&#x3002;</p>
+<h1 id="&#x95EE;&#x9898;&#x590D;&#x73B0;"><a name="&#x95EE;&#x9898;&#x590D;&#x73B0;" class="anchor-navigation-ex-anchor" href="#&#x95EE;&#x9898;&#x590D;&#x73B0;"><i class="fa fa-link" aria-hidden="true"></i></a>2. &#x95EE;&#x9898;&#x590D;&#x73B0;</h1>
+<p>&#x5728;List&#x4E2D;&#x5B9A;&#x4E49;&#x5143;&#x7D20;&#xFF1A;Monday&#x3001;Tuesday&#x3001;Thresday&#xFF0C;&#x904D;&#x5386;&#x53BB;&#x6389;List&#x4E2D;&#x5143;&#x7D20;&#x4E3A;&quot;Monday&quot;&#x7684;&#x5143;&#x7D20;&#xFF0C;&#x6253;&#x5370;&#x8F93;&#x51FA;&#x5176;&#x5B83;&#x5143;&#x7D20;&#x3002;</p>
+<h2 id="for&#x5FAA;&#x73AF;&#x5220;&#x9664;&#x5143;&#x7D20;"><a name="for&#x5FAA;&#x73AF;&#x5220;&#x9664;&#x5143;&#x7D20;" class="anchor-navigation-ex-anchor" href="#for&#x5FAA;&#x73AF;&#x5220;&#x9664;&#x5143;&#x7D20;"><i class="fa fa-link" aria-hidden="true"></i></a>2.1. for&#x5FAA;&#x73AF;&#x5220;&#x9664;&#x5143;&#x7D20;</h2>
+<h3 id="&#x95EE;&#x9898;&#x5206;&#x6790;"><a name="&#x95EE;&#x9898;&#x5206;&#x6790;" class="anchor-navigation-ex-anchor" href="#&#x95EE;&#x9898;&#x5206;&#x6790;"><i class="fa fa-link" aria-hidden="true"></i></a>2.1.1. &#x95EE;&#x9898;&#x5206;&#x6790;</h3>
+<p>easy&#xFF0C;&#x4EE3;&#x7801;&#x5B9E;&#x73B0;&#x5982;&#x4E0B;&#xFF1A;</p>
+<pre><code class="lang-java">List&lt;String&gt; list = <span class="hljs-keyword">new</span> ArrayList&lt;&gt;(<span class="hljs-number">3</span>);
+list.add(<span class="hljs-string">&quot;Monday&quot;</span>);
+list.add(<span class="hljs-string">&quot;Tuesday&quot;</span>);
+list.add(<span class="hljs-string">&quot;Thresday&quot;</span>);
+<span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; list.size(); i++){
+    <span class="hljs-keyword">if</span>(<span class="hljs-string">&quot;Monday&quot;</span>.equals(list.get(i))){
+        list.remove(list.get(i)); <span class="hljs-comment">// position_1</span>
+        <span class="hljs-keyword">continue</span>;
+    }
+    System.out.println(list.get(i));
+}
+</code></pre>
+<p>&#x5177;&#x4F53;&#x5B9E;&#x73B0;&#x662F;&#x4F7F;&#x7528;for&#x5FAA;&#x73AF;&#x904D;&#x5386;&#x4E86;&#x4E00;&#x4E2A;List,&#x5F53;List&#x4E2D;&#x7684;&#x5143;&#x7D20;&#x4E3A;&quot;Monday&quot;&#x65F6;&#xFF0C;&#x8C03;&#x7528;ArrayList&#x7684;remove&#x65B9;&#x6CD5;&#x5220;&#x9664;&quot;Monday&quot;&#x8FD9;&#x4E2A;&#x5143;&#x7D20;&#x3002;</p>
+<p>&#x63A7;&#x5236;&#x53F0;&#x8F93;&#x51FA;&#xFF1A;thresday</p>
+<p>&#x7EB3;&#x5C3C;&#xFF1F;&#x6211;&#x8981;&#x7684;&#x201C;Thresday&#x201D;&#x5462;&#xFF1F;&#x6765;&#x63B0;&#x7740;&#x624B;&#x6307;&#x5934;&#x5206;&#x6790;&#x4E00;&#x4E0B;&#xFF1A;</p>
+<p>&#x7B2C;&#x4E00;&#x6B21;&#x5FAA;&#x73AF;&#xFF0C;&#x5FAA;&#x73AF;&#x53D8;&#x91CF;i&#xFF08;&#x5373;&#x4E0B;&#x6807;&#xFF09;&#x7684;&#x503C;&#x4E3A;0&#xFF0C;List&#x4E2D;&#x662F;&#x8FD9;&#x6837;&#x7684;&#xFF1A;</p>
+<table>
+<thead>
+<tr>
+<th>0</th>
+<th>1</th>
+<th>2</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Monday</td>
+<td>Tuesday</td>
+<td>Thresday</td>
+</tr>
+</tbody>
+</table>
+<p>&#x6267;&#x884C;&#x5B8C;&#x201C;position_1&#x201D;&#x5904;&#x7684;&#x4EE3;&#x7801;&#x540E;&#x53D8;&#x6210;&#xFF1A;</p>
+<table>
+<thead>
+<tr>
+<th>0</th>
+<th>1</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Tuesday</td>
+<td>Thresday</td>
+</tr>
+</tbody>
+</table>
+<p>&#x7531;&#x4E8E;continue&#x7684;&#x5B58;&#x5728;&#xFF0C;&#x7B2C;&#x4E00;&#x6B21;&#x5FAA;&#x73AF;&#x6267;&#x884C;&#x5B8C;&#x4E0D;&#x4F1A;&#x6253;&#x5370;&#x4EFB;&#x4F55;&#x4E1C;&#x897F;&#x3002;</p>
+<p>&#x7B2C;&#x4E8C;&#x6B21;&#x5FAA;&#x73AF;&#xFF0C;&#x800C;&#x6B64;&#x65F6;&#x5FAA;&#x73AF;&#x53D8;&#x91CF;i&#x503C;&#x4E3A;1&#xFF0C;&#x6240;&#x4EE5;&#x76F4;&#x63A5;&#x6253;&#x5370;&#x4E86;&#x201C;Thresday&#x201D;&#xFF0C;&#x5B8C;&#x7F8E;&#x7684;&#x5FFD;&#x7565;&#x4E86;&#x201C;Tuesday&#x201D;&#x3002;</p>
+<h3 id="&#x89E3;&#x51B3;&#x65B9;&#x6CD5;"><a name="&#x89E3;&#x51B3;&#x65B9;&#x6CD5;" class="anchor-navigation-ex-anchor" href="#&#x89E3;&#x51B3;&#x65B9;&#x6CD5;"><i class="fa fa-link" aria-hidden="true"></i></a>2.1.2. &#x89E3;&#x51B3;&#x65B9;&#x6CD5;</h3>
+<p>&#x65E2;&#x7136;&#x77E5;&#x9053;&#x4E86;&#x95EE;&#x9898;&#xFF0C;&#x90A3;&#x672C;&#x7740;&#x65B9;&#x6CD5;&#x603B;&#x6BD4;&#x95EE;&#x9898;&#x591A;&#x7684;&#x539F;&#x5219;&#xFF0C;&#x8BD5;&#x7740;&#x6539;&#x8FDB;&#x4E00;&#x4E0B;&#x3002;&#x901A;&#x8FC7;&#x4E0A;&#x9762;&#x7684;&#x5206;&#x6790;&#x53EF;&#x4EE5;&#x77E5;&#x9053;&#x662F;&#x7531;&#x4E8E;&#x5220;&#x9664;&#x5B8C;&#x5143;&#x7D20;&#xFF0C;&#x5FAA;&#x73AF;&#x53D8;&#x91CF;i&#x7684;&#x503C;&#x53D8;&#x5927;&#x4E86;&#xFF0C;&#x90A3;&#x4E48;&#x5F88;&#x597D;&#x529E;&#xFF1A;</p>
+<pre><code class="lang-java">List&lt;String&gt; list = <span class="hljs-keyword">new</span> ArrayList&lt;&gt;(<span class="hljs-number">3</span>);
+list.add(<span class="hljs-string">&quot;monday&quot;</span>);
+list.add(<span class="hljs-string">&quot;tuesday&quot;</span>);
+list.add(<span class="hljs-string">&quot;thresday&quot;</span>);
+<span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; list.size(); i++){
+    <span class="hljs-keyword">if</span>(<span class="hljs-string">&quot;monday&quot;</span>.equals(list.get(i))){
+        list.remove(list.get(i));
+        i--; <span class="hljs-comment">// &#x589E;&#x52A0;i--&#x4FEE;&#x590D;&#x5220;&#x9664;&#x5B8C;&#x5143;&#x7D20;i&#x503C;&#x53D8;&#x5927;&#x7684;&#x95EE;&#x9898;&#x3002;</span>
+        <span class="hljs-keyword">continue</span>;
+    }
+    System.out.println(list.get(i));
+}
+</code></pre>
+<p>&#x4E00;&#x4E2A;&#x5C0F;&#x95EE;&#x9898;&#xFF1A;&#x4E0A;&#x9762;&#x7684;&#x4EE3;&#x7801;&#x80FD;&#x4F18;&#x5316;&#x4E00;&#x4E0B;&#x5417;&#xFF1F;&#x5F53;&#x7136;&#x53EF;&#x4EE5;&#xFF0C;&#x8BF7;&#x63A5;&#x7740;&#x5F80;&#x4E0B;&#x770B;&#x3002;</p>
+<h3 id="&#x5012;&#x5E8F;for&#x5FAA;&#x73AF;&#x5220;&#x9664;&#x5143;&#x7D20;"><a name="&#x5012;&#x5E8F;for&#x5FAA;&#x73AF;&#x5220;&#x9664;&#x5143;&#x7D20;" class="anchor-navigation-ex-anchor" href="#&#x5012;&#x5E8F;for&#x5FAA;&#x73AF;&#x5220;&#x9664;&#x5143;&#x7D20;"><i class="fa fa-link" aria-hidden="true"></i></a>2.1.3. &#x5012;&#x5E8F;for&#x5FAA;&#x73AF;&#x5220;&#x9664;&#x5143;&#x7D20;</h3>
+<p>&#x5012;&#x53D9;&#x904D;&#x5386;&#x65B9;&#x5F0F;&#x5B9E;&#x73B0;&#xFF1A;</p>
+<pre><code class="lang-java">List&lt;String&gt; list = <span class="hljs-keyword">new</span> ArrayList&lt;&gt;(<span class="hljs-number">3</span>);
+list.add(<span class="hljs-string">&quot;monday&quot;</span>);
+list.add(<span class="hljs-string">&quot;tuesday&quot;</span>);
+list.add(<span class="hljs-string">&quot;thresday&quot;</span>);
+<span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i = list.size() - <span class="hljs-number">1</span>; i &gt;= <span class="hljs-number">0</span>; i--){
+    <span class="hljs-keyword">if</span>(<span class="hljs-string">&quot;thresday&quot;</span>.equals(list.get(i))){
+        list.remove(list.get(i)); <span class="hljs-comment">// position_2</span>
+        <span class="hljs-keyword">continue</span>;
+    }
+    System.out.println(list.get(i));
+}
+</code></pre>
+<p>&#x8FD9;&#x79CD;&#x65B9;&#x5F0F;&#x7684;&#x5B9E;&#x73B0;&#x89E3;&#x51B3;&#x4E86;&#x6BCF;&#x6B21;&#x5220;&#x9664;&#x5B8C;&#x8981;&#x4FEE;&#x6B63;&#x4E0B;&#x6807;&#xFF08;&#x5373;&#x5FAA;&#x73AF;&#x53D8;&#x91CF;i&#xFF09;&#x7684;&#x95EE;&#x9898;,&#x53EF;&#x4EE5;&#x6765;&#x5206;&#x6790;&#x4E00;&#x4E0B;&#x4E3A;&#x4EC0;&#x4E48;&#xFF1A;</p>
+<p>&#x7B2C;&#x4E00;&#x6B21;&#x5FAA;&#x73AF;&#xFF0C;i&#x7684;&#x503C;&#x4E3A;2&#xFF0C;List&#x4E2D;&#x662F;&#x8FD9;&#x6837;&#x7684;&#xFF1A;</p>
+<table>
+<thead>
+<tr>
+<th>0</th>
+<th>1</th>
+<th>2</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Monday</td>
+<td>Tuesday</td>
+<td>Thresday</td>
+</tr>
+</tbody>
+</table>
+<p>&#x6267;&#x884C;&#x5B8C;&#x201C;position_2&#x201D;&#x5904;&#x7684;&#x5220;&#x9664;&#x64CD;&#x4F5C;&#x540E;&#xFF0C;continue;&#x6240;&#x4EE5;&#x7B2C;&#x4E00;&#x6B21;&#x5FAA;&#x73AF;&#x4EC0;&#x4E48;&#x90FD;&#x4E0D;&#x8F93;&#x51FA;&#x3002;</p>
+<p>&#x7B2C;&#x4E8C;&#x6B21;&#x5FAA;&#x73AF;&#xFF0C;i&#x7684;&#x503C;&#x4E3A;1&#xFF0C;List&#x4E2D;&#x662F;&#x8FD9;&#x6837;&#x7684;&#xFF1A;</p>
+<table>
+<thead>
+<tr>
+<th>0</th>
+<th>1</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Monday</td>
+<td>Tuesday</td>
+</tr>
+</tbody>
+</table>
+<p>&#x6240;&#x4EE5;&#x521A;&#x597D;&#x53D6;&#x5F97;&#x6211;&#x60F3;&#x8981;&#x7684;&#x503C;&#x201C;Tuesday&#x201D;&#x3002;&#x8FD9;&#x662F;&#x5DE7;&#x5408;&#x5417;&#xFF1F;&#x4E0D;&#x662F;&#x7684;&#x3002;&#x5220;&#x9664;&#x4E00;&#x6B21;&#x5143;&#x7D20;&#xFF0C;&#x6BCF;&#x6B21;&#x4E0B;&#x9762;&#x90FD;&#x51CF;1&#xFF0C;&#x6240;&#x4EE5;&#x8FD9;&#x662F;&#x903B;&#x8F91;&#x4E0A;&#x7684;&#x6B63;&#x786E;&#x8868;&#x8FBE;&#x3002;</p>
+<h2 id="for-each&#x5FAA;&#x73AF;&#x5220;&#x9664;&#x5143;&#x7D20;"><a name="for-each&#x5FAA;&#x73AF;&#x5220;&#x9664;&#x5143;&#x7D20;" class="anchor-navigation-ex-anchor" href="#for-each&#x5FAA;&#x73AF;&#x5220;&#x9664;&#x5143;&#x7D20;"><i class="fa fa-link" aria-hidden="true"></i></a>2.2. for-each&#x5FAA;&#x73AF;&#x5220;&#x9664;&#x5143;&#x7D20;</h2>
+<p>&#x7A0B;&#x5E8F;&#x7684;&#x4E16;&#x754C;&#x5C31;&#x662F;&#x90A3;&#x4E48;&#x8BA9;&#x4EBA;&#x5174;&#x594B;&#x3002;&#x540E;&#x6765;,&#x6211;&#x53C8;&#x8BA4;&#x8BC6;&#x4E86;&#x201C;A new girl&#x201D;&#x2014;&#x2014;for-each&#xFF0C;&#x5979;&#x53EF;&#x4EE5;&#x63D0;&#x4F9B;&#x66F4;&#x52A0;&#x65B9;&#x4FBF;&#x7684;&#x904D;&#x5386;&#x64CD;&#x4F5C;&#x3002;&#x76F4;&#x63A5;&#x4E0A;......&#x4EE3;&#x7801;&#xFF1A;</p>
+<pre><code class="lang-java">List&lt;String&gt; list = <span class="hljs-keyword">new</span> ArrayList&lt;&gt;(<span class="hljs-number">3</span>);
+list.add(<span class="hljs-string">&quot;monday&quot;</span>);
+list.add(<span class="hljs-string">&quot;tuesday&quot;</span>);
+list.add(<span class="hljs-string">&quot;thresday&quot;</span>);
+<span class="hljs-keyword">for</span>(String str : list){
+    <span class="hljs-keyword">if</span>(<span class="hljs-string">&quot;monday&quot;</span>.equals(str)){
+        list.remove(str);
+        <span class="hljs-keyword">continue</span>;
+    }
+    System.out.println(str);
+}
+</code></pre>
+<p>- -&#xFF01;&#x6BD4;&#x4E0A;&#x6B21;&#x8FD8;&#x4E25;&#x91CD;&#xFF0C;&#x7A0B;&#x5E8F;&#x76F4;&#x63A5;&#x629B;&#x5F02;&#x5E38;&#xFF1A;java.util.ConcurrentModificationException&#x3002;I did not do anything......</p>
+<h3 id="&#x95EE;&#x9898;&#x5206;&#x6790;_1"><a name="&#x95EE;&#x9898;&#x5206;&#x6790;_1" class="anchor-navigation-ex-anchor" href="#&#x95EE;&#x9898;&#x5206;&#x6790;_1"><i class="fa fa-link" aria-hidden="true"></i></a>2.2.1. &#x95EE;&#x9898;&#x5206;&#x6790;</h3>
+<p>&#x4E3A;&#x4EC0;&#x4E48;&#x4F1A;&#x629B;&#x51FA;ConcurrentModificationException&#x5F02;&#x5E38;&#x5462;&#xFF1F;&#x62FF;&#x51FA;&#x6211;&#x7684;&#x5C1A;&#x65B9;&#x5B9D;&#x5251;&#xFF1A;javap&#xFF0C;&#x4EE5;&#x4E0B;&#x662F;&#x53CD;&#x7F16;&#x8BD1;&#x7ED3;&#x679C;&#xFF1A;</p>
+<pre><code class="lang-java">37: invokeinterface #8,  1            // &#x8C03;&#x7528;&#x65B9;&#x6CD5;&#xFF1A; java/util/List.iterator()&#x65B9;&#x6CD5;
+42: astore_2
+43: aload_2
+44: invokeinterface #9,  1            // &#x8C03;&#x7528;&#x65B9;&#x6CD5;&#xFF1A; java/util/Iterator.hasNext()&#x65B9;&#x6CD5;
+49: ifeq          92
+52: aload_2
+53: invokeinterface #10,  1           // InterfaceMethod java/util/Iterator.next()&#x65B9;&#x6CD5;
+</code></pre>
+<p>&#x4ECE;&#x4E0A;&#x9762;&#x53EF;&#x4EE5;&#x770B;&#x51FA;&#xFF0C;for-each&#x5FAA;&#x73AF;&#x662F;&#x901A;&#x8FC7;&#x8C03;&#x7528;Iterator&#x8FED;&#x4EE3;&#x5668;&#x5B9E;&#x73B0;&#x7684;&#xFF0C;&#x800C;Iterator&#x7684;&#x6838;&#x5FC3;&#x65B9;&#x6CD5;&#x662F;hasNext&#x548C;next&#x65B9;&#x6CD5;&#x3002;&#x800C;&#x5728;ArrayList&#x7C7B;&#x4E2D;&#x7684;&#x5185;&#x90E8;&#x7C7B;Itr&#xFF0C;&#x5C31;&#x662F;&#x5BF9;Iterator&#x63A5;&#x53E3;&#x7684;&#x5B9E;&#x73B0;&#x7C7B;&#x3002;
+&#x4EE5;&#x4E0B;&#x5217;&#x51FA;Itr&#x7684;&#x90E8;&#x5206;&#x6E90;&#x7801;&#xFF1A;</p>
+<pre><code class="lang-java"><span class="hljs-keyword">private</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Itr</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">Iterator</span>&lt;<span class="hljs-title">E</span>&gt; </span>{
+    <span class="hljs-keyword">int</span> cursor;       <span class="hljs-comment">// index of next element to return</span>
+    <span class="hljs-keyword">int</span> lastRet = -<span class="hljs-number">1</span>; <span class="hljs-comment">// index of last element returned; -1 if no such</span>
+    <span class="hljs-keyword">int</span> expectedModCount = modCount;
+
+    Itr() {}
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">hasNext</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">return</span> cursor != size;
+    }
+
+    <span class="hljs-meta">@SuppressWarnings</span>(<span class="hljs-string">&quot;unchecked&quot;</span>)
+    <span class="hljs-function"><span class="hljs-keyword">public</span> E <span class="hljs-title">next</span><span class="hljs-params">()</span> </span>{
+        checkForComodification(); <span class="hljs-comment">// position_3</span>
+        <span class="hljs-keyword">int</span> i = cursor;
+        <span class="hljs-keyword">if</span> (i &gt;= size)
+            <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> NoSuchElementException();
+        Object[] elementData = ArrayList.<span class="hljs-keyword">this</span>.elementData;
+        <span class="hljs-keyword">if</span> (i &gt;= elementData.length)
+            <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> ConcurrentModificationException();
+        cursor = i + <span class="hljs-number">1</span>;
+        <span class="hljs-keyword">return</span> (E) elementData[lastRet = i];
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">final</span> <span class="hljs-keyword">void</span> <span class="hljs-title">checkForComodification</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">if</span> (modCount != expectedModCount)
+            <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> ConcurrentModificationException();
+    }
+}
+</code></pre>
+<p>&#x6211;&#x4EEC;&#x53D1;&#x73B0;&#x5728;next&#x65B9;&#x6CD5;&#x7684;position_3&#x5904;&#x8C03;&#x7528;&#x7684;checkForComodification&#x65B9;&#x6CD5;&#x4E2D;&#xFF0C;&#x5F53;modCount&#x548C;expectedModCount&#x4E0D;&#x76F8;&#x7B49;&#x65F6;&#xFF0C;&#x4F1A;&#x629B;&#x51FA;ConcurrentModificationException&#x5F02;&#x5E38;&#x3002;&#x5728;<a href="java/util/c_AbstractList">AbstractList</a>&#x4E2D;&#x6211;&#x4EEC;&#x5206;&#x6790;&#x8FC7;,modCount&#x65F6;&#x8BB0;&#x5F55;&#x96C6;&#x5408;&#x88AB;&#x4FEE;&#x6539;&#x7684;&#x6B21;&#x6570;&#x3002;&#x7531;&#x6B64;&#x53EF;&#x77E5;&#xFF0C;&#x629B;&#x51FA;&#x5F02;&#x5E38;&#x65F6;modCount&#x548C;expectedModCount&#x4E0D;&#x76F8;&#x7B49;&#x3002;&#x901A;&#x8FC7;&#x8DDF;&#x8E2A;&#x6E90;&#x7801;&#x6211;&#x53D1;&#x73B0;&#xFF0C;&#x5728;&#x6267;&#x884C;&#x5982;&#x4E0B;&#x4EE3;&#x7801;&#x65F6;:</p>
+<pre><code class="lang-java">list.remove(str);
+</code></pre>
+<p>modCount&#x503C;&#x88AB;&#x52A0;1&#xFF1A;</p>
+<pre><code class="lang-java"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">remove</span><span class="hljs-params">(Object o)</span> </span>{
+    <span class="hljs-keyword">if</span> (o == <span class="hljs-keyword">null</span>) {
+        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> index = <span class="hljs-number">0</span>; index &lt; size; index++)
+            <span class="hljs-keyword">if</span> (elementData[index] == <span class="hljs-keyword">null</span>) {
+                fastRemove(index);
+                <span class="hljs-keyword">return</span> <span class="hljs-keyword">true</span>;
+            }
+    } <span class="hljs-keyword">else</span> {
+        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> index = <span class="hljs-number">0</span>; index &lt; size; index++)
+            <span class="hljs-keyword">if</span> (o.equals(elementData[index])) {
+                fastRemove(index);
+                <span class="hljs-keyword">return</span> <span class="hljs-keyword">true</span>;
+            }
+    }
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">false</span>;
+}
+
+<span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title">fastRemove</span><span class="hljs-params">(<span class="hljs-keyword">int</span> index)</span> </span>{
+    modCount++; <span class="hljs-comment">// &#x8FD9;&#x91CC;modCount&#x7684;&#x503C;&#x88AB;&#x52A0;1</span>
+    <span class="hljs-keyword">int</span> numMoved = size - index - <span class="hljs-number">1</span>;
+    <span class="hljs-keyword">if</span> (numMoved &gt; <span class="hljs-number">0</span>)
+        System.arraycopy(elementData, index+<span class="hljs-number">1</span>, elementData, index,
+                         numMoved);
+    elementData[--size] = <span class="hljs-keyword">null</span>; <span class="hljs-comment">// clear to let GC do its work</span>
+}
+</code></pre>
+<p>&#x6240;&#x4EE5;&#x5728;&#x5FAA;&#x73AF;&#x518D;&#x6B21;&#x6267;&#x884C;&#x5230;next()&#x65B9;&#x6CD5;&#x65F6;&#xFF0C;modCount&#x548C;expectedModCount&#x4E0D;&#x76F8;&#x7B49;&#x3002;</p>
+<h3 id="&#x89E3;&#x51B3;&#x65B9;&#x6CD5;_1"><a name="&#x89E3;&#x51B3;&#x65B9;&#x6CD5;_1" class="anchor-navigation-ex-anchor" href="#&#x89E3;&#x51B3;&#x65B9;&#x6CD5;_1"><i class="fa fa-link" aria-hidden="true"></i></a>2.2.2. &#x89E3;&#x51B3;&#x65B9;&#x6CD5;</h3>
+<p>&#x65E2;&#x7136;&#x4E0D;&#x80FD;&#x4F7F;&#x7528;ArrayList&#x4E2D;&#x7684;remove&#x65B9;&#x6CD5;&#xFF0C;&#x6211;&#x4EEC;&#x8BE5;&#x5982;&#x4F55;&#x5B9E;&#x73B0;&#x5220;&#x9664;&#x5462;&#xFF1F;</p>
+<p>&#x5728;&#x5185;&#x90E8;&#x7C7B;Itr&#x4E2D;&#xFF0C;&#x6709;&#x4E00;&#x4E2A;remove&#x65B9;&#x6CD5;,&#x6240;&#x4EE5;&#x6211;&#x4EEC;&#x76F4;&#x63A5;&#x5C06;&#x4EE3;&#x7801;&#x6539;&#x6210;&#xFF1A;</p>
+<pre><code class="lang-java">List&lt;String&gt; list = <span class="hljs-keyword">new</span> ArrayList&lt;&gt;(<span class="hljs-number">3</span>);
+list.add(<span class="hljs-string">&quot;monday&quot;</span>);
+list.add(<span class="hljs-string">&quot;tuesday&quot;</span>);
+list.add(<span class="hljs-string">&quot;thresday&quot;</span>);
+Iterator&lt;String&gt; iterator = list.iterator();
+<span class="hljs-keyword">while</span> (iterator.hasNext()){
+    String str = iterator.next();
+    <span class="hljs-keyword">if</span>(<span class="hljs-string">&quot;monday&quot;</span>.equals(str)){
+        iterator.remove();
+        <span class="hljs-keyword">continue</span>;
+    }
+    System.out.println(str);
+}
+</code></pre>
+<p>&#x63A7;&#x5236;&#x53F0;&#x8F93;&#x51FA;&#xFF1A;</p>
+<pre><code class="lang-java">tuesday
+thresday
+</code></pre>
+<p>&#x8BA9;&#x6211;&#x4EEC;&#x770B;&#x4E00;&#x4E0B;Itr&#x4E2D;remove&#x65B9;&#x6CD5;&#x7684;&#x6E90;&#x7801;&#xFF1A;</p>
+<pre><code class="lang-java"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">remove</span><span class="hljs-params">()</span> </span>{
+    <span class="hljs-keyword">if</span> (lastRet &lt; <span class="hljs-number">0</span>)
+        <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> IllegalStateException();
+    checkForComodification();
+
+    <span class="hljs-keyword">try</span> {
+        ArrayList.<span class="hljs-keyword">this</span>.remove(lastRet);
+        cursor = lastRet;
+        lastRet = -<span class="hljs-number">1</span>;
+        expectedModCount = modCount; <span class="hljs-comment">// &#x5220;&#x9664;&#x5B8C;&#xFF0C;&#x4F7F;&#x4E24;&#x4E2A;&#x53D8;&#x91CF;&#x76F8;&#x7B49;</span>
+    } <span class="hljs-keyword">catch</span> (IndexOutOfBoundsException ex) {
+        <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> ConcurrentModificationException();
+    }
+}
+</code></pre>
+<p>&#x4ECE;&#x6E90;&#x7801;&#x53EF;&#x770B;&#x51FA;&#xFF0C;&#x5728;&#x5220;&#x9664;&#x5B8C;&#x5143;&#x7D20;&#x540E;&#xFF0C;&#x4F1A;&#x5C06;modCount&#x91CD;&#x65B0;&#x8D4B;&#x503C;&#x7ED9;expectedModCount&#x3002;</p>
+<h2 id="removeif&#x65B9;&#x6CD5;&#x5FAA;&#x73AF;&#x904D;&#x5386;&#x5220;&#x9664;&#x5143;&#x7D20;"><a name="removeif&#x65B9;&#x6CD5;&#x5FAA;&#x73AF;&#x904D;&#x5386;&#x5220;&#x9664;&#x5143;&#x7D20;" class="anchor-navigation-ex-anchor" href="#removeif&#x65B9;&#x6CD5;&#x5FAA;&#x73AF;&#x904D;&#x5386;&#x5220;&#x9664;&#x5143;&#x7D20;"><i class="fa fa-link" aria-hidden="true"></i></a>2.3. removeIf()&#x65B9;&#x6CD5;&#x5FAA;&#x73AF;&#x904D;&#x5386;&#x5220;&#x9664;&#x5143;&#x7D20;</h2>
+<pre><code class="lang-java">List&lt;String&gt; list = <span class="hljs-keyword">new</span> ArrayList&lt;&gt;(<span class="hljs-number">3</span>);
+list.add(<span class="hljs-string">&quot;monday&quot;</span>);
+list.add(<span class="hljs-string">&quot;tuesday&quot;</span>);
+list.add(<span class="hljs-string">&quot;thresday&quot;</span>);
+System.out.println(list);
+list.removeIf(str -&gt; <span class="hljs-string">&quot;tuesday&quot;</span>.equals(str));
+System.out.println(list);
+</code></pre>
+<h1 id="&#x62D3;&#x5C55;&#x5EF6;&#x4F38;"><a name="&#x62D3;&#x5C55;&#x5EF6;&#x4F38;" class="anchor-navigation-ex-anchor" href="#&#x62D3;&#x5C55;&#x5EF6;&#x4F38;"><i class="fa fa-link" aria-hidden="true"></i></a>3. &#x62D3;&#x5C55;&#x5EF6;&#x4F38;</h1>
+<p>&#x5728;&#x4F7F;&#x7528;for-each&#x5FAA;&#x73AF;&#x65F6;&#x8FD8;&#x4F1A;&#x9047;&#x5230;&#x4E00;&#x4E2A;&#x95EE;&#x9898;&#xFF0C;&#x5C31;&#x662F;&#x5728;&#x4F7F;&#x7528;ArrayList&#x7684;remove&#x65B9;&#x6CD5;&#x5220;&#x9664;&#x5143;&#x7D20;&#x540E;&#xFF0C;&#x6CA1;&#x6709;&#x629B;&#x51FA;ConcurrentModificationException&#x5F02;&#x5E38;&#xFF1A;</p>
+<pre><code class="lang-java">List&lt;String&gt; list = <span class="hljs-keyword">new</span> ArrayList&lt;&gt;(<span class="hljs-number">3</span>);
+list.add(<span class="hljs-string">&quot;monday&quot;</span>);
+list.add(<span class="hljs-string">&quot;tuesday&quot;</span>);
+list.add(<span class="hljs-string">&quot;thresday&quot;</span>);
+<span class="hljs-keyword">for</span>(String str : list){
+    <span class="hljs-keyword">if</span>(<span class="hljs-string">&quot;tuesday&quot;</span>.equals(str)){ <span class="hljs-comment">// &#x6CE8;&#x610F;&#x8FD9;&#x91CC;&#x5220;&#x9664;&#x7684;&#x65F6;tuesday</span>
+        list.remove(str);
+        <span class="hljs-keyword">continue</span>;
+    }
+    System.out.println(str);
+}
+</code></pre>
+<p>&#x4F46;&#x662F;&#x63A7;&#x5236;&#x53F0;&#x53EA;&#x8F93;&#x51FA;&#x4E86;&#xFF1A;monday</p>
+<p>&#x4E0A;&#x9762;&#x7684;&#x5206;&#x6790;&#x6211;&#x4EEC;&#x5DF2;&#x7ECF;&#x77E5;&#x9053;&#xFF0C;for-each&#x5FAA;&#x73AF;&#x5176;&#x5B9E;&#x65F6;&#x901A;&#x8FC7;Iterator&#x5B9E;&#x73B0;&#x7684;&#xFF0C;&#x6240;&#x4EE5;&#x6211;&#x4EEC;&#x76F4;&#x63A5;&#x628A;&#x4E0A;&#x9762;&#x4EE3;&#x7801;&#x8F6C;&#x6210;Iterator&#x5B9E;&#x73B0;&#x7684;&#x65B9;&#x5F0F;&#xFF1A;</p>
+<pre><code class="lang-java">List&lt;String&gt; list = <span class="hljs-keyword">new</span> ArrayList&lt;&gt;(<span class="hljs-number">3</span>);
+list.add(<span class="hljs-string">&quot;monday&quot;</span>);
+list.add(<span class="hljs-string">&quot;tuesday&quot;</span>);
+list.add(<span class="hljs-string">&quot;thresday&quot;</span>);
+Iterator&lt;String&gt; iterator = list.iterator();
+<span class="hljs-keyword">while</span> (iterator.hasNext()){
+    String str = iterator.next();
+    <span class="hljs-keyword">if</span>(<span class="hljs-string">&quot;tuesday&quot;</span>.equals(str)){
+        list.remove();
+        <span class="hljs-keyword">continue</span>;
+    }
+    System.out.println(str);
+}
+</code></pre>
+<p>&#x63A7;&#x5236;&#x53F0;&#x8FD8;&#x662F;&#x53EA;&#x8F93;&#x51FA;&#x4E86;&#xFF1A;monday</p>
+<p>&#x5176;&#x5B9E;&#x8FD9;&#x4E2A;&#x8FD8;&#x662F;&#x6D89;&#x53CA;&#x5230;Itr&#x5185;&#x90E8;&#x7C7B;&#x7684;&#x6E90;&#x7801;&#xFF0C;&#x5176;&#x4E2D;hasNext()&#x65B9;&#x6CD5;&#x6E90;&#x7801;&#x5982;&#x4E0B;&#xFF1A;</p>
+<pre><code class="lang-java"><span class="hljs-keyword">int</span> cursor;       <span class="hljs-comment">// &#x5149;&#x6807;&#xFF0C;&#x8FD4;&#x56DE;&#x4E0B;&#x4E00;&#x4E2A;&#x5143;&#x7D20;&#x7684;&#x7D22;&#x5F15;</span>
+<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">hasNext</span><span class="hljs-params">()</span> </span>{
+    <span class="hljs-keyword">return</span> cursor != size;
+}
+</code></pre>
+<p>&#x53EF;&#x4EE5;&#x77E5;&#x9053;&#xFF0C;while&#x5FAA;&#x73AF;&#x6267;&#x884C;&#x5FAA;&#x73AF;&#x4F53;&#x7684;&#x6761;&#x4EF6;&#x65F6;&#x5149;&#x6807;&#x4E0D;&#x7B49;&#x4E8E;&#x96C6;&#x5408;&#x5927;&#x5C0F;&#xFF0C;&#x5373;&#x96C6;&#x5408;&#x5FAA;&#x73AF;&#x7684;&#x4E0B;&#x4E00;&#x4E2A;&#x5143;&#x7D20;&#x5B58;&#x5728;&#x3002;&#x6211;&#x4EEC;&#x8C03;&#x7528;&#x5B8C;&#x4E0B;&#x9762;&#x7684;&#x4EE3;&#x7801;&#x540E;:</p>
+<pre><code class="lang-java">list.remove(str);
+</code></pre>
+<p>&#x96C6;&#x5408;&#x4E2D;&#x7684;&#x5143;&#x7D20;&#x4F1A;&#x51CF;&#x5C11;&#x4E00;&#x4E2A;&#xFF0C;&#x6240;&#x4EE5;&#x96C6;&#x5408;&#x7684;size&#x5C31;&#x51CF;&#x4E00;&#x3002;</p>
+<p>&#x518D;&#x56DE;&#x987E;&#x4EE5;&#x4E0B;next()&#x65B9;&#x6CD5;&#x6E90;&#x7801;&#xFF1A;</p>
+<pre><code class="lang-java"><span class="hljs-function"><span class="hljs-keyword">public</span> E <span class="hljs-title">next</span><span class="hljs-params">()</span> </span>{
+    checkForComodification(); <span class="hljs-comment">// position_3</span>
+    <span class="hljs-keyword">int</span> i = cursor;
+    <span class="hljs-keyword">if</span> (i &gt;= size)
+        <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> NoSuchElementException();
+    Object[] elementData = ArrayList.<span class="hljs-keyword">this</span>.elementData;
+    <span class="hljs-keyword">if</span> (i &gt;= elementData.length)
+        <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> ConcurrentModificationException();
+    cursor = i + <span class="hljs-number">1</span>; <span class="hljs-comment">// &#x5149;&#x6807;&#x52A0;1</span>
+    <span class="hljs-keyword">return</span> (E) elementData[lastRet = i];
+}
+</code></pre>
+<p>&#x6BCF;&#x6B21;&#x8C03;&#x7528;&#x5B8C;next&#x65B9;&#x6CD5;&#xFF0C;&#x5149;&#x6807;&#x90FD;&#x4F1A;&#x52A0;1&#x3002;&#x5230;&#x8FD9;&#x91CC;&#x6211;&#x4EEC;&#x5C31;&#x53EF;&#x4EE5;&#x5F88;&#x786E;&#x5B9A;ArrayList&#x4E2D;Itr&#x5FAA;&#x73AF;&#x8FC7;&#x7A0B;&#x4E86;&#xFF1A;&#x6BCF;&#x6B21;&#x8C03;&#x7528;hasNext&#x901A;&#x8FC7;&#x5149;&#x6807;&#x7684;&#x503C;&#x548C;&#x96C6;&#x5408;&#x7684;size&#x6765;&#x5224;&#x65AD;&#x96C6;&#x5408;&#x4E2D;&#x662F;&#x5426;&#x8FD8;&#x6709;&#x5143;&#x7D20;&#x9700;&#x8981;&#x5FAA;&#x73AF;&#xFF0C;&#x6BCF;&#x6B21;&#x8C03;&#x7528;next&#x65B9;&#x6CD5;&#xFF0C;&#x90FD;&#x4F1A;&#x5BF9;&#x5149;&#x6807;&#x589E;&#x52A0;1&#xFF0C;&#x77E5;&#x9053;&#x5149;&#x6807;&#x7684;&#x503C;&#x4E0E;&#x96C6;&#x5408;&#x7684;size&#x76F8;&#x7B49;&#xFF0C;&#x5219;&#x8868;&#x793A;&#x96C6;&#x5408;&#x4E2D;&#x7684;&#x5143;&#x7D20;&#x5DF2;&#x7ECF;&#x88AB;&#x904D;&#x5386;&#x5B8C;&#x6210;&#x3002;</p>
+<p>&#x56DE;&#x5230;&#x95EE;&#x9898;&#xFF1A;</p>
+<p>&#x7B2C;&#x4E8C;&#x6B21;&#x5FAA;&#x73AF;&#xFF0C;cursor&#x5149;&#x6807;&#x7684;&#x503C;&#x4E3A;1&#xFF0C;&#x96C6;&#x5408;size&#x4E3A;2&#x3002;</p>
+<p>&#x7B2C;&#x4E8C;&#x6B21;&#x5FAA;&#x73AF;&#x5220;&#x9664;&#x5143;&#x7D20;&#xFF0C;&#x5149;&#x6807;&#x503C;&#x6CA1;&#x6709;&#x53D8;&#x5316;&#x8FD8;&#x662F;1&#xFF0C;&#x96C6;&#x5408;size&#x51CF;&#x5C0F;1&#x53D8;&#x4E3A;1&#x3002;</p>
+<p>&#x7B2C;&#x4E09;&#x6B21;&#x5FAA;&#x73AF;&#x8C03;&#x7528;hasNext&#x53D1;&#x73B0;cursor == size&#xFF0C;&#x5FAA;&#x73AF;&#x7ED3;&#x675F;&#xFF0C;&#x81EA;&#x7136;&#x5C31;&#x4E0D;&#x4F1A;&#x518D;&#x6253;&#x5370;thresday&#x4E86;&#x3002;</p>
+<h1 id="&#x603B;&#x7ED3;"><a name="&#x603B;&#x7ED3;" class="anchor-navigation-ex-anchor" href="#&#x603B;&#x7ED3;"><i class="fa fa-link" aria-hidden="true"></i></a>4. &#x603B;&#x7ED3;</h1>
+<p>&#x5FAA;&#x73AF;&#x904D;&#x5386;&#x5220;&#x9664;&#x5143;&#x7D20;&#xFF0C;&#x6709;&#x56DB;&#x79CD;&#x6709;&#x6548;&#x7684;&#x65B9;&#x6CD5;&#xFF1A;</p>
+<ul>
+<li>&#x4F7F;&#x7528;removeIf()&#x65B9;&#x6CD5;</li>
+<li>&#x4F7F;&#x7528;Iterator&#x7684;remove()&#x65B9;&#x6CD5;</li>
+<li>&#x4F7F;&#x7528;for&#x5FAA;&#x73AF;&#x6B63;&#x5E8F;&#x904D;&#x5386;</li>
+<li>&#x4F7F;&#x7528;for&#x5FAA;&#x73AF;&#x5012;&#x5E8F;&#x904D;&#x5386;</li>
+</ul>
+<p>&#x770B;&#x4F3C;&#x4E00;&#x4E2A;&#x7B80;&#x5355;&#x7684;&#x5FAA;&#x73AF;&#x904D;&#x5386;&#x5220;&#x9664;&#xFF0C;&#x5982;&#x679C;&#x4E0D;&#x4E86;&#x89E3;&#x6E90;&#x7801;&#xFF0C;&#x5F88;&#x6709;&#x53EF;&#x80FD;&#x6389;&#x5751;&#x91CC;&#x3002;&#x52A0;&#x6CB9;~&#xFF01;&#x5965;&#x91CC;&#x7ED9;&#xFF01;&#xFF01;&#xFF01;</p>
+<footer class="page-footer"><span class="copyright">&#xA9; yongmingcode all right reserved&#xFF0C;powered by Gitbook</span><span class="footer-modification">&#x6587;&#x4EF6;&#x4FEE;&#x8BA2;&#x65F6;&#x95F4;&#xFF1A;
+2022-07-07 18:56:41
+</span></footer>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="C_ArrayList.html" class="navigation navigation-prev " aria-label="Previous page: C_ArrayList">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="I_Collection.html" class="navigation navigation-next " aria-label="Next page: I_Collection">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"ArrayList遍历删除元素","level":"1.2.2.5.1","depth":4,"next":{"title":"I_Collection","level":"1.2.2.6","depth":3,"path":"java/util/I_Collection.md","ref":"java/util/I_Collection.md","articles":[{"title":"M_removeIf方法解读","level":"1.2.2.6.1","depth":4,"path":"java/util/I_Collection/M_removeIf.md","ref":"java/util/I_Collection/M_removeIf.md","articles":[]}]},"previous":{"title":"C_ArrayList","level":"1.2.2.5","depth":3,"path":"java/util/C_ArrayList.md","ref":"java/util/C_ArrayList.md","articles":[{"title":"ArrayList遍历删除元素","level":"1.2.2.5.1","depth":4,"path":"java/util/ArrayList_remove.md","ref":"java/util/ArrayList_remove.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["github","mermaid-gb3","-lunr","-search","search-plus","splitter","-sharing","sharing-plus","expandable-chapters-small","anchor-navigation-ex","edit-link","copy-code-button","chart","favicon-plus","donate","tbfed-pagefooter","github-buttons","favicon-absolute"],"root":".","styles":{"website":"styles/website.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"&copy yongmingcode","modify_label":"文件修订时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"output":"_book","github":{"url":"https://github.com/yongmingcode/yl_java"},"splitter":{},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"donate":{"alipay":"https://yongmingcode.github.io/yl_code/images/alipay.png","alipayText":"支付宝","button":"赏","title":"","wechat":"https://yongmingcode.github.io/yl_code/images/wechat.png","wechatText":"微信"},"favicon-absolute":{"appleTouchIconMore":{},"appleTouchIconPrecomposed152":"/gong.png","appleTouchIconPrecomposedMore":{},"favicon":"/gong.ico"},"fontsettings":{"theme":"white","family":"sans","size":2},"favicon-plus":{"appleTouchIconPrecomposed152":"","favicon":"","output":"_book"},"highlight":{},"mermaid-gb3":{},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":true},"github-buttons":{"buttons":[{"user":"yongmingcode","repo":"yl_code","type":"star","count":false,"size":"small"}]},"expandable-chapters-small":{},"copy-code-button":{},"sharing":{"qq":true,"all":["facebook","google","twitter","weibo","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":false,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":false,"messenger":false,"line":false,"vk":false,"pocket":false,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"edit-link":{"label":"编辑","base":"https://github.com/yongmingcode/yl_java/blob/master"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"chart":{"type":"c3"},"search-plus":{}},"theme":"default","author":"yongming","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Java 源码分析","language":"zh-hans","output.name":"site","links":{"sidebar":{"满月弓主页":"https://yongmingcode.github.io/yl_code/"}},"gitbook":"3.2.3","description":"java知识点分析记录","direction":"ltr"},"file":{"path":"java/util/ArrayList_remove.md","mtime":"2022-07-07T10:56:41.336Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2022-07-08T01:19:34.569Z"},"basePath":"../..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    
+    <script src="../../gitbook/gitbook.js"></script>
+    <script src="../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../gitbook/gitbook-plugin-github/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-mermaid-gb3/book/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search-plus/jquery.mark.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search-plus/search.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-splitter/splitter.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-sharing-plus/buttons.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-edit-link/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-copy-code-button/toggle.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-donate/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-github-buttons/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    <script src="../../gitbook/gitbook-plugin-mermaid-gb3/mermaid/mermaid.min.js"></script>
+
+    </body>
+</html>
+
