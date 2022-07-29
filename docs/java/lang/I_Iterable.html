@@ -1,0 +1,1185 @@
+
+<!DOCTYPE HTML>
+<html lang="zh-hans" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>I_Iterable · Java 源码分析</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="yongming">
+        
+        
+    
+    
+    <link rel="stylesheet" href="../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-mermaid-gb3/mermaid/mermaid.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-search-plus/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-splitter/splitter.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-anchor-navigation-ex/style/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-donate/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-tbfed-pagefooter/footer.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+        <link rel="stylesheet" href="../../styles/website.css">
+        
+    
+
+
+    
+
+        
+    
+    
+    
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="C_Class.html" />
+    
+    
+    <link rel="prev" href="lang.html" />
+    
+
+    
+        <link rel="shortcut icon" href="/gong.ico" type="image/x-icon">
+    
+    
+    
+    
+        <link rel="apple-touch-icon-precomposed" sizes="152x152" href="/gong.png">
+    
+    
+        
+    
+    
+        
+    
+
+    <style>
+    @media only screen and (max-width: 640px) {
+        .book-header .hidden-mobile {
+            display: none;
+        }
+    }
+    </style>
+    <script>
+        window["gitbook-plugin-github-buttons"] = {"buttons":[{"user":"yongmingcode","repo":"yl_code","type":"star","count":false,"size":"small"}]};
+    </script>
+
+    
+    <link rel="stylesheet" href="../../gitbook/gitbook-plugin-chart/c3/c3.min.css">
+    <script src="../../gitbook/gitbook-plugin-chart/c3/d3.min.js"></script>
+    <script src="../../gitbook/gitbook-plugin-chart/c3/c3.min.js"></script>
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="输入并搜索" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+    
+        
+        <li>
+            <a href="https://yongmingcode.github.io/yl_code/" target="_blank" class="custom-link">满月弓主页</a>
+        </li>
+    
+    
+
+    
+    <li class="divider"></li>
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../../">
+            
+                <a href="../../">
+            
+                    
+                    介绍
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../java.html">
+            
+                <a href="../java.html">
+            
+                    
+                    Java
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../series.html">
+            
+                <a href="../series.html">
+            
+                    
+                    系列
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1.1" data-path="../series/collection.html">
+            
+                <a href="../series/collection.html">
+            
+                    
+                    集合
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../util/util.html">
+            
+                <a href="../util/util.html">
+            
+                    
+                    util
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.2.1" data-path="../util/c_AbstractCollection.html">
+            
+                <a href="../util/c_AbstractCollection.html">
+            
+                    
+                    c_AbstractCollection
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.2.1.1" data-path="../util/abstractcollection/M_toArray.html">
+            
+                <a href="../util/abstractcollection/M_toArray.html">
+            
+                    
+                    M_toArray
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.2" data-path="../util/c_AbstractList.html">
+            
+                <a href="../util/c_AbstractList.html">
+            
+                    
+                    c_AbstractList
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.3" data-path="../util/c_AbstractSequentialList.html">
+            
+                <a href="../util/c_AbstractSequentialList.html">
+            
+                    
+                    c_AbstractSequentialList
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.4" data-path="../util/C_Arrays.html">
+            
+                <a href="../util/C_Arrays.html">
+            
+                    
+                    C_Arrays
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.2.4.1" data-path="../util/M_copyOf.html">
+            
+                <a href="../util/M_copyOf.html">
+            
+                    
+                    M_copyOf方法解读
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.5" data-path="../util/C_ArrayList.html">
+            
+                <a href="../util/C_ArrayList.html">
+            
+                    
+                    C_ArrayList
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.2.5.1" data-path="../util/ArrayList_remove.html">
+            
+                <a href="../util/ArrayList_remove.html">
+            
+                    
+                    ArrayList遍历删除元素
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.6" data-path="../util/I_Collection.html">
+            
+                <a href="../util/I_Collection.html">
+            
+                    
+                    I_Collection
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.2.6.1" data-path="../util/I_Collection/M_removeIf.html">
+            
+                <a href="../util/I_Collection/M_removeIf.html">
+            
+                    
+                    M_removeIf方法解读
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.7" data-path="../util/C_collections/C_collections.html">
+            
+                <a href="../util/C_collections/C_collections.html">
+            
+                    
+                    C_collections
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.2.7.1" data-path="../util/C_collections/M_shuffle.html">
+            
+                <a href="../util/C_collections/M_shuffle.html">
+            
+                    
+                    M_shuffle方法解读
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.8" data-path="../util/i_deque.html">
+            
+                <a href="../util/i_deque.html">
+            
+                    
+                    I_Deque
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.9" data-path="../util/I_iterator.html">
+            
+                <a href="../util/I_iterator.html">
+            
+                    
+                    I_Iterator
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.10" data-path="../util/I_List.html">
+            
+                <a href="../util/I_List.html">
+            
+                    
+                    I_List
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.11" data-path="../util/I_ListIterator.html">
+            
+                <a href="../util/I_ListIterator.html">
+            
+                    
+                    I_ListIterator
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.12" data-path="../util/I_Queue.html">
+            
+                <a href="../util/I_Queue.html">
+            
+                    
+                    I_Queue
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="lang.html">
+            
+                <a href="lang.html">
+            
+                    
+                    lang
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter active" data-level="1.2.3.1" data-path="I_Iterable.html">
+            
+                <a href="I_Iterable.html">
+            
+                    
+                    I_Iterable
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3.2" data-path="C_Class.html">
+            
+                <a href="C_Class.html">
+            
+                    
+                    C_Class
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3.3" data-path="reflect.html">
+            
+                <a href="reflect.html">
+            
+                    
+                    reflect
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.3.3.1" data-path="reflect/C_Array.html">
+            
+                <a href="reflect/C_Array.html">
+            
+                    
+                    C_Array
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3.4" data-path="C_System.html">
+            
+                <a href="C_System.html">
+            
+                    
+                    C_System
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.3.4.1" data-path="system/M_arraycopy.html">
+            
+                <a href="system/M_arraycopy.html">
+            
+                    
+                    M_arraycopy
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="../../jvm/jvm.html">
+            
+                <a href="../../jvm/jvm.html">
+            
+                    
+                    Jvm
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.4.1" data-path="../../jvm/java_runtime_area.html">
+            
+                <a href="../../jvm/java_runtime_area.html">
+            
+                    
+                    Java运行时数据区
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../../spring/spring.html">
+            
+                <a href="../../spring/spring.html">
+            
+                    
+                    Spring
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../../spring/bean/bean.html">
+            
+                <a href="../../spring/bean/bean.html">
+            
+                    
+                    初始化bean
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1.1" data-path="../../spring/bean/bean_initialization_method.html">
+            
+                <a href="../../spring/bean/bean_initialization_method.html">
+            
+                    
+                    bean的初始换方法
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../../knacks/knacks.html">
+            
+                <a href="../../knacks/knacks.html">
+            
+                    
+                    技巧
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../../knacks/if_else_decoupling.html">
+            
+                <a href="../../knacks/if_else_decoupling.html">
+            
+                    
+                    if...else...解耦
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../../knacks/repeat_payment.html">
+            
+                <a href="../../knacks/repeat_payment.html">
+            
+                    
+                    订单重复支付解决
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="../../knacks/nested_transactions.html">
+            
+                <a href="../../knacks/nested_transactions.html">
+            
+                    
+                    spring嵌套事务失效解决
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="../../knacks/to_many_fullgc.html">
+            
+                <a href="../../knacks/to_many_fullgc.html">
+            
+                    
+                    FULLGC过多问题排查
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.5" data-path="../../knacks/cpu_one_hundred_percent.html">
+            
+                <a href="../../knacks/cpu_one_hundred_percent.html">
+            
+                    
+                    数据库CPU100%问题优化start from
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../../hsf/hsf.html">
+            
+                <a href="../../hsf/hsf.html">
+            
+                    
+                    HSF
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../../hsf/hsf_introduce.html">
+            
+                <a href="../../hsf/hsf_introduce.html">
+            
+                    
+                    HSF介绍
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="../../hsf/HSF_SpringCloud_Dubbo.html">
+            
+                <a href="../../hsf/HSF_SpringCloud_Dubbo.html">
+            
+                    
+                    HSF、SpringCloud、Dubbo对比
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../../canal/canal.html">
+            
+                <a href="../../canal/canal.html">
+            
+                    
+                    Canal同步问题
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="../../canal/canal_sync.html">
+            
+                <a href="../../canal/canal_sync.html">
+            
+                    
+                    Canal同步
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" data-path="../../canal/canal_conn_pool_timeout.html">
+            
+                <a href="../../canal/canal_conn_pool_timeout.html">
+            
+                    
+                    数据库连接池超时
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.3" data-path="../../canal/canal_es_timeout.html">
+            
+                <a href="../../canal/canal_es_timeout.html">
+            
+                    
+                    ES全量同步&增量同步超时
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../../yapi/yapi.html">
+            
+                <a href="../../yapi/yapi.html">
+            
+                    
+                    YAPI集成
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1" data-path="../../yapi/nested_introduce.html">
+            
+                <a href="../../yapi/nested_introduce.html">
+            
+                    
+                    YAPI介绍
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2" data-path="../../yapi/sync_steps.html">
+            
+                <a href="../../yapi/sync_steps.html">
+            
+                    
+                    通过EasyYapi插件集成步骤
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3" data-path="../../yapi/yapi_usage_details.html">
+            
+                <a href="../../yapi/yapi_usage_details.html">
+            
+                    
+                    使用详解
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            本书使用 GitBook 发布
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../.." >I_Iterable</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div class="search-plus" id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><li><span class="title-icon "></span><a href="#iiterable"><b>1. </b>I_Iterable</a></li><li><span class="title-icon "></span><a href="#&#x65B9;&#x6CD5;"><b>2. </b>&#x65B9;&#x6CD5;</a></li><li><span class="title-icon "></span><a href="#&#x65B9;&#x6CD5;&#x63A2;&#x7A76;"><b>3. </b>&#x65B9;&#x6CD5;&#x63A2;&#x7A76;</a></li><ul><li><span class="title-icon "></span><a href="#iterator&#x65B9;&#x6CD5;"><b>3.1. </b>iterator&#x65B9;&#x6CD5;</a></li><li><span class="title-icon "></span><a href="#foreach&#x65B9;&#x6CD5;"><b>3.2. </b>forEach&#x65B9;&#x6CD5;</a></li><li><span class="title-icon "></span><a href="#spliterator&#x65B9;&#x6CD5;"><b>3.3. </b>spliterator&#x65B9;&#x6CD5;</a></li></ul></ul></div><a href="#iiterable" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h1 id="iiterable"><a name="iiterable" class="anchor-navigation-ex-anchor" href="#iiterable"><i class="fa fa-link" aria-hidden="true"></i></a>1. I_Iterable</h1>
+<p>&#x8BE5;&#x63A5;&#x53E3;&#x662F;&#x96C6;&#x5408;&#x7684;&#x9876;&#x7EA7;&#x63A5;&#x53E3;&#xFF0C;&#x6B63;&#x5982;jdk&#x4E2D;&#x6CE8;&#x91CA;&#x7684;&#x90A3;&#x6837;&#xFF0C;&#x5B9E;&#x73B0;&#x4E86;&#x8BE5;&#x63A5;&#x53E3;&#xFF0C;&#x5219;&#x53EF;&#x4EE5;&#x8FDB;&#x884C;for-each&#x5FAA;&#x73AF;&#x3002;</p>
+<h1 id="&#x65B9;&#x6CD5;"><a name="&#x65B9;&#x6CD5;" class="anchor-navigation-ex-anchor" href="#&#x65B9;&#x6CD5;"><i class="fa fa-link" aria-hidden="true"></i></a>2. &#x65B9;&#x6CD5;</h1>
+<ol>
+<li>iterator&#xFF1A;&#x8BE5;&#x65B9;&#x6CD5;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x6CDB;&#x578B;&#x7C7B;&#x578B;&#x7684;&#x8FED;&#x4EE3;&#x5668;&#x3002;</li>
+<li>forEach&#xFF1A;jdk1.8&#x65B0;&#x589E;&#x65B9;&#x6CD5;&#xFF0C;&#x5BF9;&#x96C6;&#x5408;&#x4E2D;&#x6BCF;&#x4E2A;&#x5143;&#x7D20;&#x904D;&#x5386;&#x6267;&#x884C;&#x7ED9;&#x5B9A;&#x7684;&#x64CD;&#x4F5C;&#x3002;</li>
+<li>spliterator&#xFF1A;jdk1.8&#x65B0;&#x589E;&#x65B9;&#x6CD5;&#xFF0C;&#x8BE5;&#x65B9;&#x6CD5;&#x63D0;&#x4F9B;&#x4E86;&#x4E00;&#x4E2A;&#x53EF;&#x4EE5;&#x5E76;&#x884C;&#x904D;&#x5386;&#x5143;&#x7D20;&#x7684;&#x8FED;&#x4EE3;&#x5668;&#xFF0C;&#x4EE5;&#x9002;&#x5E94;&#x73B0;&#x5728;cpu&#x591A;&#x6838;&#x65F6;&#x4EE3;&#x5E76;&#x884C;&#x904D;&#x5386;&#x7684;&#x9700;&#x6C42;&#x3002;&#x66F4;&#x591A;&#x76F8;&#x5173;&#x4ECB;&#x7ECD;&#x8BF7;&#x67E5;&#x770B;&#x6587;&#x672B;&#x53C2;&#x8003;&#x8D44;&#x6599;&#x3002;</li>
+</ol>
+<h1 id="&#x65B9;&#x6CD5;&#x63A2;&#x7A76;"><a name="&#x65B9;&#x6CD5;&#x63A2;&#x7A76;" class="anchor-navigation-ex-anchor" href="#&#x65B9;&#x6CD5;&#x63A2;&#x7A76;"><i class="fa fa-link" aria-hidden="true"></i></a>3. &#x65B9;&#x6CD5;&#x63A2;&#x7A76;</h1>
+<h2 id="iterator&#x65B9;&#x6CD5;"><a name="iterator&#x65B9;&#x6CD5;" class="anchor-navigation-ex-anchor" href="#iterator&#x65B9;&#x6CD5;"><i class="fa fa-link" aria-hidden="true"></i></a>3.1. iterator&#x65B9;&#x6CD5;</h2>
+<p>Iterable&#x63A5;&#x53E3;&#x65E2;&#x7136;&#x80FD;&#x8BA9;&#x5B83;&#x7684;&#x5B9E;&#x73B0;&#x7C7B;&#x80FD;&#x591F;&#x8FDB;&#x884C;for-each&#x5FAA;&#x73AF;&#xFF0C;&#x90A3;&#x6211;&#x4EEC;&#x5C31;&#x62FF;ArrayList&#x7C7B;&#x6765;&#x505A;&#x4E2A;&#x5C0F;&#x793A;&#x4F8B;&#xFF08;ArrayList&#x662F;Iterable&#x63A5;&#x53E3;&#x7684;&#x5B50;&#x5B59;&#x63A5;&#x53E3;&#xFF09;&#xFF1A;</p>
+<pre><code class="lang-java"><span class="hljs-keyword">import</span> java.util.*;
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Test</span></span>{
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span></span>{
+        List&lt;String&gt; list = <span class="hljs-keyword">new</span> ArrayList&lt;String&gt;();
+        list.add(<span class="hljs-string">&quot;a&quot;</span>);
+        list.add(<span class="hljs-string">&quot;b&quot;</span>);
+        list.add(<span class="hljs-string">&quot;c&quot;</span>);
+        <span class="hljs-keyword">for</span> (String str : list) {
+            System.out.println(str);
+        }
+    }
+}
+</code></pre>
+<p>&#x7F16;&#x8BD1;&#x8FD0;&#x884C;&#x540E;&#x63A7;&#x5236;&#x53F0;&#x8F93;&#x51FA;&#xFF1A;</p>
+<pre><code class="lang-java">&gt; javac Test.java
+&gt; java Test
+a
+b
+c
+</code></pre>
+<p>&#x90A3;for-each&#x5230;&#x5E95;&#x662F;&#x600E;&#x4E48;&#x8FDB;&#x884C;&#x5FAA;&#x73AF;&#x7684;&#x5462;&#xFF1F;&#x6211;&#x4EEC;&#x901A;&#x8FC7;javap&#x547D;&#x4EE4;&#x5BF9;&#x5B57;&#x8282;&#x7801;&#x8FDB;&#x884C;&#x53CD;&#x7F16;&#x8BD1;&#xFF0C;&#x770B;&#x770B;&#x80FD;&#x4E0D;&#x80FD;&#x5F97;&#x51FA;&#x7B54;&#x6848;&#x3002;</p>
+<p>&#x53CD;&#x7F16;&#x8BD1;&#x540E;&#x7684;&#x5B57;&#x8282;&#x7801;&#x8F93;&#x51FA;&#x5982;&#x4E0B;&#xFF1A;</p>
+<pre><code class="lang-java">  public static void main(java.lang.String[]);
+    Code:
+       0: new           #2                  // class java/util/ArrayList
+       3: dup
+       4: invokespecial #3                  // Method java/util/ArrayList.&quot;&lt;init&gt;&quot;:()V
+       7: astore_1
+       8: aload_1
+       9: ldc           #4                  // String a
+      11: invokevirtual #5                  // Method java/util/ArrayList.add:(Ljava/lang/Object;)Z
+      14: pop
+      15: aload_1
+      16: ldc           #6                  // String b
+      18: invokevirtual #5                  // Method java/util/ArrayList.add:(Ljava/lang/Object;)Z
+      21: pop
+      22: aload_1
+      23: ldc           #7                  // String c
+      25: invokevirtual #5                  // Method java/util/ArrayList.add:(Ljava/lang/Object;)Z
+      28: pop
+      29: aload_1
+      30: invokevirtual #8                  // &#x6CE8;&#x91CA;1 Method java/util/ArrayList.iterator:()Ljava/util/Iterator;
+      33: astore_2
+      34: aload_2
+      35: invokeinterface #9,  1            // &#x6CE8;&#x91CA;2  InterfaceMethod java/util/Iterator.hasNext:()Z
+      40: ifeq          63
+      43: aload_2
+      44: invokeinterface #10,  1           // &#x6CE8;&#x91CA;3 InterfaceMethod java/util/Iterator.next:()Ljava/lang/Object;
+      49: checkcast     #11                 // class java/lang/String
+      52: astore_3
+      53: getstatic     #12                 // Field java/lang/System.out:Ljava/io/PrintStream;
+      56: aload_3
+      57: invokevirtual #13                 // Method java/io/PrintStream.println:(Ljava/lang/String;)V
+      60: goto          34
+      63: return
+</code></pre>
+<p>&#x679C;&#x7136;&#xFF0C;&#x4ECE;&#x5B57;&#x8282;&#x7801;&#x6587;&#x4EF6;&#x6211;&#x6807;&#x6CE8;&#x7684;&#x6CE8;&#x91CA;1&#x3001;2&#x3001;3&#x53EF;&#x4EE5;&#x770B;&#x51FA;&#xFF0C;&#x5176;&#x5B9E;for-each&#x6700;&#x7EC8;&#x8FD8;&#x662F;&#x88AB;jvm&#x901A;&#x8FC7;&#x8C03;&#x7528;Iterator&#x8FED;&#x4EE3;&#x5668;&#x5B9E;&#x73B0;&#x7684;&#x3002;</p>
+<h2 id="foreach&#x65B9;&#x6CD5;"><a name="foreach&#x65B9;&#x6CD5;" class="anchor-navigation-ex-anchor" href="#foreach&#x65B9;&#x6CD5;"><i class="fa fa-link" aria-hidden="true"></i></a>3.2. forEach&#x65B9;&#x6CD5;</h2>
+<p>&#x76F8;&#x4FE1;&#x7EC6;&#x5FC3;&#x7684;&#x5C0F;&#x4F19;&#x4F34;&#x5DF2;&#x7ECF;&#x53D1;&#x73B0;&#xFF0C;forEach&#x65B9;&#x6CD5;&#x548C;<a href="../util/I_iterator.html">I_Iterator</a>&#x4E2D;&#x7684;forEachRemaining&#x65B9;&#x6CD5;&#xFF0C;&#x4E8C;&#x8005;&#x90FD;&#x662F;&#x5BF9;&#x5143;&#x7D20;&#x904D;&#x5386;&#x6267;&#x884C;&#x7ED9;&#x5B9A;&#x7684;&#x64CD;&#x4F5C;,&#x90A3;&#x4E3A;&#x4F55;&#x4F1A;&#x6709;&#x8FD9;2&#x4E2A;&#x65B9;&#x6CD5;&#x5462;&#xFF1F;&#x8FD9;&#x4E0D;&#x662F;&#x591A;&#x4F59;&#x5417;&#xFF1F;</p>
+<p>&#x5176;&#x5B9E;&#x4E8C;&#x8005;&#x6709;&#x6240;&#x4E0D;&#x540C;&#xFF1A;</p>
+<ol>
+<li>forEach&#x65B9;&#x6CD5;&#x4F7F;&#x7528;&#x7684;&#x662F;for-each&#x5FAA;&#x73AF;&#x904D;&#x5386;&#xFF0C;&#x800C;forEachRemaining&#x65B9;&#x6CD5;&#x4F7F;&#x7528;&#x8FED;&#x4EE3;&#x5668;Iterator&#x904D;&#x5386;&#x5143;&#x7D20;&#x3002;</li>
+<li>forEach&#x65B9;&#x6CD5;&#x662F;&#x5BF9;Iterable&#x4E2D;&#x7684;&#x6240;&#x6709;&#x5143;&#x7D20;&#x8FDB;&#x884C;&#x904D;&#x5386;&#xFF0C;&#x53EF;&#x4EE5;&#x591A;&#x6B21;&#x8C03;&#x7528;&#xFF1B;forEachRemaining&#x65B9;&#x6CD5;&#x7B2C;&#x4E8C;&#x6B21;&#x8C03;&#x7528;&#x4E0D;&#x4F1A;&#x505A;&#x4EFB;&#x4F55;&#x64CD;&#x4F5C;&#xFF0C;&#x56E0;&#x4E3A;&#x4E0D;&#x4F1A;&#x6709;&#x4E0B;&#x4E00;&#x4E2A;&#x5143;&#x7D20;&#x3002;</li>
+</ol>
+<h2 id="spliterator&#x65B9;&#x6CD5;"><a name="spliterator&#x65B9;&#x6CD5;" class="anchor-navigation-ex-anchor" href="#spliterator&#x65B9;&#x6CD5;"><i class="fa fa-link" aria-hidden="true"></i></a>3.3. spliterator&#x65B9;&#x6CD5;</h2>
+<p>&#x6211;&#x4EEC;&#x770B;&#x4E00;&#x4E0B;&#x8BE5;&#x65B9;&#x6CD5;&#x7684;&#x6E90;&#x7801;&#xFF1A;</p>
+<pre><code class="lang-java"><span class="hljs-function"><span class="hljs-keyword">default</span> Spliterator&lt;T&gt; <span class="hljs-title">spliterator</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">return</span> Spliterators.spliteratorUnknownSize(iterator(), <span class="hljs-number">0</span>);
+}
+</code></pre>
+<p>&#x91CC;&#x9762;&#x53EA;&#x6709;&#x4E00;&#x884C;&#x4EE3;&#x7801;&#xFF0C;&#x8C03;&#x7528;&#x4E86;Spliterators&#x7684;spliteratorUnknownSize&#x65B9;&#x6CD5;&#xFF0C;&#x7EE7;&#x7EED;&#x5F80;&#x4E0B;&#x770B;&#xFF1A;</p>
+<pre><code class="lang-java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> &lt;T&gt; <span class="hljs-function">Spliterator&lt;T&gt; <span class="hljs-title">spliteratorUnknownSize</span><span class="hljs-params">(Iterator&lt;? extends T&gt; iterator,
+                                                            <span class="hljs-keyword">int</span> characteristics)</span> </span>{
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> IteratorSpliterator&lt;&gt;(Objects.requireNonNull(iterator), characteristics);
+}
+</code></pre>
+<p>&#x8BE5;&#x65B9;&#x6CD5;&#x901A;&#x8FC7;&#x6709;&#x53C2;&#x6784;&#x9020;&#x5668;&#x521B;&#x5EFA;&#x4E86;&#x4E00;&#x4E2A;IteratorSpliterator&#x5BF9;&#x8C61;&#x5E76;&#x8FD4;&#x56DE;&#xFF0C;&#x6211;&#x4EEC;&#x770B;&#x8FD9;&#x4E2A;&#x6784;&#x9020;&#x5668;&#x505A;&#x4E86;&#x4EC0;&#x4E48;&#xFF1A;</p>
+<pre><code class="lang-java"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">IteratorSpliterator</span><span class="hljs-params">(Iterator&lt;? extends T&gt; iterator, <span class="hljs-keyword">int</span> characteristics)</span> </span>{
+            <span class="hljs-keyword">this</span>.collection = <span class="hljs-keyword">null</span>;
+            <span class="hljs-keyword">this</span>.it = iterator;
+            <span class="hljs-keyword">this</span>.est = Long.MAX_VALUE;
+            <span class="hljs-keyword">this</span>.characteristics = characteristics &amp; ~(Spliterator.SIZED | Spliterator.SUBSIZED);
+}
+</code></pre>
+<p>&#x8FD9;&#x4E2A;&#x6784;&#x9020;&#x5668;&#x5176;&#x5B9E;&#x5C31;&#x662F;&#x4F7F;&#x7528;&#x7ED9;&#x5B9A;&#x7684;&#x8FED;&#x4EE3;&#x5668;&#x521B;&#x5EFA;&#x4E86;Spliterator&#x904D;&#x5386;&#x5668;&#xFF0C;&#x5E76;&#x7ED9;&#x5B9A;&#x4E86;&#x521D;&#x59CB;&#x5927;&#x5C0F;&#x3002;</p>
+<p>&#x800C;Spliterator&#x662F;&#x4EC0;&#x4E48;&#x5462;&#xFF1F;Spliterator&#x5373;splitable iterator&#x53EF;&#x5206;&#x5272;&#x8FED;&#x4EE3;&#x5668;&#xFF0C;&#x5B83;&#x662F;&#x4E00;&#x4E2A;&#x63A5;&#x53E3;&#xFF0C;&#x662F;Java&#x4E3A;&#x4E86;&#x5E76;&#x884C;&#x904D;&#x5386;&#x6570;&#x636E;&#x6E90;&#x4E2D;&#x7684;&#x5143;&#x7D20;&#x800C;&#x8BBE;&#x8BA1;&#x7684;&#x8FED;&#x4EE3;&#x5668;&#xFF0C;&#x8FD9;&#x4E2A;&#x53EF;&#x4EE5;&#x7C7B;&#x6BD4;&#x6700;&#x65E9;Java&#x63D0;&#x4F9B;&#x7684;&#x987A;&#x5E8F;&#x904D;&#x5386;&#x8FED;&#x4EE3;&#x5668;Iterator&#xFF0C;&#x4F46;&#x4E00;&#x4E2A;&#x662F;&#x987A;&#x5E8F;&#x904D;&#x5386;&#xFF0C;&#x4E00;&#x4E2A;&#x662F;&#x5E76;&#x884C;&#x904D;&#x5386;&#x3002;</p>
+<blockquote>
+<p>Spliterator&#x63A5;&#x53E3;&#x7528;&#x5230;&#x4E86;Fork/Join&#x8BBE;&#x8BA1;&#x601D;&#x60F3;&#xFF0C;&#x603B;&#x5F97;&#x6765;&#x8BF4;&#x5C31;&#x662F;&#x7528;&#x9012;&#x5F52;&#x7684;&#x65B9;&#x5F0F;&#x628A;&#x5E76;&#x884C;&#x7684;&#x4EFB;&#x52A1;&#x62C6;&#x5206;&#x6210;&#x66F4;&#x5C0F;&#x7684;&#x5B50;&#x4EFB;&#x52A1;&#xFF0C;&#x7136;&#x540E;&#x628A;&#x6BCF;&#x4E2A;&#x5B50;&#x4EFB;&#x52A1;&#x7684;&#x7ED3;&#x679C;&#x5408;&#x5E76;&#x8D77;&#x6765;&#x751F;&#x6210;&#x6574;&#x4F53;&#x7ED3;&#x679C;&#x3002;&#x8FD9;&#x91CC;&#x5BF9;&#x6B64;&#x4E0D;&#x505A;&#x6DF1;&#x7A76;&#xFF0C;&#x4EE5;&#x540E;&#x4F1A;&#x4E13;&#x95E8;&#x5BF9;Fork-Join&#x8FDB;&#x884C;&#x8BA8;&#x8BBA;&#x3002;</p>
+</blockquote>
+<hr>
+<p>&#x53C2;&#x8003;&#x8D44;&#x6599;&#xFF1A;</p>
+<ol>
+<li><a href="Java8&#x91CC;&#x9762;&#x7684;java.util.Spliterator&#x63A5;&#x53E3;&#x6709;&#x4EC0;&#x4E48;&#x7528;&#xFF1F;">Java8&#x91CC;&#x9762;&#x7684;java.util.Spliterator&#x63A5;&#x53E3;&#x6709;&#x4EC0;&#x4E48;&#x7528;&#xFF1F;</a></li>
+</ol>
+<footer class="page-footer"><span class="copyright">&#xA9; yongmingcode all right reserved&#xFF0C;powered by Gitbook</span><span class="footer-modification">&#x6587;&#x4EF6;&#x4FEE;&#x8BA2;&#x65F6;&#x95F4;&#xFF1A;
+2022-07-07 18:56:41
+</span></footer>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="lang.html" class="navigation navigation-prev " aria-label="Previous page: lang">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="C_Class.html" class="navigation navigation-next " aria-label="Next page: C_Class">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"I_Iterable","level":"1.2.3.1","depth":3,"next":{"title":"C_Class","level":"1.2.3.2","depth":3,"path":"java/lang/C_Class.md","ref":"java/lang/C_Class.md","articles":[]},"previous":{"title":"lang","level":"1.2.3","depth":2,"path":"java/lang/lang.md","ref":"java/lang/lang.md","articles":[{"title":"I_Iterable","level":"1.2.3.1","depth":3,"path":"java/lang/I_Iterable.md","ref":"java/lang/I_Iterable.md","articles":[]},{"title":"C_Class","level":"1.2.3.2","depth":3,"path":"java/lang/C_Class.md","ref":"java/lang/C_Class.md","articles":[]},{"title":"reflect","level":"1.2.3.3","depth":3,"path":"java/lang/reflect.md","ref":"java/lang/reflect.md","articles":[{"title":"C_Array","level":"1.2.3.3.1","depth":4,"path":"java/lang/reflect/C_Array.md","ref":"java/lang/reflect/C_Array.md","articles":[]}]},{"title":"C_System","level":"1.2.3.4","depth":3,"path":"java/lang/C_System.md","ref":"java/lang/C_System.md","articles":[{"title":"M_arraycopy","level":"1.2.3.4.1","depth":4,"path":"java/lang/system/M_arraycopy.md","ref":"java/lang/system/M_arraycopy.md","articles":[]}]}]},"dir":"ltr"},"config":{"plugins":["github","mermaid-gb3","-lunr","-search","search-plus","splitter","-sharing","sharing-plus","expandable-chapters-small","anchor-navigation-ex","edit-link","copy-code-button","chart","favicon-plus","donate","tbfed-pagefooter","github-buttons","favicon-absolute"],"root":".","styles":{"website":"styles/website.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"&copy yongmingcode","modify_label":"文件修订时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"output":"_book","github":{"url":"https://github.com/yongmingcode/yl_java"},"splitter":{},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"donate":{"alipay":"https://yongmingcode.github.io/yl_code/images/alipay.png","alipayText":"支付宝","button":"赏","title":"","wechat":"https://yongmingcode.github.io/yl_code/images/wechat.png","wechatText":"微信"},"favicon-absolute":{"appleTouchIconMore":{},"appleTouchIconPrecomposed152":"/gong.png","appleTouchIconPrecomposedMore":{},"favicon":"/gong.ico"},"fontsettings":{"theme":"white","family":"sans","size":2},"favicon-plus":{"appleTouchIconPrecomposed152":"","favicon":"","output":"_book"},"highlight":{},"mermaid-gb3":{},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":true},"github-buttons":{"buttons":[{"user":"yongmingcode","repo":"yl_code","type":"star","count":false,"size":"small"}]},"expandable-chapters-small":{},"copy-code-button":{},"sharing":{"qq":true,"all":["facebook","google","twitter","weibo","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":false,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":false,"messenger":false,"line":false,"vk":false,"pocket":false,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"edit-link":{"label":"编辑","base":"https://github.com/yongmingcode/yl_java/blob/master"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"chart":{"type":"c3"},"search-plus":{}},"theme":"default","author":"yongming","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Java 源码分析","language":"zh-hans","output.name":"site","links":{"sidebar":{"满月弓主页":"https://yongmingcode.github.io/yl_code/"}},"gitbook":"3.2.3","description":"java知识点分析记录","direction":"ltr"},"file":{"path":"java/lang/I_Iterable.md","mtime":"2022-07-07T10:56:41.326Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2022-07-29T03:45:24.648Z"},"basePath":"../..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    
+    <script src="../../gitbook/gitbook.js"></script>
+    <script src="../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../gitbook/gitbook-plugin-github/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-mermaid-gb3/book/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search-plus/jquery.mark.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search-plus/search.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-splitter/splitter.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-sharing-plus/buttons.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-edit-link/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-copy-code-button/toggle.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-donate/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-github-buttons/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    <script src="../../gitbook/gitbook-plugin-mermaid-gb3/mermaid/mermaid.min.js"></script>
+
+    </body>
+</html>
+

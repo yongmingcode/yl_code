@@ -1,0 +1,1093 @@
+
+<!DOCTYPE HTML>
+<html lang="zh-hans" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>介绍 · Java 源码分析</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="yongming">
+        
+        
+    
+    
+    <link rel="stylesheet" href="gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-mermaid-gb3/mermaid/mermaid.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-search-plus/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-splitter/splitter.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-anchor-navigation-ex/style/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-donate/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-tbfed-pagefooter/footer.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+        <link rel="stylesheet" href="styles/website.css">
+        
+    
+
+
+    
+
+        
+    
+    
+    
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="java/java.html" />
+    
+    
+
+    
+        <link rel="shortcut icon" href="/gong.ico" type="image/x-icon">
+    
+    
+    
+    
+        <link rel="apple-touch-icon-precomposed" sizes="152x152" href="/gong.png">
+    
+    
+        
+    
+    
+        
+    
+
+    <style>
+    @media only screen and (max-width: 640px) {
+        .book-header .hidden-mobile {
+            display: none;
+        }
+    }
+    </style>
+    <script>
+        window["gitbook-plugin-github-buttons"] = {"buttons":[{"user":"yongmingcode","repo":"yl_code","type":"star","count":false,"size":"small"}]};
+    </script>
+
+    
+    <link rel="stylesheet" href="gitbook/gitbook-plugin-chart/c3/c3.min.css">
+    <script src="gitbook/gitbook-plugin-chart/c3/d3.min.js"></script>
+    <script src="gitbook/gitbook-plugin-chart/c3/c3.min.js"></script>
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="输入并搜索" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+    
+        
+        <li>
+            <a href="https://yongmingcode.github.io/yl_code/" target="_blank" class="custom-link">满月弓主页</a>
+        </li>
+    
+    
+
+    
+    <li class="divider"></li>
+    
+
+    
+        
+        
+    
+        <li class="chapter active" data-level="1.1" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    介绍
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="java/java.html">
+            
+                <a href="java/java.html">
+            
+                    
+                    Java
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="java/series.html">
+            
+                <a href="java/series.html">
+            
+                    
+                    系列
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1.1" data-path="java/series/collection.html">
+            
+                <a href="java/series/collection.html">
+            
+                    
+                    集合
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="java/util/util.html">
+            
+                <a href="java/util/util.html">
+            
+                    
+                    util
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.2.1" data-path="java/util/c_AbstractCollection.html">
+            
+                <a href="java/util/c_AbstractCollection.html">
+            
+                    
+                    c_AbstractCollection
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.2.1.1" data-path="java/util/abstractcollection/M_toArray.html">
+            
+                <a href="java/util/abstractcollection/M_toArray.html">
+            
+                    
+                    M_toArray
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.2" data-path="java/util/c_AbstractList.html">
+            
+                <a href="java/util/c_AbstractList.html">
+            
+                    
+                    c_AbstractList
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.3" data-path="java/util/c_AbstractSequentialList.html">
+            
+                <a href="java/util/c_AbstractSequentialList.html">
+            
+                    
+                    c_AbstractSequentialList
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.4" data-path="java/util/C_Arrays.html">
+            
+                <a href="java/util/C_Arrays.html">
+            
+                    
+                    C_Arrays
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.2.4.1" data-path="java/util/M_copyOf.html">
+            
+                <a href="java/util/M_copyOf.html">
+            
+                    
+                    M_copyOf方法解读
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.5" data-path="java/util/C_ArrayList.html">
+            
+                <a href="java/util/C_ArrayList.html">
+            
+                    
+                    C_ArrayList
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.2.5.1" data-path="java/util/ArrayList_remove.html">
+            
+                <a href="java/util/ArrayList_remove.html">
+            
+                    
+                    ArrayList遍历删除元素
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.6" data-path="java/util/I_Collection.html">
+            
+                <a href="java/util/I_Collection.html">
+            
+                    
+                    I_Collection
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.2.6.1" data-path="java/util/I_Collection/M_removeIf.html">
+            
+                <a href="java/util/I_Collection/M_removeIf.html">
+            
+                    
+                    M_removeIf方法解读
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.7" data-path="java/util/C_collections/C_collections.html">
+            
+                <a href="java/util/C_collections/C_collections.html">
+            
+                    
+                    C_collections
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.2.7.1" data-path="java/util/C_collections/M_shuffle.html">
+            
+                <a href="java/util/C_collections/M_shuffle.html">
+            
+                    
+                    M_shuffle方法解读
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.8" data-path="java/util/i_deque.html">
+            
+                <a href="java/util/i_deque.html">
+            
+                    
+                    I_Deque
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.9" data-path="java/util/I_iterator.html">
+            
+                <a href="java/util/I_iterator.html">
+            
+                    
+                    I_Iterator
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.10" data-path="java/util/I_List.html">
+            
+                <a href="java/util/I_List.html">
+            
+                    
+                    I_List
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.11" data-path="java/util/I_ListIterator.html">
+            
+                <a href="java/util/I_ListIterator.html">
+            
+                    
+                    I_ListIterator
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.12" data-path="java/util/I_Queue.html">
+            
+                <a href="java/util/I_Queue.html">
+            
+                    
+                    I_Queue
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="java/lang/lang.html">
+            
+                <a href="java/lang/lang.html">
+            
+                    
+                    lang
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.3.1" data-path="java/lang/I_Iterable.html">
+            
+                <a href="java/lang/I_Iterable.html">
+            
+                    
+                    I_Iterable
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3.2" data-path="java/lang/C_Class.html">
+            
+                <a href="java/lang/C_Class.html">
+            
+                    
+                    C_Class
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3.3" data-path="java/lang/reflect.html">
+            
+                <a href="java/lang/reflect.html">
+            
+                    
+                    reflect
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.3.3.1" data-path="java/lang/reflect/C_Array.html">
+            
+                <a href="java/lang/reflect/C_Array.html">
+            
+                    
+                    C_Array
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3.4" data-path="java/lang/C_System.html">
+            
+                <a href="java/lang/C_System.html">
+            
+                    
+                    C_System
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.3.4.1" data-path="java/lang/system/M_arraycopy.html">
+            
+                <a href="java/lang/system/M_arraycopy.html">
+            
+                    
+                    M_arraycopy
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="jvm/jvm.html">
+            
+                <a href="jvm/jvm.html">
+            
+                    
+                    Jvm
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.4.1" data-path="jvm/java_runtime_area.html">
+            
+                <a href="jvm/java_runtime_area.html">
+            
+                    
+                    Java运行时数据区
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="spring/spring.html">
+            
+                <a href="spring/spring.html">
+            
+                    
+                    Spring
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="spring/bean/bean.html">
+            
+                <a href="spring/bean/bean.html">
+            
+                    
+                    初始化bean
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1.1" data-path="spring/bean/bean_initialization_method.html">
+            
+                <a href="spring/bean/bean_initialization_method.html">
+            
+                    
+                    bean的初始换方法
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="knacks/knacks.html">
+            
+                <a href="knacks/knacks.html">
+            
+                    
+                    技巧
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="knacks/if_else_decoupling.html">
+            
+                <a href="knacks/if_else_decoupling.html">
+            
+                    
+                    if...else...解耦
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="knacks/repeat_payment.html">
+            
+                <a href="knacks/repeat_payment.html">
+            
+                    
+                    订单重复支付解决
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="knacks/nested_transactions.html">
+            
+                <a href="knacks/nested_transactions.html">
+            
+                    
+                    spring嵌套事务失效解决
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="knacks/to_many_fullgc.html">
+            
+                <a href="knacks/to_many_fullgc.html">
+            
+                    
+                    FULLGC过多问题排查
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.5" data-path="knacks/cpu_one_hundred_percent.html">
+            
+                <a href="knacks/cpu_one_hundred_percent.html">
+            
+                    
+                    数据库CPU100%问题优化start from
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="hsf/hsf.html">
+            
+                <a href="hsf/hsf.html">
+            
+                    
+                    HSF
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="hsf/hsf_introduce.html">
+            
+                <a href="hsf/hsf_introduce.html">
+            
+                    
+                    HSF介绍
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="hsf/HSF_SpringCloud_Dubbo.html">
+            
+                <a href="hsf/HSF_SpringCloud_Dubbo.html">
+            
+                    
+                    HSF、SpringCloud、Dubbo对比
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="canal/canal.html">
+            
+                <a href="canal/canal.html">
+            
+                    
+                    Canal同步问题
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="canal/canal_sync.html">
+            
+                <a href="canal/canal_sync.html">
+            
+                    
+                    Canal同步
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" data-path="canal/canal_conn_pool_timeout.html">
+            
+                <a href="canal/canal_conn_pool_timeout.html">
+            
+                    
+                    数据库连接池超时
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.3" data-path="canal/canal_es_timeout.html">
+            
+                <a href="canal/canal_es_timeout.html">
+            
+                    
+                    ES全量同步&增量同步超时
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="yapi/yapi.html">
+            
+                <a href="yapi/yapi.html">
+            
+                    
+                    YAPI集成
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1" data-path="yapi/nested_introduce.html">
+            
+                <a href="yapi/nested_introduce.html">
+            
+                    
+                    YAPI介绍
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2" data-path="yapi/sync_steps.html">
+            
+                <a href="yapi/sync_steps.html">
+            
+                    
+                    通过EasyYapi插件集成步骤
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3" data-path="yapi/yapi_usage_details.html">
+            
+                <a href="yapi/yapi_usage_details.html">
+            
+                    
+                    使用详解
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            本书使用 GitBook 发布
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="." >介绍</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div class="search-plus" id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><li><span class="title-icon "></span><a href="#&#x535A;&#x5BA2;&#x5730;&#x5740;"><b>1. </b>&#x535A;&#x5BA2;&#x5730;&#x5740;</a></li><li><span class="title-icon "></span><a href="#&#x7B80;-&#x4ECB;"><b>2. </b>&#x7B80; &#x4ECB;</a></li><li><span class="title-icon "></span><a href="#&#x672C;&#x7AD9;&#x671F;&#x671B;"><b>3. </b>&#x672C;&#x7AD9;&#x671F;&#x671B;</a></li><li><span class="title-icon "></span><a href="#&#x52D8;&#x8BEF;&#x4E0E;&#x652F;&#x6301;"><b>4. </b>&#x52D8;&#x8BEF;&#x4E0E;&#x652F;&#x6301;</a></li></ul></div><a href="#&#x535A;&#x5BA2;&#x5730;&#x5740;" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h1 id="&#x535A;&#x5BA2;&#x5730;&#x5740;"><a name="&#x535A;&#x5BA2;&#x5730;&#x5740;" class="anchor-navigation-ex-anchor" href="#&#x535A;&#x5BA2;&#x5730;&#x5740;"><i class="fa fa-link" aria-hidden="true"></i></a>1. &#x535A;&#x5BA2;&#x5730;&#x5740;</h1>
+<ul>
+<li><a href="https://yongmingcode.github.io/yl_code/" title="&#x6EE1;&#x6708;&#x5F13;" target="_blank">&#x6280;&#x672F;&#x535A;&#x5BA2;&#x2014;&#x2014;&#x6EE1;&#x6708;&#x5F13;</a></li>
+<li><a href="https://yongmingcode.github.io/yl_code/" title="&#x3010;Gitbook&#x3011;&#x6280;&#x672F;&#x535A;&#x5BA2;&#x2014;&#x2014;&#x6EE1;&#x6708;&#x5F13;" target="_blank">&#x3010;Gitbook&#x3011;&#x6280;&#x672F;&#x535A;&#x5BA2;&#x2014;&#x2014;&#x6EE1;&#x6708;&#x5F13;</a></li>
+</ul>
+<h1 id="&#x7B80;-&#x4ECB;"><a name="&#x7B80;-&#x4ECB;" class="anchor-navigation-ex-anchor" href="#&#x7B80;-&#x4ECB;"><i class="fa fa-link" aria-hidden="true"></i></a>2. &#x7B80; &#x4ECB;</h1>
+<p>&#x8FD9;&#x662F;&#x4E00;&#x4E2A;&#x4E2A;&#x4EBA;&#x6280;&#x672F;&#x5206;&#x4EAB;&#x7684;&#x7F51;&#x7AD9;&#x3002;&#x7AD9;&#x4E2D;&#x5185;&#x5BB9;&#x4E3B;&#x8981;&#x6765;&#x6E90;&#x4E8E;&#x535A;&#x5BA2;&#x3001;&#x4E66;&#x7C4D;&#x4EE5;&#x53CA;&#x7B14;&#x8005;&#x5E73;&#x65F6;&#x5DE5;&#x4F5C;&#x5B66;&#x4E60;&#x4E2D;&#x77E5;&#x8BC6;&#x70B9;&#x7684;&#x603B;&#x7ED3;&#x3002;</p>
+<p>&#x4EE5;&#x524D;&#x81EA;&#x5DF1;&#x7684;&#x77E5;&#x8BC6;&#x70B9;&#x90FD;&#x5206;&#x95E8;&#x522B;&#x7C7B;&#x7684;&#x8BB0;&#x5F55;&#x5728;<a href="https://www.yinxiang.com/" title="&#x5370;&#x8C61;&#x7B14;&#x8BB0;" target="_blank">&#x5370;&#x8C61;&#x7B14;&#x8BB0;</a>&#x548C;&#x81EA;&#x5DF1;&#x7684;&#x4E2A;&#x4EBA;&#x4E3B;&#x9875;&#xFF0C;&#x4F46;&#x6700;&#x8FD1;&#x670D;&#x52A1;&#x5668;&#x548C;&#x57DF;&#x540D;&#x90FD;&#x4ECE;&#x767E;&#x5EA6;&#x4E91;&#x8FC1;&#x79FB;&#x4E86;&#xFF0C;&#x800C;&#x5370;&#x8C61;&#x7B14;&#x8BB0;&#x66F4;&#x591A;&#x7684;&#x662F;&#x81EA;&#x5DF1;&#x4F7F;&#x7528;&#xFF0C;&#x5206;&#x4EAB;&#x4E0D;&#x4FBF;&#x3002;&#x6211;&#x53C8;&#x53D1;&#x73B0;&#xFF0C;&#x8FD9;&#x662F;&#x4E00;&#x4E2A;&#x91CD;&#x65B0;&#x6574;&#x7406;&#x5FC3;&#x4E2D;&#x77E5;&#x8BC6;&#x7684;&#x673A;&#x4F1A;&#xFF0C;&#x6240;&#x4EE5;&#x5F00;&#x542F;&#x4E86;&#x8FD9;&#x4E2A;&#x6280;&#x672F;&#x5206;&#x4EAB;&#x7684;&#x7AD9;&#x70B9;&#x3002;</p>
+<p>&#x7B14;&#x8005;&#x4E00;&#x76F4;&#x8BA4;&#x4E3A;&#xFF0C;&#x4E00;&#x4EF6;&#x4E8B;&#x7269;&#x7684;&#x5174;&#x76DB;&#xFF0C;&#x79BB;&#x4E0D;&#x5F00;&#x65E0;&#x6570;&#x8D21;&#x732E;&#x8005;&#x7684;&#x9ED8;&#x9ED8;&#x5949;&#x732E;&#x3002;&#x800C;&#x77E5;&#x8BC6;&#xFF0C;&#x53EA;&#x6709;&#x5206;&#x4EAB;&#x624D;&#x4F1A;&#x66F4;&#x6709;&#x4EF7;&#x503C;&#x3002;&#x7B14;&#x8005;&#x4E5F;&#x613F;&#x610F;&#x4F5C;&#x4E3A;&#x4E00;&#x540D;&#x9ED8;&#x9ED8;&#x7684;&#x8D21;&#x732E;&#x8005;&#xFF0C;&#x5E0C;&#x671B;&#x901A;&#x8FC7;&#x5949;&#x732E;&#x81EA;&#x5DF1;&#x7684;&#x70B9;&#x70B9;&#x8424;&#x706B;&#xFF0C;&#x8BA9;&#x77E5;&#x8BC6;&#x4F20;&#x64AD;&#x4E0E;&#x5206;&#x4EAB;&#x8FD9;&#x628A;&#x706B;&#x71C3;&#x7684;&#x66F4;&#x65FA;&#xFF01;</p>
+<h1 id="&#x672C;&#x7AD9;&#x671F;&#x671B;"><a name="&#x672C;&#x7AD9;&#x671F;&#x671B;" class="anchor-navigation-ex-anchor" href="#&#x672C;&#x7AD9;&#x671F;&#x671B;"><i class="fa fa-link" aria-hidden="true"></i></a>3. &#x672C;&#x7AD9;&#x671F;&#x671B;</h1>
+<ol>
+<li>&#x5FD7;&#x5411;&#x7ACB;&#x9AD8;&#x8FDC;&#xFF0C;&#x5B66;&#x95EE;&#x505A;&#x7CBE;&#x7EC6;&#xFF1B;</li>
+<li>&#x4E0D;&#x79EF;&#x8DEC;&#x6B65;&#xFF0C;&#x65E0;&#x4EE5;&#x81F3;&#x5343;&#x91CC;&#x3002;&#x79EF;&#x7D2F;&#x662F;&#x4EBA;&#x7C7B;&#x6C38;&#x8FDC;&#x8C08;&#x4E0D;&#x5B8C;&#x7684;&#x8BDD;&#x9898;&#xFF1B;</li>
+<li>&#x868A;&#x5B50;&#x518D;&#x5C0F;&#x4E5F;&#x662F;&#x8089;&#x3002;&#x8BB0;&#x5F55;&#x7684;&#x77E5;&#x8BC6;&#x70B9;&#x4E0D;&#x5206;&#x4E3B;&#x6B21;&#xFF0C;&#x90FD;&#x9700;&#x8981;&#x8BA4;&#x771F;&#x5480;&#x56BC;&#xFF1B;</li>
+<li>&#x77E5;&#x5176;&#x7136;&#xFF0C;&#x4EA6;&#x77E5;&#x5176;&#x6240;&#x4EE5;&#x7136;&#x3002;&#x672C;&#x7AD9;&#x4E2D;&#x7684;&#x77E5;&#x8BC6;&#x70B9;&#xFF0C;&#x77E5;&#x9053;&#x600E;&#x4E48;&#x7528;&#xFF0C;&#x66F4;&#x80FD;&#x77E5;&#x9053;&#x4E3A;&#x4EC0;&#x4E48;&#x80FD;&#x8FD9;&#x4E48;&#x7528;&#x3002;</li>
+</ol>
+<h1 id="&#x52D8;&#x8BEF;&#x4E0E;&#x652F;&#x6301;"><a name="&#x52D8;&#x8BEF;&#x4E0E;&#x652F;&#x6301;" class="anchor-navigation-ex-anchor" href="#&#x52D8;&#x8BEF;&#x4E0E;&#x652F;&#x6301;"><i class="fa fa-link" aria-hidden="true"></i></a>4. &#x52D8;&#x8BEF;&#x4E0E;&#x652F;&#x6301;</h1>
+<p>&#x7531;&#x4E8E;&#x7B14;&#x8005;&#x6280;&#x672F;&#x6709;&#x9650;&#xFF0C;&#x7F16;&#x5199;&#x65F6;&#x95F4;&#x4ED3;&#x4FC3;&#xFF0C;&#x6587;&#x7AE0;&#x4E2D;&#x96BE;&#x514D;&#x51FA;&#x73B0;&#x4E00;&#x4E9B;&#x9519;&#x8BEF;&#x6216;&#x8005;&#x4E0D;&#x51C6;&#x786E;&#x7684;&#x5730;&#x65B9;&#xFF0C;&#x6073;&#x8BF7;&#x8BFB;&#x8005;&#x6279;&#x8BC4;&#x6307;&#x6B63;&#x3002;&#x5982;&#x679C;&#x60A8;&#x6709;&#x66F4;&#x591A;&#x7684;&#x5B9D;&#x8D35;&#x610F;&#x89C1;&#xFF0C;&#x53EF;&#x4EE5;&#x518D;&#x6211;&#x7684;github&#x4E0A;&#x65B0;&#x5EFA;issue&#xFF0C;&#x7B14;&#x8005;&#x4F1A;&#x5C3D;&#x5FEB;&#x89E3;&#x7B54;&#xFF0C;&#x671F;&#x5F85;&#x5F97;&#x5230;&#x60A8;&#x7684;&#x771F;&#x631A;&#x53CD;&#x9988;&#x3002;gitbook&#x5730;&#x5740;&#xFF1A;
+www.yongmingcode.tech</p>
+<footer class="page-footer"><span class="copyright">&#xA9; yongmingcode all right reserved&#xFF0C;powered by Gitbook</span><span class="footer-modification">&#x6587;&#x4EF6;&#x4FEE;&#x8BA2;&#x65F6;&#x95F4;&#xFF1A;
+2022-07-07 18:58:19
+</span></footer>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                
+                <a href="java/java.html" class="navigation navigation-next navigation-unique" aria-label="Next page: Java">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"介绍","level":"1.1","depth":1,"next":{"title":"Java","level":"1.2","depth":1,"path":"java/java.md","ref":"java/java.md","articles":[{"title":"系列","level":"1.2.1","depth":2,"path":"java/series.md","ref":"java/series.md","articles":[{"title":"集合","level":"1.2.1.1","depth":3,"path":"java/series/collection.md","ref":"java/series/collection.md","articles":[]}]},{"title":"util","level":"1.2.2","depth":2,"path":"java/util/util.md","ref":"java/util/util.md","articles":[{"title":"c_AbstractCollection","level":"1.2.2.1","depth":3,"path":"java/util/c_AbstractCollection.md","ref":"java/util/c_AbstractCollection.md","articles":[{"title":"M_toArray","level":"1.2.2.1.1","depth":4,"path":"java/util/abstractcollection/M_toArray.md","ref":"java/util/abstractcollection/M_toArray.md","articles":[]}]},{"title":"c_AbstractList","level":"1.2.2.2","depth":3,"path":"java/util/c_AbstractList.md","ref":"java/util/c_AbstractList.md","articles":[]},{"title":"c_AbstractSequentialList","level":"1.2.2.3","depth":3,"path":"java/util/c_AbstractSequentialList.md","ref":"java/util/c_AbstractSequentialList.md","articles":[]},{"title":"C_Arrays","level":"1.2.2.4","depth":3,"path":"java/util/C_Arrays.md","ref":"java/util/C_Arrays.md","articles":[{"title":"M_copyOf方法解读","level":"1.2.2.4.1","depth":4,"path":"java/util/M_copyOf.md","ref":"java/util/M_copyOf.md","articles":[]}]},{"title":"C_ArrayList","level":"1.2.2.5","depth":3,"path":"java/util/C_ArrayList.md","ref":"java/util/C_ArrayList.md","articles":[{"title":"ArrayList遍历删除元素","level":"1.2.2.5.1","depth":4,"path":"java/util/ArrayList_remove.md","ref":"java/util/ArrayList_remove.md","articles":[]}]},{"title":"I_Collection","level":"1.2.2.6","depth":3,"path":"java/util/I_Collection.md","ref":"java/util/I_Collection.md","articles":[{"title":"M_removeIf方法解读","level":"1.2.2.6.1","depth":4,"path":"java/util/I_Collection/M_removeIf.md","ref":"java/util/I_Collection/M_removeIf.md","articles":[]}]},{"title":"C_collections","level":"1.2.2.7","depth":3,"path":"java/util/C_collections/C_collections.md","ref":"java/util/C_collections/C_collections.md","articles":[{"title":"M_shuffle方法解读","level":"1.2.2.7.1","depth":4,"path":"java/util/C_collections/M_shuffle.md","ref":"java/util/C_collections/M_shuffle.md","articles":[]}]},{"title":"I_Deque","level":"1.2.2.8","depth":3,"path":"java/util/i_deque.md","ref":"java/util/i_deque.md","articles":[]},{"title":"I_Iterator","level":"1.2.2.9","depth":3,"path":"java/util/I_iterator.md","ref":"java/util/I_iterator.md","articles":[]},{"title":"I_List","level":"1.2.2.10","depth":3,"path":"java/util/I_List.md","ref":"java/util/I_List.md","articles":[]},{"title":"I_ListIterator","level":"1.2.2.11","depth":3,"path":"java/util/I_ListIterator.md","ref":"java/util/I_ListIterator.md","articles":[]},{"title":"I_Queue","level":"1.2.2.12","depth":3,"path":"java/util/I_Queue.md","ref":"java/util/I_Queue.md","articles":[]}]},{"title":"lang","level":"1.2.3","depth":2,"path":"java/lang/lang.md","ref":"java/lang/lang.md","articles":[{"title":"I_Iterable","level":"1.2.3.1","depth":3,"path":"java/lang/I_Iterable.md","ref":"java/lang/I_Iterable.md","articles":[]},{"title":"C_Class","level":"1.2.3.2","depth":3,"path":"java/lang/C_Class.md","ref":"java/lang/C_Class.md","articles":[]},{"title":"reflect","level":"1.2.3.3","depth":3,"path":"java/lang/reflect.md","ref":"java/lang/reflect.md","articles":[{"title":"C_Array","level":"1.2.3.3.1","depth":4,"path":"java/lang/reflect/C_Array.md","ref":"java/lang/reflect/C_Array.md","articles":[]}]},{"title":"C_System","level":"1.2.3.4","depth":3,"path":"java/lang/C_System.md","ref":"java/lang/C_System.md","articles":[{"title":"M_arraycopy","level":"1.2.3.4.1","depth":4,"path":"java/lang/system/M_arraycopy.md","ref":"java/lang/system/M_arraycopy.md","articles":[]}]}]},{"title":"Jvm","level":"1.2.4","depth":2,"path":"jvm/jvm.md","ref":"jvm/jvm.md","articles":[{"title":"Java运行时数据区","level":"1.2.4.1","depth":3,"path":"jvm/java_runtime_area.md","ref":"jvm/java_runtime_area.md","articles":[]}]}]},"dir":"ltr"},"config":{"plugins":["github","mermaid-gb3","-lunr","-search","search-plus","splitter","-sharing","sharing-plus","expandable-chapters-small","anchor-navigation-ex","edit-link","copy-code-button","chart","favicon-plus","donate","tbfed-pagefooter","github-buttons","favicon-absolute"],"root":".","styles":{"website":"styles/website.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"&copy yongmingcode","modify_label":"文件修订时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"output":"_book","github":{"url":"https://github.com/yongmingcode/yl_java"},"splitter":{},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"donate":{"alipay":"https://yongmingcode.github.io/yl_code/images/alipay.png","alipayText":"支付宝","button":"赏","title":"","wechat":"https://yongmingcode.github.io/yl_code/images/wechat.png","wechatText":"微信"},"favicon-absolute":{"appleTouchIconMore":{},"appleTouchIconPrecomposed152":"/gong.png","appleTouchIconPrecomposedMore":{},"favicon":"/gong.ico"},"fontsettings":{"theme":"white","family":"sans","size":2},"favicon-plus":{"appleTouchIconPrecomposed152":"","favicon":"","output":"_book"},"highlight":{},"mermaid-gb3":{},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":true},"github-buttons":{"buttons":[{"user":"yongmingcode","repo":"yl_code","type":"star","count":false,"size":"small"}]},"expandable-chapters-small":{},"copy-code-button":{},"sharing":{"qq":true,"all":["facebook","google","twitter","weibo","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":false,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":false,"messenger":false,"line":false,"vk":false,"pocket":false,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"edit-link":{"label":"编辑","base":"https://github.com/yongmingcode/yl_java/blob/master"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"chart":{"type":"c3"},"search-plus":{}},"theme":"default","author":"yongming","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Java 源码分析","language":"zh-hans","output.name":"site","links":{"sidebar":{"满月弓主页":"https://yongmingcode.github.io/yl_code/"}},"gitbook":"3.2.3","description":"java知识点分析记录","direction":"ltr"},"file":{"path":"README.md","mtime":"2022-07-07T10:58:19.066Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2022-07-29T03:45:24.648Z"},"basePath":".","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    
+    <script src="gitbook/gitbook.js"></script>
+    <script src="gitbook/theme.js"></script>
+    
+        
+        <script src="gitbook/gitbook-plugin-github/plugin.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-mermaid-gb3/book/plugin.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-search-plus/jquery.mark.min.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-search-plus/search.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-splitter/splitter.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-sharing-plus/buttons.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-edit-link/plugin.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-copy-code-button/toggle.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-donate/plugin.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-github-buttons/plugin.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    <script src="gitbook/gitbook-plugin-mermaid-gb3/mermaid/mermaid.min.js"></script>
+
+    </body>
+</html>
+
